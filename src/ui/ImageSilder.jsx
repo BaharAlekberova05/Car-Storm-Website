@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "../utils/sliderUtil";
+import { cn } from "../utils/AceternityUtil";
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
 

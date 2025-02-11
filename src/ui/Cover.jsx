@@ -2,7 +2,7 @@
 import { useEffect, useId, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRef } from "react";
-import { cn } from "../utils/sliderUtil";
+import { cn } from "../utils/AceternityUtil";
 import { SparklesCore } from "./Sparkle";
 
 export const Cover = ({ children, className }) => {

@@ -3,7 +3,7 @@ import { useId } from "react";
 import { useEffect, useState } from "react";
 import Particles, { initParticlesEngine } from "@tsparticles/react";
 import { loadSlim } from "@tsparticles/slim";
-import { cn } from "../utils/sliderUtil";
+import { cn } from "../utils/AceternityUtil";
 import { motion, useAnimation } from "framer-motion";
 
 export const SparklesCore = (props) => {

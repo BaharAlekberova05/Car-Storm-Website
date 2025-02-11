@@ -1,12 +1,10 @@
-import Footer from "../layouts/Footer";
-import Header from "../layouts/Header";
+import Slider from "../layouts/Slider";
 
 const Home = () => {
   return (
-    <div>
-      <Header />
-      <Footer />
-    </div>
+    <>
+      <Slider />
+    </>
   );
 };
 
