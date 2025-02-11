@@ -1,9 +1,12 @@
+import { Route, Routes } from "react-router";
 import Home from "./components/Home";
 
 const App = () => {
   return (
     <div className="font-rethink">
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} />
+      </Routes>
     </div>
   );
 };

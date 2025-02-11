@@ -1,10 +1,12 @@
 import Navbar from "./Navbar";
+import { NavbarContent } from "./NavbarContent";
 import Slider from "./Slider";
 
 const Header = () => {
   return (
     <>
-      <Navbar />
+      {/* <Navbar /> */}
+      <NavbarContent />
       <Slider />
     </>
   );
