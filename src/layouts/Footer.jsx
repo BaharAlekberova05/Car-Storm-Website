@@ -4,21 +4,23 @@ import logo from "../assets/img/logo.png";
 const Footer = () => {
   return (
     <>
-      <footer className="relative w-full mb-20">
+      <footer className="relative w-full bg-red-400 dark:bg-black">
         <div className="w-full p-8 mx-auto max-w-7xl">
           <div className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2">
             <div className="w-[50%]">
-              <img src={logo} alt="logo" />
+              <Link to={"/"}>
+                <img src={logo} alt="logo" />
+              </Link>
             </div>
             <div className="grid justify-between grid-cols-3 gap-4">
               <ul>
-                <p className="block mb-1 text-base font-semibold  text-slate-800">
+                <p className="block mb-1 text-base font-semibold  text-slate-800 dark:text-slate-500">
                   Product
                 </p>
                 <li>
                   <Link
                     to="/about"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     About Cars
                   </Link>
@@ -26,7 +28,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/blog"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     Latest News
                   </Link>
@@ -34,7 +36,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/about"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     Privacy Policy
                   </Link>
@@ -42,20 +44,20 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/about"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     Terms & Conditions
                   </Link>
                 </li>
               </ul>
               <ul>
-                <p className="block mb-1 text-base font-semibold text-slate-800">
+                <p className="block mb-1 text-base font-semibold text-slate-800  dark:text-slate-500">
                   Sitemap
                 </p>
                 <li>
                   <Link
                     to="/"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     Home
                   </Link>
@@ -63,7 +65,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/about"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     About
                   </Link>
@@ -71,7 +73,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/cars"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     Cars
                   </Link>
@@ -79,7 +81,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/contact"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     Contact
                   </Link>
@@ -87,13 +89,13 @@ const Footer = () => {
               </ul>
 
               <ul>
-                <p className="block mb-1 text-base font-semibold text-slate-800">
+                <p className="block mb-1 text-base font-semibold text-slate-800 dark:text-slate-500">
                   Contact
                 </p>
                 <li>
                   <Link
                     to="/contact"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     Baku, Azerbaijan
                   </Link>
@@ -101,7 +103,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/contact"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     +994(55)3021204
                   </Link>
@@ -109,7 +111,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/contact"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     carstorm@gmail.com
                   </Link>
@@ -117,7 +119,7 @@ const Footer = () => {
                 <li>
                   <Link
                     to="/cars"
-                    className="block text-slate-600 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
+                    className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
                     Let's Choose Your Dream Car
                   </Link>

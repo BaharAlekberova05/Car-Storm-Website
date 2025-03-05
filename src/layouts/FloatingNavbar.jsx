@@ -1,4 +1,3 @@
-// !EN SON
 "use client";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
@@ -13,15 +12,20 @@ import {
 } from "react-icons/bi";
 import { FiX } from "react-icons/fi";
 import { IoCarSport } from "react-icons/io5";
-// import logoCut from "../assets/img/logo-cut.png";
 import logo from "../assets/img/logo.png";
+import Badge from "@mui/material/Badge";
+import { useDispatch, useSelector } from "react-redux";
+import { toggleMode } from "../redux/ThemeSlice";
+import { CgSearch } from "react-icons/cg";
 
 export const FloatingNavbar = ({ navItems, className }) => {
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const [language, setLanguage] = useState("AZ");
+
+  const dispatch = useDispatch();
+  const mode = useSelector((state) => state.theme.mode);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,8 +55,11 @@ export const FloatingNavbar = ({ navItems, className }) => {
           className={`fixed inset-x-0 top-0 h-16 flex justify-between items-center px-4 lg:px-8 bg-white dark:bg-black shadow-md z-[5000] ${className}`}
         >
           {/* Logo */}
-          <Link to="/" className="text-xl font-bold text-black dark:text-white">
-            <img src={logo} alt="Logo" className="h-14" />
+          <Link
+            to="/"
+            className="text-xl font-bold shrink-0 text-black dark:text-white"
+          >
+            <img src={logo} alt="Logo" className="h-14 shrink-0" />
           </Link>
 
           {/* Menü */}
@@ -70,8 +77,25 @@ export const FloatingNavbar = ({ navItems, className }) => {
 
           {/* Sağ Taraf */}
           <div className="flex items-center space-x-4">
-            <IoCarSport className="w-6 h-6 text-black dark:text-white cursor-pointer" />
-            <BiHeart className="w-6 h-6 text-black dark:text-white cursor-pointer" />
+            <div className="relative">
+              <input
+                type="text"
+                placeholder="Search cars..."
+                className="w-[150px]  border dark:bg-white outline-none rounded-xl px-4"
+              />
+              <CgSearch className="absolute right-2 bottom-1.5" />
+            </div>
+
+            <Badge badgeContent={4} color="primary">
+              <IoCarSport
+                color="action"
+                className="w-6 h-6 text-black dark:text-white cursor-pointer"
+              />
+            </Badge>
+
+            <Badge badgeContent={4} color="primary">
+              <BiHeart className="w-6 h-6 text-black dark:text-white cursor-pointer" />
+            </Badge>
             <BiUser className="w-6 h-6 text-black dark:text-white cursor-pointer" />
 
             {/* Hamburger Menü */}
@@ -96,17 +120,19 @@ export const FloatingNavbar = ({ navItems, className }) => {
             transition={{ duration: 0.3 }}
             className="fixed top-16 right-4 bg-white dark:bg-black shadow-lg p-4 rounded-lg z-[5000] flex flex-col space-y-4"
           >
-            {/* Dark Mode Toggle */}
+            {/*  Dark Mode Toggle */}
             <button
               className="flex items-center space-x-2"
-              onClick={() => setDarkMode(!darkMode)}
+              onClick={() => dispatch(toggleMode())}
             >
-              {darkMode ? (
+              {mode === "light" ? (
                 <BiSun className="w-5 h-5 text-black dark:text-white" />
               ) : (
                 <BiMoon className="w-5 h-5 text-black dark:text-white" />
               )}
-              <span className="text-black dark:text-white">Dark Mode</span>
+              <span className="text-black dark:text-white">
+                {mode === "light" ? "Light" : "Dark"}
+              </span>
             </button>
 
             {/* Dil Seçimi */}

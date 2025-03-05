@@ -2,7 +2,6 @@
 import { motion } from "framer-motion";
 import { ImagesSlider } from "../ui/ImageSilder";
 import { CoverDemo } from "../ui/CoverDemo";
-import RR from "../assets/img/RR.jpg";
 import { Link } from "react-router";
 
 export function Slider() {

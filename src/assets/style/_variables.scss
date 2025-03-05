@@ -1,3 +1,11 @@
 $text-color: #333333;
 $hover-color-red: #c40f0f;
 $hover-color: #307ff9;
+
+.my-text-color {
+  color: $text-color;
+}
+
+.my-blue {
+  color: $hover-color;
+}

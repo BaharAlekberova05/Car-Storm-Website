@@ -6,10 +6,25 @@ import Blog from "./components/Blog";
 import Contact from "./components/Contact";
 import { NavbarContent } from "./layouts/NavbarContent";
 import Footer from "./layouts/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { setMode } from "./redux/ThemeSlice";
+import NotFound from "./components/NotFound";
 
 const App = () => {
+  const dispatch = useDispatch();
+  const mode = useSelector((state) => state.theme.mode);
+
+  useEffect(() => {
+    const savedMode = localStorage.getItem("themeMode") || "light";
+    dispatch(setMode(savedMode));
+  }, [dispatch]);
+
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", mode === "dark");
+  }, [mode]);
   return (
-    <>
+    <div className="bg-white dark:bg-black">
       <NavbarContent />
       <Routes>
         <Route path="/" element={<Home />} />
@@ -17,9 +32,10 @@ const App = () => {
         <Route path="/cars" element={<Cars />} />
         <Route path="/blog" element={<Blog />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
       <Footer />
-    </>
+    </div>
   );
 };
 
