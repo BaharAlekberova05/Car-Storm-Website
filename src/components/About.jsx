@@ -15,28 +15,28 @@ function About() {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://assets.aceternity.com/templates/startup-1.webp"
+              src="https://dijimad.com/wp-content/uploads/2022/07/cevrimici-pazaryeri-1.png"
               alt="startup template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://assets.aceternity.com/templates/startup-2.webp"
+              src="https://akdemirler.com.tr/wp-content/uploads/2023/08/MicrosoftTeams-image-768x426.jpg"
               alt="startup template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://assets.aceternity.com/templates/startup-3.webp"
+              src="https://common-blog-suffes.s3.us-east-2.amazonaws.com/1684933096646e09e830109.webp"
               alt="startup template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://assets.aceternity.com/templates/startup-4.webp"
+              src="https://www.fatbit.com/fab/wp-content/uploads/2019/08/Launch-An-Online-Car-Rental-MarketplaceWebsiteApp-Features-to-Succeed.jpg"
               alt="startup template"
               width={500}
               height={500}
@@ -60,28 +60,28 @@ function About() {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://assets.aceternity.com/pro/hero-sections.png"
+              src="https://www.ilgazetesi.com.tr/d/other/2024/05/26/aw213034-01.jpg"
               alt="hero template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://assets.aceternity.com/features-section.png"
+              src="https://akillisehirler-mobilite.com/wp-content/uploads/2024/04/1714462979_VOLKAN_GROUP_TESL__MAT__3_.jpg"
               alt="feature template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://assets.aceternity.com/pro/bento-grids.png"
+              src="https://egirisim.com/wp-content/uploads/2023/01/vavacars-2022.jpg"
               alt="bento template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://assets.aceternity.com/cards.png"
+              src="https://i.dunya.com/storage/files/images/2024/04/24/arac-qkah.jpg"
               alt="cards template"
               width={500}
               height={500}
@@ -117,28 +117,28 @@ function About() {
           </div>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://assets.aceternity.com/pro/hero-sections.png"
+              src="https://trthaberstatic.cdn.wp.trt.com.tr/resimler/2124000/mus-modifiye-arac-dha-2125339.jpg"
               alt="hero template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://assets.aceternity.com/features-section.png"
+              src="https://enkolaysertifika.com/wp-content/uploads/2023/09/2.El-Arac-Alim-Satim-Belgesi.jpg"
               alt="feature template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://assets.aceternity.com/pro/bento-grids.png"
+              src="https://i.hakimiyet.com/c/90/1746x984/s/dosya/haber/anadolu-isuzu-dan-konya-medas-_1699974315_fnACKI.jpg"
               alt="bento template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://assets.aceternity.com/cards.png"
+              src="https://enkolaysertifika.com/wp-content/uploads/2024/09/freepicdownloader.com-stylish-elegant-people-car-salon-large.jpg"
               alt="cards template"
               width={500}
               height={500}
