@@ -15,8 +15,8 @@ export function NavbarContent() {
       link: "/cars",
     },
     {
-      name: "Blog",
-      link: "/blog",
+      name: "News",
+      link: "/news",
     },
     {
       name: "Contact",

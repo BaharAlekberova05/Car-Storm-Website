@@ -16,7 +16,6 @@ import logo from "../assets/img/logo.png";
 import Badge from "@mui/material/Badge";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMode } from "../redux/ThemeSlice";
-import { CgSearch } from "react-icons/cg";
 
 export const FloatingNavbar = ({ navItems, className }) => {
   const [visible, setVisible] = useState(true);

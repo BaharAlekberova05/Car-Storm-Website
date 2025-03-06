@@ -2,14 +2,15 @@ import { Route, Routes } from "react-router";
 import Home from "./components/Home";
 import About from "./components/About";
 import Cars from "./components/Cars";
-import Blog from "./components/Blog";
 import Contact from "./components/Contact";
+import News from "./components/News";
 import { NavbarContent } from "./layouts/NavbarContent";
 import Footer from "./layouts/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { setMode } from "./redux/ThemeSlice";
 import NotFound from "./components/NotFound";
+import NewsDetails from "./components/NewsDetails";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -30,9 +31,10 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cars" element={<Cars />} />
-        <Route path="/blog" element={<Blog />} />
+        <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
+        <Route path="/newsDetails" element={<NewsDetails />} />
       </Routes>
       <Footer />
     </div>
