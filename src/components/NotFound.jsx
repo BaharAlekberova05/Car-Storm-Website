@@ -1,7 +1,13 @@
+import notFound from "../assets/img/not-found.gif";
+
 const NotFound = () => {
   return (
-    <div className="container">
-      <h1 className="text-white">Not Found Page</h1>
+    <div className="h-screen w-full">
+      <img
+        src={notFound}
+        alt="Not Found Gif"
+        className="size-full"
+      />
     </div>
   );
 };
