@@ -77,15 +77,6 @@ export const FloatingNavbar = ({ navItems, className }) => {
 
           {/* Sağ Taraf */}
           <div className="flex items-center space-x-4">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search cars..."
-                className="w-[150px]  border dark:bg-white outline-none rounded-xl px-4"
-              />
-              <CgSearch className="absolute right-2 bottom-1.5" />
-            </div>
-
             <Badge badgeContent={4} color="primary">
               <IoCarSport
                 color="action"

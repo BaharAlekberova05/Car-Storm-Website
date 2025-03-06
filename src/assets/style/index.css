@@ -5,6 +5,7 @@
 @theme {
   --font-rethink: "Rethink Sans", serif;
   --font-orbitron: "Orbitron", serif;
+  --myBlue: #307ff9;
 }
 
 @layer base {

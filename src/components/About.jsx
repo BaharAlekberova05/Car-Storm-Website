@@ -1,3 +1,4 @@
+import FAQ from "../layouts/FAQ";
 import { AboutUI } from "../ui/AboutUI";
 import Testimonials from "./Testimonials";
 import WhyChoose from "./WhyChoose";
@@ -153,6 +154,7 @@ function About() {
       <AboutUI data={data} />
       <WhyChoose />
       <Testimonials />
+      <FAQ />
     </div>
   );
 }
