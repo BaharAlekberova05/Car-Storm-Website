@@ -9,7 +9,7 @@ const NewsGrid = ({ img, title, date }) => {
           <img
             src={img}
             alt={title}
-            className="size-full object-cover rounded-t-md"
+            className="size-full object-cover rounded-t-md hover:scale-75 transition duration-300"
           />
         </div>
 
