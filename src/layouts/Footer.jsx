@@ -4,8 +4,8 @@ import logo from "../assets/img/logo.png";
 const Footer = () => {
   return (
     <>
-      <footer className="relative w-full bg-red-400 dark:bg-black">
-        <div className="w-full p-8 mx-auto max-w-7xl">
+      <footer className="container relative w-full bg-red-400 dark:bg-black">
+        <div className="w-full py-8">
           <div className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2">
             <div className="w-[50%]">
               <Link to={"/"}>

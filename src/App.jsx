@@ -11,6 +11,10 @@ import { useEffect } from "react";
 import { setMode } from "./redux/ThemeSlice";
 import NotFound from "./components/NotFound";
 import NewsDetails from "./components/NewsDetails";
+import Cart from "./components/Cart";
+import Wishlist from "./components/Wishlist";
+import CarDetails from "./components/CarDetails";
+import Login from "./components/Login";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -35,6 +39,10 @@ const App = () => {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
         <Route path="/newsDetails" element={<NewsDetails />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/car-details" element={<CarDetails />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </div>

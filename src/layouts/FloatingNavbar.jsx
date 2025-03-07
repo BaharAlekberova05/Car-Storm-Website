@@ -76,17 +76,24 @@ export const FloatingNavbar = ({ navItems, className }) => {
 
           {/* Sağ Taraf */}
           <div className="flex items-center space-x-4">
-            <Badge badgeContent={4} color="primary">
-              <IoCarSport
-                color="action"
-                className="w-6 h-6 text-black dark:text-white cursor-pointer"
-              />
-            </Badge>
+            <Link to={"/cart"}>
+              <Badge badgeContent={4} color="primary">
+                <IoCarSport
+                  color="action"
+                  className="w-6 h-6 text-black dark:text-white cursor-pointer"
+                />
+              </Badge>
+            </Link>
 
-            <Badge badgeContent={4} color="primary">
-              <BiHeart className="w-6 h-6 text-black dark:text-white cursor-pointer" />
-            </Badge>
-            <BiUser className="w-6 h-6 text-black dark:text-white cursor-pointer" />
+            <Link to={"/wishlist"}>
+              <Badge badgeContent={4} color="primary">
+                <BiHeart className="w-6 h-6 text-black dark:text-white cursor-pointer" />
+              </Badge>
+            </Link>
+
+            <Link to={"/login"}>
+              <BiUser className="w-6 h-6 text-black dark:text-white cursor-pointer" />
+            </Link>
 
             {/* Hamburger Menü */}
             <button onClick={() => setMenuOpen(!menuOpen)}>

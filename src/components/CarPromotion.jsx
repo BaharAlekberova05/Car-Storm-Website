@@ -1,4 +1,4 @@
-import carVideo from "../assets/video/carmen.mp4";
+import carVideo from "../assets/video/car-video.mp4";
 import { FaCircleCheck } from "react-icons/fa6";
 
 const CarPromotion = () => {
