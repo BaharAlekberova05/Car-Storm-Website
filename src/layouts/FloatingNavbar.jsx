@@ -79,6 +79,7 @@ export const FloatingNavbar = ({ navItems, className }) => {
             <Link to={"/cart"}>
               <Badge badgeContent={4} color="primary">
                 <IoCarSport
+                  title="Add to cart"
                   color="action"
                   className="w-6 h-6 text-black dark:text-white cursor-pointer"
                 />
@@ -87,12 +88,18 @@ export const FloatingNavbar = ({ navItems, className }) => {
 
             <Link to={"/wishlist"}>
               <Badge badgeContent={4} color="primary">
-                <BiHeart className="w-6 h-6 text-black dark:text-white cursor-pointer" />
+                <BiHeart
+                  title="Add to wishlist"
+                  className="w-6 h-6 text-black dark:text-white cursor-pointer"
+                />
               </Badge>
             </Link>
 
             <Link to={"/login"}>
-              <BiUser className="w-6 h-6 text-black dark:text-white cursor-pointer" />
+              <BiUser
+                title="Account"
+                className="w-6 h-6 text-black dark:text-white cursor-pointer"
+              />
             </Link>
 
             {/* Hamburger Menü */}
