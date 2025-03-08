@@ -1,8 +1,10 @@
 import { Link } from "react-router";
 import { HiOutlineEye } from "react-icons/hi";
 import { HiOutlineEyeOff } from "react-icons/hi";
+import { useState } from "react";
 
 const Register = () => {
+  const [showPass, setShowPass] = useState(false);
   return (
     <div className="container">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white">
@@ -35,11 +37,16 @@ const Register = () => {
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-between">
                 <label className="dark:text-white text-sm">Password</label>
-                <HiOutlineEye className="dark:text-white cursor-pointer" />
-                {/* <HiOutlineEyeOff className="dark:text-white cursor-pointer"/> */}
+                <button onClick={() => setShowPass(!showPass)}>
+                  {showPass ? (
+                    <HiOutlineEye className="dark:text-white cursor-pointer" />
+                  ) : (
+                    <HiOutlineEyeOff className="dark:text-white cursor-pointer" />
+                  )}
+                </button>
               </div>
               <input
-                type="password"
+                type={showPass ? "text" : "password"}
                 className="outline-none border border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3"
               />
             </div>
