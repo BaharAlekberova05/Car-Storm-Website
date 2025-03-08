@@ -2,7 +2,7 @@ const Contact = () => {
   return (
     <div className="container overflow-x-hidden">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6">
-        Contact Us
+        Contact <span className="my-blue">Us</span>
       </h1>
 
       <div className="flex flex-col space-y-8 md:flex-row xl:flex-row md:space-x-6 xl:space-x-6">
@@ -11,12 +11,12 @@ const Contact = () => {
             <div className="flex items-center space-x-4 w-full">
               <input
                 type="text"
-                className="border border-gray-200 bg-white w-1/2 px-4 py-2 rounded-md"
+                className="border border-gray-200 bg-white dark:bg-black w-1/2 px-4 py-2 rounded-md dark:text-white placeholder:dark:text-white "
                 placeholder="Enter your name"
               />
               <input
                 type="email"
-                className="border border-gray-200 bg-white w-1/2 px-4 py-2 rounded-md"
+                className="border border-gray-200 bg-white w-1/2 px-4 py-2 rounded-md dark:bg-black dark:text-white placeholder:dark:text-white"
                 placeholder="Enter your email"
               />
             </div>
@@ -24,14 +24,14 @@ const Contact = () => {
             <div className="w-full">
               <input
                 type="text"
-                className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md"
+                className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md dark:bg-black dark:text-white placeholder:dark:text-white"
                 placeholder="Enter your subject"
               />
             </div>
 
             <div className="w-full">
               <textarea
-                className="w-full h-[200px] border border-gray-200 bg-white px-4 py-2 rounded-md"
+                className="w-full h-[200px] border border-gray-200 bg-white px-4 py-2 rounded-md dark:bg-black dark:text-white placeholder:dark:text-white"
                 placeholder="Write your message"
               ></textarea>
             </div>

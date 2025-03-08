@@ -6,7 +6,7 @@ import WhyChoose from "./WhyChoose";
 function About() {
   const data = [
     {
-      title: "2024",
+      title: "2025",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
@@ -47,7 +47,7 @@ function About() {
       ),
     },
     {
-      title: "Early 2023",
+      title: "Early 2024",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">

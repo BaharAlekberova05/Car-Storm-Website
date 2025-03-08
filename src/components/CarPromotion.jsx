@@ -18,33 +18,33 @@ const CarPromotion = () => {
 
         <div className="w-full md:w-1/2 xl:w-1/2">
           <h3 className="text-lg text-center md:text-2xl xl:text-4xl font-bold dark:text-white">
-            Sell Your Car For The Best Price
+            Find Your Dream Car At The Best Price
           </h3>
 
           <p className="dark:text-white my-4 text-sm md:text-md xl:text-lg">
-            We offer top deals for your car with a smooth, transparent process
-            and exceptional customer service.
+            Explore a wide selection of high-quality vehicles with a seamless
+            buying experience and exceptional customer service
           </p>
 
           <div className="flex flex-col space-y-4">
             <div className="flex items-center space-x-2">
               <FaCircleCheck className="dark:text-white text-md md:text-lg xl:text-2xl" />
               <p className="dark:text-white text-sm md:text-md xl:text-lg">
-                The world's most trusted car-selling platform
+                Verified cars with detailed inspections
               </p>
             </div>
 
             <div className="flex items-center space-x-2">
               <FaCircleCheck className="dark:text-white text-md md:text-lg xl:text-2xl" />
               <p className="dark:text-white text-sm md:text-md xl:text-lg">
-                Instant valuation & same-day payment options
+                Competitive pricing & exclusive deals
               </p>
             </div>
 
             <div className="flex items-center space-x-2">
               <FaCircleCheck className="dark:text-white text-md md:text-lg xl:text-2xl" />
               <p className="dark:text-white text-sm md:text-md xl:text-lg">
-                Convenient & secure selling experience
+                Secure & hassle-free purchasing process
               </p>
             </div>
           </div>

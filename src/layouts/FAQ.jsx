@@ -35,7 +35,7 @@ export default function FAQ() {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200">
+                  <Disclosure.Button className="bg-[#307ff9] text-white flex justify-between w-full px-4 py-2 text-lg font-medium text-left rounded-lg bg-[#307ff9] text-white cursor-pointer">
                     Why Should You Buy Car From Us{" "}
                     <span>{open ? "−" : "+"}</span>
                   </Disclosure.Button>
@@ -54,7 +54,7 @@ export default function FAQ() {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200">
+                  <Disclosure.Button className="bg-[#307ff9] text-white flex justify-between w-full px-4 py-2 text-lg font-medium text-left  rounded-lg">
                     What’s in your contract?
                     <span>{open ? "−" : "+"}</span>
                   </Disclosure.Button>
@@ -73,7 +73,7 @@ export default function FAQ() {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200">
+                  <Disclosure.Button className="bg-[#307ff9] text-white flex justify-between w-full px-4 py-2 text-lg font-medium text-left  rounded-lg">
                     How to do the inspection for the car before shipping?
                     <span>{open ? "−" : "+"}</span>
                   </Disclosure.Button>
@@ -93,7 +93,7 @@ export default function FAQ() {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200">
+                  <Disclosure.Button className="bg-[#307ff9] text-white flex justify-between w-full px-4 py-2 text-lg font-medium text-left  rounded-lg">
                     Does the price you quote include all fees?
                     <span>{open ? "−" : "+"}</span>
                   </Disclosure.Button>
@@ -111,7 +111,7 @@ export default function FAQ() {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="flex justify-between w-full px-4 py-2 text-lg font-medium text-left text-gray-900 bg-gray-100 rounded-lg hover:bg-gray-200">
+                  <Disclosure.Button className="bg-[#307ff9] text-white flex justify-between w-full px-4 py-2 text-lg font-medium text-left  rounded-lg">
                     Can I have a price list of all your models?
                     <span>{open ? "−" : "+"}</span>
                   </Disclosure.Button>

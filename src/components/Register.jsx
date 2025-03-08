@@ -1,25 +1,34 @@
-import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { Link } from "react-router";
+import { HiOutlineEye } from "react-icons/hi";
+import { HiOutlineEyeOff } from "react-icons/hi";
 
-const Login = () => {
+const Register = () => {
   return (
     <div className="container">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white">
-        <span className="my-blue">Login</span> / Register
+        Login / <span className="my-blue">Register</span>
       </h1>
 
       <div className="flex items-center justify-center">
-        <div className="flex flex-col px-6 py-10 rounded-lg shadow-2xl border border-gray-500">
-          <h3 className="dark:text-white text-lg md:text-xl xl:text-3xl mb-2 font-medium text-center">
-            Login
+        <div className="flex flex-col px-6 py-8 rounded-lg shadow-2xl border border-gray-500">
+          <h3 className="dark:text-white text-lg md:text-xl xl:text-3xl mt-4 font-medium text-center mb-2">
+            Register
           </h3>
 
           <form action="#" className="flex flex-col space-y-4">
             <div className="flex flex-col space-y-2">
+              <label className="dark:text-white text-sm">User name</label>
+              <input
+                type="text"
+                className="border outline-none border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3"
+              />
+            </div>
+
+            <div className="flex flex-col space-y-2">
               <label className="dark:text-white text-sm">Email adress</label>
               <input
                 type="email"
-                className="outline-none border border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3 "
+                className="outline-none border border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3"
               />
             </div>
 
@@ -39,12 +48,13 @@ const Login = () => {
               type="submit"
               className="bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
             >
-              Login
+              Create an accout
             </button>
+
             <p className="text-xs md:text-sm xl:text-md dark:text-white mb-4">
-              Don't have an account?{" "}
-              <Link to={"/register"} className="my-blue underline">
-                Register now
+              Already have an account?{" "}
+              <Link to={"/login"} className="my-blue underline">
+                Log in
               </Link>
             </p>
           </form>
@@ -54,4 +64,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
