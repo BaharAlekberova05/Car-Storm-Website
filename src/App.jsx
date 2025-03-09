@@ -18,6 +18,8 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import Checkout from "./components/Checkout";
 import Dashboard from "./components/Dashboard";
+import AddCar from "./components/AddCar";
+import EditCar from "./components/EditCar";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -49,6 +51,8 @@ const App = () => {
         <Route path="/register" element={<Register />} />
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/add-car" element={<AddCar />} />
+        <Route path="/edit-car" element={<EditCar />} />
       </Routes>
       <Footer />
     </div>

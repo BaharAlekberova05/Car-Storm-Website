@@ -1,12 +1,10 @@
-import { useState } from "react";
-import { FaPlus, FaEdit, FaTrash, FaBars } from "react-icons/fa";
+import { FaPlus, FaBars } from "react-icons/fa";
 import { FiEdit3 } from "react-icons/fi";
 
 import { Link } from "react-router";
 
 import { Card, Typography } from "@material-tailwind/react";
 import { FaRegTrashCan } from "react-icons/fa6";
-import { IoCarSport } from "react-icons/io5";
 
 const TABLE_HEAD = ["Image", "Car Name", "Price", "Status"];
 
@@ -95,9 +93,9 @@ function Navbar() {
       <Button variant="icon" className="md:hidden">
         <FaBars size={20} className="text-white" />
       </Button>
-      <h2 className="text-lg font-semibold dark:text-white text-center pb-6">
-        Admin Dashboard
-      </h2>
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
+        <span className="my-blue">Admin</span> Dashboard
+      </h1>
     </nav>
   );
 }
@@ -157,11 +155,13 @@ export default function CarDashboard() {
                           </td>
                           <td className={`${classes} whitespace-nowrap`}>
                             <Typography className="font-normal text-gray-600 dark:text-gray-300 text-xs md:text-sm xl:text-lg flex items-center space-x-2">
-                              <FiEdit3
-                                title="Edit"
-                                color="action"
-                                className="w-6 h-6 text-black dark:text-white cursor-pointer"
-                              />
+                              <Link to={"/edit-car"}>
+                                <FiEdit3
+                                  title="Edit"
+                                  color="action"
+                                  className="w-6 h-6 text-black dark:text-white cursor-pointer"
+                                />
+                              </Link>
                               <FaRegTrashCan
                                 title="Delete"
                                 color="action"
