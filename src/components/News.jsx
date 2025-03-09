@@ -53,7 +53,7 @@ const News = () => {
 
   return (
     <div className="container">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6">
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-8 text-center">
         Latest <span className="my-blue">News</span>
       </h1>
 

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { Link } from "react-router";
 
@@ -6,7 +6,7 @@ const Login = () => {
   const [showPass, setShowPass] = useState(false);
   return (
     <div className="container">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white">
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
         <span className="my-blue">Login</span> / Register
       </h1>
 
@@ -42,12 +42,15 @@ const Login = () => {
               />
             </div>
 
-            <button
-              type="submit"
-              className="bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
-            >
-              Login
-            </button>
+            <Link to={"/dashboard"}>
+              <button
+                type="submit"
+                className="w-full bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
+              >
+                Login
+              </button>
+            </Link>
+
             <p className="text-xs md:text-sm xl:text-md dark:text-white mb-4">
               Don't have an account?{" "}
               <Link to={"/register"} className="my-blue underline">

@@ -7,7 +7,7 @@ const Register = () => {
   const [showPass, setShowPass] = useState(false);
   return (
     <div className="container">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white">
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
         Login / <span className="my-blue">Register</span>
       </h1>
 

@@ -38,8 +38,8 @@ const TABLE_ROWS = [
 const Wishlist = () => {
   return (
     <div className="container">
-      <h1 className="text-xl md:text-2xl xl:text-3xl font-bold dark:text-white my-6">
-        My <span className="text-blue-500">Wishlist</span>
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
+        My <span className="my-blue">Wishlist</span>
       </h1>
 
       <section className="w-full bg-white dark:bg-black p-4 rounded-lg shadow-md overflow-x-auto">

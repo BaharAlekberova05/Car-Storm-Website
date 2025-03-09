@@ -16,6 +16,8 @@ import Wishlist from "./components/Wishlist";
 import CarDetails from "./components/CarDetails";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Checkout from "./components/Checkout";
+import Dashboard from "./components/Dashboard";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -45,6 +47,8 @@ const App = () => {
         <Route path="/car-details" element={<CarDetails />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/checkout" element={<Checkout />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
       <Footer />
     </div>

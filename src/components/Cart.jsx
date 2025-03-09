@@ -39,7 +39,7 @@ const TABLE_ROWS = [
 const Cart = () => {
   return (
     <div className="container">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6">
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
         My <span className="my-blue">Cart</span>
       </h1>
 
@@ -143,8 +143,8 @@ const Cart = () => {
         </div>
 
         <div className="w-full md:w-1/2 flex flex-col space-y-6 items-center justify-center">
-          <div className="w-[80%] md:w-[40%] flex flex-col space-y-6 bg-black border border-gray-500 rounded-md p-4 dark:text-white">
-            <p className="text-xl">Total:</p>
+          <div className="w-full md:w-full flex flex-col space-y-6 bg-black border border-gray-500 rounded-md p-4 dark:text-white">
+            <p className="text-xl text-center">Order Summary</p>
             <div className="flex items-center justify-between">
               <p>Total:</p>
               <p>
@@ -165,13 +165,18 @@ const Cart = () => {
             </div>
           </div>
 
-          <button className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer w-full md:w-auto ">
-            Reset cart
-          </button>
+          <div className="flex items-center justify-between w-full md:w-full">
+            <button className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer">
+              Reset cart
+            </button>
+            <Link to={"/checkout"}>
+              <button className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer">
+                Proceed to Checkout
+              </button>
+            </Link>
+          </div>
         </div>
       </section>
-
-      <div className="w-full flex items-center justify-between"></div>
     </div>
   );
 };

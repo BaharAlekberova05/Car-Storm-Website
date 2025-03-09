@@ -40,7 +40,7 @@ const Testimonials = () => {
   ];
   return (
     <div className="container">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white">
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white mt-12">
         Client's <span className="my-blue">Revievs</span>
       </h1>
 

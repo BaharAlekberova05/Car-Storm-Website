@@ -4,7 +4,7 @@ import CarCard from "./CarCard";
 const HotSaleModels = () => {
   return (
     <div className="container">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white">
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white mb-12">
         Hot Sale{" "}
         <Link to={"/cars"} className="my-blue underline">
           Car Models

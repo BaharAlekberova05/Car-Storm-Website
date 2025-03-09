@@ -113,7 +113,10 @@ export default function Cars() {
               {/* Filters */}
               <form className="mt-4 border-t border-gray-200">
                 <h3 className="sr-only dark:text-white">Categories</h3>
-                <ul role="list" className="px-2 pb-3 pt-40 font-medium text-gray-900">
+                <ul
+                  role="list"
+                  className="px-2 pb-3 pt-40 font-medium text-gray-900"
+                >
                   {subCategories.map((category) => (
                     <li key={category.name}>
                       <a href={category.href} className="block px-2 py-3">
@@ -199,31 +202,13 @@ export default function Cars() {
         </Dialog>
 
         <main className="container">
-          <div className="flex items-baseline justify-between border-b border-gray-200 pt-8 pb-6">
-            <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <div className="flex items-center justify-center border-b border-gray-200 pt-8 pb-6">
+            <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white text-center">
               Our <span className="my-blue">Cars</span>
             </h1>
-
-            <div className="flex items-center">
-              <button
-                type="button"
-                className="-m-2 ml-5 p-2 text-gray-400 hover:text-gray-500 sm:ml-7"
-              >
-                <span className="sr-only">View grid</span>
-                <BsGrid3X3GapFill aria-hidden="true" className="size-5" />
-              </button>
-              <button
-                type="button"
-                onClick={() => setMobileFiltersOpen(true)}
-                className="-m-2 ml-4 p-2 text-gray-400 hover:text-gray-500 sm:ml-6 lg:hidden"
-              >
-                <span className="sr-only">Filters</span>
-                <BsFilter aria-hidden="true" className="size-5" />
-              </button>
-            </div>
           </div>
 
-          <section aria-labelledby="products-heading" className="pt-6 pb-24">
+          <section aria-labelledby="products-heading" className="pt-6 pb-16">
             <h2 id="products-heading" className="sr-only">
               Products
             </h2>
@@ -318,7 +303,7 @@ export default function Cars() {
 
               {/* Product grid */}
               <div className="lg:col-span-3 px-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 space-x-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-y-12 gap-x-6">
                   <CarCard />
                   <CarCard />
                   <CarCard />
