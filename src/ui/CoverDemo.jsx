@@ -7,6 +7,7 @@ export function CoverDemo() {
         <Cover>Welcome To Car Storm</Cover>
       </h1>
 
+      {/* SEARCH */}
       <form className="max-w-lg mx-auto">
         <div className="flex">
           <label
@@ -18,7 +19,7 @@ export function CoverDemo() {
           <button
             id="dropdown-button"
             data-dropdown-toggle="dropdown"
-            className="shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-300 rounded-s-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-white dark:hover:bg-gray-200 dark:focus:ring-gray-700 dark:text-black dark:border-white"
+            className="shrink-0 z-10 inline-flex items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-s-lg focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-black dark:text-white dark:focus:ring-gray-700 dark:border-black"
             type="button"
           >
             All categories{" "}
@@ -40,10 +41,10 @@ export function CoverDemo() {
           </button>
           <div
             id="dropdown"
-            className="z-10 hidden bg-black divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-white"
+            className="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-sm w-44 dark:bg-black"
           >
             <ul
-              className="py-2 text-sm text-white dark:text-black"
+              className="py-2 text-sm text-black dark:text-white"
               aria-labelledby="dropdown-button"
             >
               <li>
@@ -84,13 +85,13 @@ export function CoverDemo() {
             <input
               type="search"
               id="search-dropdown"
-              className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-black rounded-e-lg border-s-gray-50 border-s-2 border border-white dark:bg-white  dark:text-black focus:outline-none"
+              className="block p-2.5 w-full z-20 text-sm text-gray-900 bg-white dark:bg-black rounded-e-lg border-s-gray-50 border-s-2 border border-white dark:border-black  dark:text-white focus:outline-none"
               placeholder="Search Your Dream Car..."
               required
             />
             <button
               type="submit"
-              className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full text-white dark:text-black rounded-e-lg border-white outline-none bg-black dark:bg-white"
+              className="absolute top-0 end-0 p-2.5 text-sm font-medium h-full dark:text-white text-black rounded-e-lg dark:border-white outline-none dark:bg-black bg-white"
             >
               <svg
                 className="w-4 h-4"

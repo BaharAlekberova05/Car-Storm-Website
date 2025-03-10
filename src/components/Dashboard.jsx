@@ -63,7 +63,7 @@ function Button({
 
 function Sidebar() {
   return (
-    <aside className="w-64 h-screen bg-black text-white p-4 hidden md:block">
+    <aside className="w-64 h-screen dark:bg-black dark:text-white p-4 hidden md:block">
       <h2 className="text-xl font-bold mb-4">Admin Panel</h2>
       <ul className="space-y-2">
         <li>
@@ -72,12 +72,12 @@ function Sidebar() {
           </Link>
         </li>
         <li>
-          <Link to="all-cars" className="block p-2 hover:bg-gray-700">
+          <Link to="/cars" className="block p-2 hover:bg-gray-700">
             All Cars
           </Link>
         </li>
         <li>
-          <Link to="add-cars" className="block p-2 hover:bg-gray-700">
+          <Link to="/add-car" className="block p-2 hover:bg-gray-700">
             Add Cars
           </Link>
         </li>

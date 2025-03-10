@@ -51,7 +51,7 @@ export const FloatingNavbar = ({ navItems, className }) => {
           initial={{ opacity: 1, y: 0 }}
           animate={{ y: visible ? 0 : -100, opacity: visible ? 1 : 0 }}
           transition={{ duration: 0.3 }}
-          className={`fixed inset-x-0 top-0 h-16 flex justify-between items-center px-4 lg:px-8 bg-white dark:bg-black shadow-md z-[5000] ${className}`}
+          className={`fixed inset-x-0 top-0 h-16 flex justify-between items-center px-4 lg:px-8 bg-white dark:bg-black shadow-lg z-[5000] ${className}`}
         >
           {/* Logo */}
           <Link
@@ -61,25 +61,23 @@ export const FloatingNavbar = ({ navItems, className }) => {
             <img src={logo} alt="Logo" className="h-14 shrink-0" />
           </Link>
 
-          {/* Menü */}
           <div className="hidden lg:flex space-x-6 items-center">
             {navItems.map((navItem, idx) => (
               <Link
                 key={idx}
                 to={navItem.link}
-                className="text-neutral-600 dark:text-neutral-300 hover:text-neutral-500 dark:hover:text-white"
+                className="text-black dark:text-neutral-300 hover:text-neutral-600 dark:hover:text-white"
               >
                 {navItem.name}
               </Link>
             ))}
           </div>
 
-          {/* Sağ Taraf */}
           <div className="flex items-center space-x-4">
             <Link to={"/cart"}>
               <Badge badgeContent={4} color="primary">
                 <IoCarSport
-                  title="Add to cart"
+                  title="Cart"
                   color="action"
                   className="w-6 h-6 text-black dark:text-white cursor-pointer"
                 />
@@ -102,7 +100,7 @@ export const FloatingNavbar = ({ navItems, className }) => {
               />
             </Link>
 
-            {/* Hamburger Menü */}
+            {/* Hamburger Menu */}
             <button onClick={() => setMenuOpen(!menuOpen)}>
               {menuOpen ? (
                 <FiX className="w-6 h-6 text-black dark:text-white" />
@@ -139,30 +137,29 @@ export const FloatingNavbar = ({ navItems, className }) => {
               </span>
             </button>
 
-            {/* Dil Seçimi */}
             <div className="flex items-center space-x-2">
               <BiGlobe className="w-5 h-5 text-black dark:text-white" />
               <select
                 value={language}
                 onChange={(e) => setLanguage(e.target.value)}
-                className="bg-black text-black dark:text-white border p-1 rounded-md"
+                className="dark:bg-black text-black dark:text-white border p-1 rounded-md outline-none"
               >
-                <option className="bg-black text-white" value="AZ">
+                <option className="dark:bg-black dark:text-white" value="AZ">
                   AZ
                 </option>
-                <option className="bg-black text-white" value="EN">
+                <option className="dark:bg-black dark:text-white" value="EN">
                   EN
                 </option>
               </select>
             </div>
 
-            {/* Menü Linkleri */}
+            {/* Menu Links in mobile */}
             <div className="flex flex-col space-y-2">
               {navItems.map((navItem, idx) => (
                 <Link
                   key={idx}
                   to={navItem.link}
-                  className="xl:hidden lg:hidden text-neutral-600 dark:text-neutral-300 hover:text-neutral-500 dark:hover:text-white"
+                  className="xl:hidden lg:hidden dark:text-white text-black hover:text-neutral-500 dark:hover:text-neuteral-800"
                 >
                   {navItem.name}
                 </Link>

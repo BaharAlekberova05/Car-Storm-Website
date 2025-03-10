@@ -34,7 +34,7 @@ const AddCar = () => {
               />
             </div>
 
-            <Link to={"/dashboard"}>
+            <Link to={"/cars"}>
               <button
                 type="submit"
                 className="w-full bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
