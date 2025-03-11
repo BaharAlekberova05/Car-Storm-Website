@@ -11,7 +11,7 @@ const Register = () => {
         Login / <span className="my-blue">Register</span>
       </h1>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mb-10">
         <div className="flex flex-col px-6 py-8 rounded-lg shadow-2xl border border-gray-500">
           <h3 className="dark:text-white text-lg md:text-xl xl:text-3xl mt-4 font-medium text-center mb-2">
             Register

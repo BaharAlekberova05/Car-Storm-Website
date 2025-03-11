@@ -4,7 +4,7 @@ import logo from "../assets/img/logo.png";
 const Footer = () => {
   return (
     <>
-      <footer className="container relative w-full dark:bg-black">
+      <footer className="container relative w-full bg-white dark:bg-black">
         <div className="w-full py-8">
           <div className="grid justify-between grid-cols-1 gap-4 md:grid-cols-2">
             <div className="w-[50%]">

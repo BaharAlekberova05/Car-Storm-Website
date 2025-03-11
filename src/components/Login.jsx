@@ -10,7 +10,7 @@ const Login = () => {
         <span className="my-blue">Login</span> / Register
       </h1>
 
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center mb-10">
         <div className="flex flex-col px-6 py-10 rounded-lg shadow-2xl border border-gray-500">
           <h3 className="dark:text-white text-lg md:text-xl xl:text-3xl mb-2 font-medium text-center">
             Login

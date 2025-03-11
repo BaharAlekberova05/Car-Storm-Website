@@ -1,5 +1,6 @@
 import FAQ from "../layouts/FAQ";
 import { AboutUI } from "../ui/AboutUI";
+import HotSaleModels from "./HotSaleModels";
 import Testimonials from "./Testimonials";
 import WhyChoose from "./WhyChoose";
 
@@ -152,7 +153,8 @@ function About() {
   return (
     <div className="w-full">
       <AboutUI data={data} />
-      <WhyChoose />
+      {/* <WhyChoose /> */}
+      <HotSaleModels />
       <Testimonials />
       <FAQ />
     </div>

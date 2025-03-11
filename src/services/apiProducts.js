@@ -22,3 +22,14 @@ export async function getCategories() {
 
   return categoriesAPI;
 }
+
+export async function getNews() {
+  const { data, error } = await supabase.from("news").select("*");
+
+  if (error) {
+    console.log(error);
+    throw new Error("News could not be loaded.");
+  }
+  // console.log(data);
+  return data;
+}

@@ -1,5 +1,4 @@
 import { createClient } from "@supabase/supabase-js";
-import { colorMix } from "@tsparticles/engine";
 
 const supabaseUrl = "https://uofezoujczrlgjohsldk.supabase.co";
 
@@ -9,28 +8,3 @@ const supabaseKey =
 const supabase = createClient(supabaseUrl, supabaseKey);
 
 export default supabase;
-
-let categories = [
-  {
-    brands: ["Range Rover", "Porsche", "BMW", "Mercedes", "Chevrolet", "Zeekr"],
-    colors: ["white", "black", "blue", "red", "gray", "green"],
-    bodyTypes: [
-      "sedan",
-      "hatchback",
-      "SUV",
-      "coupe",
-      "minivan",
-      "liftback",
-      "crossover",
-      "roadster",
-    ],
-    fuelTypes: ["petrol", "diesel", "electric", "hybrid", "hydrogen"],
-    transmissionTypes: [
-      "manual",
-      "automatic",
-      "semi-automatic",
-      "tiptronic",
-      "electric",
-    ],
-  },
-];

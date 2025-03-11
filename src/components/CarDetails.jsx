@@ -11,11 +11,11 @@ const CarDetails = () => {
   };
   return (
     <div className="container">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-center dark:text-white">
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-center dark:text-white py-8">
         Car <span className="my-blue">Details</span>
       </h1>
 
-      <div className="bg-white dark:bg-black dark:text-white">
+      <div className="dark:bg-black dark:text-white">
         <div className="px-4 py-8">
           <div className="flex flex-wrap -mx-4">
             {/* Product Images */}
@@ -97,19 +97,22 @@ const CarDetails = () => {
                 </ul>
               </div>
 
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4 cursor-pointer mr-4">
+                Add To Cart
+              </button>
               <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4 cursor-pointer">
-                Add to Cart
+                Add To Wishlist
               </button>
             </div>
           </div>
         </div>
       </div>
 
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-center dark:text-white mb-8">
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-center dark:text-white mb-10">
         Other <span className="my-blue">Cars</span>
       </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-12 gap-x-6 mb-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-12 gap-x-6 mb-14">
         <CarCard />
         <CarCard />
         <CarCard />

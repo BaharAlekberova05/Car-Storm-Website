@@ -1,7 +1,7 @@
 import { MdOutlineDateRange } from "react-icons/md";
 import { Link } from "react-router";
 
-const NewsGrid = ({ img, title, date }) => {
+const NewsGrid = ({ img, title, date, author }) => {
   return (
     <Link to={"/newsDetails"}>
       <div className="flex flex-col space-y-8 rounded-md shadow-2xl h-[500px]">
@@ -13,9 +13,13 @@ const NewsGrid = ({ img, title, date }) => {
           />
         </div>
 
-        <div className="px-4 flex items-center space-x-4">
-          <MdOutlineDateRange className="dark:text-white" />
-          <p className="dark:text-white text-lg">{date}</p>
+        <div className="flex items-center justify-between px-4">
+          <div className="flex items-center space-x-2">
+            <MdOutlineDateRange className="dark:text-white" />
+            <p className="dark:text-white text-lg">{date}</p>
+          </div>
+
+          <p>{author}</p>
         </div>
 
         <div className="px-4">

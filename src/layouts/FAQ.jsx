@@ -3,7 +3,7 @@ import { Link } from "react-router";
 
 export default function FAQ() {
   return (
-    <div className="container">
+    <div className="container mb-14">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white">
         FAQ
       </h1>
@@ -23,7 +23,7 @@ export default function FAQ() {
           </p>
 
           <Link to={"/contact"}>
-            <button className="dark:text-white p-4 bg-blue-600 text-sm font-semibold cursor-pointer mx-auto md:mx-0 mb-6">
+            <button className="text-white p-4 bg-blue-600 text-sm font-semibold cursor-pointer mx-auto md:mx-0 mb-6">
               Ask Your Question
             </button>
           </Link>
@@ -35,7 +35,7 @@ export default function FAQ() {
             <Disclosure>
               {({ open }) => (
                 <>
-                  <Disclosure.Button className="bg-[#307ff9] text-white flex justify-between w-full px-4 py-2 text-lg font-medium text-left rounded-lg bg-[#307ff9] text-white cursor-pointer">
+                  <Disclosure.Button className="bg-[#307ff9] text-white flex justify-between w-full px-4 py-2 text-lg font-medium text-left rounded-lg cursor-pointer">
                     Why Should You Buy Car From Us{" "}
                     <span>{open ? "−" : "+"}</span>
                   </Disclosure.Button>
