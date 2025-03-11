@@ -3,7 +3,7 @@ import { BiHeart } from "react-icons/bi";
 import { CardBody, CardContainer, CardItem } from "../ui/3dCard";
 import { Link } from "react-router";
 
-function CarCard({ brand, model, price, img1 }) {
+function CarCard({ brand, model, price, img1, slug }) {
   return (
     <CardContainer className="inter-var">
       <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border">
@@ -21,7 +21,7 @@ function CarCard({ brand, model, price, img1 }) {
           ${price}
         </CardItem>
         <CardItem translateZ="100" className="w-full mt-4">
-          <Link to={"/car-details"}>
+          <Link to={`/car-details/${slug}`}>
             <img
               src={img1}
               height="1000"

@@ -1,4 +1,7 @@
 "use client";
+import amg from "../assets/img/amg.png";
+import aston from "../assets/img/aston.png";
+import audi from "../assets/img/audi.png";
 
 import HeroParallax from "../ui/HeroParallax";
 
@@ -10,7 +13,7 @@ export const products = [
     title: "Mazda",
     link: "/cars",
     thumbnail:
-      "https://static.vecteezy.com/system/resources/previews/020/500/644/non_2x/maserati-brand-logo-car-symbol-white-design-italian-automobile-illustration-with-black-background-free-vector.jpg",
+      "https://images.seeklogo.com/logo-png/2/2/chevrolet-logo-png_seeklogo-29486.png",
   },
   {
     title: "Range Rover",
@@ -28,7 +31,8 @@ export const products = [
   {
     title: "Jaguar",
     link: "/cars",
-    thumbnail: "https://www.carlogos.org/car-logos/jaguar-logo-2021-640.png",
+    thumbnail:
+      "https://images.seeklogo.com/logo-png/9/2/nissan-logo-png_seeklogo-99769.png",
   },
   {
     title: "Ford Mustang",
@@ -44,13 +48,14 @@ export const products = [
   {
     title: "Mercedes-Benz",
     link: "/cars",
-    thumbnail: "https://banner2.cleanpng.com/20180323/lre/av0k9uuqg.webp",
+    thumbnail:
+      "https://images.seeklogo.com/logo-png/9/2/mercedes-benz-logo-png_seeklogo-91081.png",
   },
   {
     title: "Honda",
     link: "/cars",
     thumbnail:
-      "https://static.vecteezy.com/system/resources/previews/020/500/096/non_2x/honda-logo-brand-symbol-white-design-japan-car-automobile-illustration-with-black-background-free-vector.jpg",
+      "https://images.seeklogo.com/logo-png/30/2/hyundai-logo-png_seeklogo-309777.png",
   },
   {
     title: "Cadillac",
@@ -73,7 +78,7 @@ export const products = [
     title: "Toyota",
     link: "/cars",
     thumbnail:
-      "https://static.vecteezy.com/system/resources/previews/020/927/075/non_2x/toyota-brand-logo-car-symbol-white-design-japan-automobile-illustration-with-black-background-free-vector.jpg",
+      "https://images.seeklogo.com/logo-png/14/2/toyota-logo-png_seeklogo-141411.png",
   },
   {
     title: "BMW",
@@ -84,7 +89,7 @@ export const products = [
     title: "Ferrari",
     link: "/cars",
     thumbnail:
-      "https://static.vecteezy.com/system/resources/previews/020/502/469/non_2x/ferrari-logo-brand-car-symbol-with-name-white-design-italian-automobile-illustration-with-black-background-free-vector.jpg",
+      "https://images.seeklogo.com/logo-png/5/2/ferrari-emblem-logo-png_seeklogo-53763.png",
   },
   {
     title: "Bentley",

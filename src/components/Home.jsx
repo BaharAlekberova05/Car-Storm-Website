@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Slider from "../layouts/Slider";
 import CarPromotion from "./CarPromotion";
 import HotSaleBrands from "./HotSaleBrands";

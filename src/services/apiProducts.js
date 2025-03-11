@@ -30,6 +30,28 @@ export async function getNews() {
     console.log(error);
     throw new Error("News could not be loaded.");
   }
-  
+
+  return data[0].data;
+}
+
+export async function getLimitedCars() {
+  let { data, error } = await supabase.from("products").select("*").range(0, 3);
+
+  if (error) {
+    console.log(error);
+    throw new Error("Cars could not be loaded.");
+  }
+
+  return data;
+}
+
+export async function getLimitedNews() {
+  let { data, error } = await supabase.from("news").select("*").range(0, 3);
+
+  if (error) {
+    console.log(error);
+    throw new Error("Cars could not be loaded.");
+  }
+
   return data;
 }

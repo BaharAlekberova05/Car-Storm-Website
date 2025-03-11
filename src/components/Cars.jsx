@@ -11,10 +11,12 @@ import {
 import { AiOutlineClose } from "react-icons/ai";
 import { AiOutlineMinus } from "react-icons/ai";
 import { AiOutlinePlus } from "react-icons/ai";
-import { FiFilter } from "react-icons/fi"; // Added filter icon
+import { FiFilter } from "react-icons/fi";
 import CarCard from "./CarCard";
 import { getCars, getCategories } from "../services/apiProducts";
 import LatestNews from "./LatestNews";
+import slugify from "slugify";
+import Fuse from "fuse.js";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -25,6 +27,28 @@ export default function Cars() {
   const [cars, setCars] = useState([]);
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  const [filteredCars, setFilteredCars] = useState(cars);
+
+  const options = {
+    keys: ["brand", "model"],
+    threshold: 0,
+  };
+
+  const fuse = new Fuse(cars, options);
+
+  useEffect(() => {
+    if (searchTerm === "") {
+      setFilteredCars(cars);
+    } else {
+      const results = fuse.search(searchTerm);
+      setFilteredCars(results.map((result) => result.item));
+    }
+  }, [searchTerm, cars]);
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    setSearchTerm(e.target.value);
+  };
 
   useEffect(() => {
     getCars().then((data) => {
@@ -37,12 +61,6 @@ export default function Cars() {
       setCategories(categoriesAPI);
     });
   }, []);
-
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // Implement search functionality here
-    console.log("Searching for:", searchTerm);
-  };
 
   return (
     <div className="bg-white dark:bg-black container min-h-screen">
@@ -162,7 +180,7 @@ export default function Cars() {
           </h1>
 
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full max-w-3xl mx-auto">
-            <form onSubmit={handleSearch} className="w-full">
+            <form className="w-full">
               <div className="relative flex items-center">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -180,14 +198,8 @@ export default function Cars() {
                   className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 dark:text-slate-300 text-sm border border-slate-200 dark:border-gray-600 rounded-md pl-10 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow placeholder:font-medium"
                   placeholder="Search Your Dream Car..."
                   value={searchTerm}
-                  onChange={(e) => setSearchTerm(e.target.value)}
+                  onChange={handleSearch}
                 />
-                <button
-                  className="rounded-md bg-my-blue py-2 px-4 border border-transparent text-center text-sm text-white font-semibold transition-all shadow-md hover:shadow-lg focus:bg-slate-700 focus:shadow-none active:bg-slate-700 hover:bg-slate-700 active:shadow-none disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none ml-2 cursor-pointer whitespace-nowrap"
-                  type="submit"
-                >
-                  Search
-                </button>
               </div>
             </form>
 
@@ -297,13 +309,14 @@ export default function Cars() {
                 </div>
               ) : (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-y-10 gap-x-6">
-                  {cars.map((car, i) => (
+                  {filteredCars.map((car, i) => (
                     <CarCard
                       key={i}
                       brand={car.brand}
                       model={car.model}
                       price={car.price}
                       img1={car.img1}
+                      slug={slugify(car.model, { lower: true, strict: true })}
                     />
                   ))}
                 </div>
