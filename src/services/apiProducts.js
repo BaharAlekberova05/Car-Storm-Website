@@ -30,6 +30,6 @@ export async function getNews() {
     console.log(error);
     throw new Error("News could not be loaded.");
   }
-  // console.log(data);
+  
   return data;
 }
