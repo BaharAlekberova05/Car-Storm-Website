@@ -8,24 +8,33 @@ import {
 import LatestNews from "./LatestNews";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import { getNews } from "../services/apiProducts";
-import slugify from "slugify";
+import { getLimitedNews } from "../services/apiProducts";
 
 const NewsDetails = () => {
   const { slug } = useParams();
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [selectedNews, setSelectedNews] = useState("");
 
   useEffect(() => {
-    getNews().then((data) => {
-      const matchedNews = data.find(
-        (item) => slugify(item.title, { lower: true, strict: true }) === slug
-      );
+    async function fetchAllNews() {
+      const data = await getLimitedNews();
+      if (data && Array.isArray(data)) {
+        setNews(data);
+        setLoading(false);
+      }
+    }
+    fetchAllNews();
+  }, []);
 
-      setNews(matchedNews);
-      setLoading(false);
-    });
-  }, [slug]);
+  useEffect(() => {
+    if (news.length > 0) {
+      const findEL = news.find((el) => el.id === Number(slug));
+      setSelectedNews(findEL);
+      console.log({ FINDEL: findEL });
+    }
+  }, [slug, news]);
+
   return (
     <div className="container">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-center dark:text-white my-10">
@@ -37,22 +46,22 @@ const NewsDetails = () => {
 
       {/* News Title */}
       <h1 className="text-4xl font-bold text-center mb-4 dark:text-white">
-        {news.title}
+        {selectedNews.title}
       </h1>
-      {/* News Meta */}
+      {/* findEL Meta */}
       <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-6">
-        <span>{news.date}</span>
-        <span>{news.author}</span>
+        <span>{selectedNews?.date}</span>
+        <span>{selectedNews?.author}</span>
       </div>
       {/* Main Image */}
       <img
-        src={news.img}
-        alt={news.title}
+        src={selectedNews?.img}
+        alt={selectedNews?.title}
         className="w-full h-80 object-cover rounded-lg mb-8"
       />
-      {/* News Content */}
+      {/* selectedNews? Content */}
       <div className="text-lg text-gray-800 dark:text-gray-300 mb-8">
-        <p className="mb-6">{news.description}</p>
+        <p className="mb-6">{selectedNews?.description}</p>
       </div>
       {/* Social Share & Comments */}
       <div className="flex items-center justify-between mb-8">

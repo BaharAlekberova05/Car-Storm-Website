@@ -1,9 +1,9 @@
 import { MdOutlineDateRange } from "react-icons/md";
 import { Link } from "react-router";
 
-const NewsGrid = ({ img, title, date, author, slug }) => {
+const NewsGrid = ({ img, title, date, author, id }) => {
   return (
-    <Link to={`/news-details/${slug}`}>
+    <Link to={`/news-details/${id}`}>
       <div className="flex flex-col space-y-8 rounded-md shadow-2xl h-[500px]">
         <div className="w-full h-1/2">
           <img
