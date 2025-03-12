@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import CarCard from "./CarCard";
 import { useParams } from "react-router";
 import { getCars } from "../services/apiProducts";
 import slugify from "slugify";
