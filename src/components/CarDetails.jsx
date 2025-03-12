@@ -3,6 +3,7 @@ import CarCard from "./CarCard";
 import { useParams } from "react-router";
 import { getCars } from "../services/apiProducts";
 import slugify from "slugify";
+import HotSaleModels from "./HotSaleModels";
 
 const CarDetails = () => {
   const { slug } = useParams();
@@ -110,17 +111,7 @@ const CarDetails = () => {
           </div>
         </div>
       </div>
-
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-center dark:text-white mb-10">
-        Other <span className="my-blue">Cars</span>
-      </h1>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-y-12 gap-x-6 mb-14">
-        <CarCard />
-        <CarCard />
-        <CarCard />
-        <CarCard />
-      </div>
+      <HotSaleModels />
     </div>
   );
 };
