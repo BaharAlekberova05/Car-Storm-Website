@@ -31,7 +31,7 @@ export async function getNews() {
     throw new Error("News could not be loaded.");
   }
 
-  return data[0].data;
+  return data;
 }
 
 export async function getLimitedCars() {

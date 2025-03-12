@@ -1,23 +1,14 @@
 import { useEffect, useState } from "react";
 import NewsGrid from "../layouts/NewsGrid";
 import { getLimitedNews } from "../services/apiProducts";
-// import NewsCard from "./NewsCard";
 
 const LatestNews = () => {
   const [limitedNews, setLimitedNews] = useState([]);
 
-  // useEffect(() => {
-  //   getLimitedNews().then((data) => {
-  //     setLimitedNews(data);
-  //   });
-  // }, []);
-
   useEffect(() => {
-    async function fetchLimitedNews() {
-      const data = await getLimitedNews();
-      setLimitedNews(data);
-    }
-    fetchLimitedNews();
+    getLimitedNews().then((data) => {
+      data && setLimitedNews(data);
+    });
   }, []);
 
   return (

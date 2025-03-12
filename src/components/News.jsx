@@ -6,9 +6,8 @@ import slugify from "slugify";
 
 const News = () => {
   const [news, setNews] = useState([]);
-
   useEffect(() => {
-    getNews().then((data) => setNews(data));
+    getNews().then((data) => data && setNews(data));
   }, []);
 
   return (
@@ -18,16 +17,20 @@ const News = () => {
       </h1>
 
       <div className="grid grid-cols-1 gap-y-6 md:grid-cols-2 md:gap-x-8 xl:grid-cols-3 my-14">
-        {news.map((item, i) => (
-          <NewsGrid
-            key={i}
-            img={item.img}
-            title={item.title}
-            date={item.date}
-            author={item.author}
-            slug={slugify(item.title, { lower: true, strict: true })}
-          />
-        ))}
+        {news.length === 0 ? (
+          <p>Could not find news...</p>
+        ) : (
+          news?.map((item, i) => (
+            <NewsGrid
+              key={i}
+              img={item.img}
+              title={item.title}
+              date={item.date}
+              author={item.author}
+              id={item.id}
+            />
+          ))
+        )}
       </div>
 
       <HotSaleModels />

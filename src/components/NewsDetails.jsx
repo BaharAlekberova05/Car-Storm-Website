@@ -8,32 +8,21 @@ import {
 import LatestNews from "./LatestNews";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
-import { getLimitedNews } from "../services/apiProducts";
+import { getNews } from "../services/apiProducts";
 
 const NewsDetails = () => {
   const { slug } = useParams();
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedNews, setSelectedNews] = useState("");
 
   useEffect(() => {
-    async function fetchAllNews() {
-      const data = await getLimitedNews();
-      if (data && Array.isArray(data)) {
-        setNews(data);
-        setLoading(false);
-      }
-    }
-    fetchAllNews();
-  }, []);
+    getNews().then((data) => {
+      const matchedNews = data && data.find((item) => item.id === Number(slug));
 
-  useEffect(() => {
-    if (news.length > 0) {
-      const findEL = news.find((el) => el.id === Number(slug));
-      setSelectedNews(findEL);
-      console.log({ FINDEL: findEL });
-    }
-  }, [slug, news]);
+      matchedNews && setNews(matchedNews);
+      setLoading(false);
+    });
+  }, [slug]);
 
   return (
     <div className="container">
@@ -46,22 +35,22 @@ const NewsDetails = () => {
 
       {/* News Title */}
       <h1 className="text-4xl font-bold text-center mb-4 dark:text-white">
-        {selectedNews.title}
+        {news?.title}
       </h1>
       {/* findEL Meta */}
       <div className="flex justify-between text-sm text-gray-500 dark:text-gray-400 mb-6">
-        <span>{selectedNews?.date}</span>
-        <span>{selectedNews?.author}</span>
+        <span>{news?.date}</span>
+        <span>{news?.author}</span>
       </div>
       {/* Main Image */}
       <img
-        src={selectedNews?.img}
-        alt={selectedNews?.title}
+        src={news?.img}
+        alt={news?.title}
         className="w-full h-80 object-cover rounded-lg mb-8"
       />
-      {/* selectedNews? Content */}
+      {/* news? Content */}
       <div className="text-lg text-gray-800 dark:text-gray-300 mb-8">
-        <p className="mb-6">{selectedNews?.description}</p>
+        <p className="mb-6">{news?.description}</p>
       </div>
       {/* Social Share & Comments */}
       <div className="flex items-center justify-between mb-8">

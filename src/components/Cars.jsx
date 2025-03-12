@@ -52,13 +52,13 @@ export default function Cars() {
 
   useEffect(() => {
     getCars().then((data) => {
-      setCars(data);
+      data && setCars(data);
     });
   }, []);
 
   useEffect(() => {
     getCategories().then((categoriesAPI) => {
-      setCategories(categoriesAPI);
+      categoriesAPI && setCategories(categoriesAPI);
     });
   }, []);
 

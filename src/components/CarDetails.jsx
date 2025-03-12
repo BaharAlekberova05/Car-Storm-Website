@@ -15,7 +15,7 @@ const CarDetails = () => {
       const matchedCars = data.find(
         (item) => slugify(item.model, { lower: true, strict: true }) === slug
       );
-      setCars(matchedCars);
+      matchedCars && setCars(matchedCars);
       setMainImage(matchedCars?.img1);
       setLoading(false);
     });
