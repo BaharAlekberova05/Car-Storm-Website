@@ -2,8 +2,13 @@
 import { BiHeart } from "react-icons/bi";
 import { CardBody, CardContainer, CardItem } from "../ui/3dCard";
 import { Link } from "react-router";
+import { useCart } from "react-use-cart";
+import { useWishlist } from "react-use-wishlist";
 
-function CarCard({ brand, model, price, img1, slug }) {
+function CarCard({ brand, model, price, img1, slug, product }) {
+  const { addItem } = useCart();
+  const { addWishlistItem } = useWishlist();
+
   return (
     <CardContainer className="inter-var">
       <CardBody className="bg-gray-50 relative group/card  dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-black dark:border-white/[0.2] border-black/[0.1] w-full h-auto rounded-xl p-6 border">
@@ -35,20 +40,23 @@ function CarCard({ brand, model, price, img1, slug }) {
         <div className="flex justify-between items-center mt-10">
           <CardItem
             translateZ={20}
-            as={Link}
             to="/wishlist"
-            className="px-4 py-2 rounded-xl text-2xl font-normal dark:text-white"
+            className="px-4 py-2 rounded-xl text-2xl font-normal dark:text-white cursor-pointer"
           >
-            <BiHeart />
+            <BiHeart
+              onClick={() => {
+                addWishlistItem(product);
+              }}
+            />
           </CardItem>
 
           <CardItem
             translateZ={20}
-            as={Link}
             to="/cart"
-            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+            className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold cursor-pointer"
+            onClick={() => addItem(product)}
           >
-            Buy now
+            Add to cart
           </CardItem>
         </div>
       </CardBody>

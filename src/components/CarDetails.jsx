@@ -3,12 +3,17 @@ import { useParams } from "react-router";
 import { getCars } from "../services/apiProducts";
 import slugify from "slugify";
 import HotSaleModels from "./HotSaleModels";
+import { useCart } from "react-use-cart";
+import { useWishlist } from "react-use-wishlist";
 
 const CarDetails = () => {
   const { slug } = useParams();
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
   const [mainImage, setMainImage] = useState("");
+
+  const { addItem } = useCart();
+  const { addWishlistItem } = useWishlist();
 
   useEffect(() => {
     getCars().then((data) => {
@@ -100,10 +105,16 @@ const CarDetails = () => {
                 </ul>
               </div>
 
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4 cursor-pointer mr-4">
+              <button
+                className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4 cursor-pointer mr-4"
+                onClick={() => addItem(cars)}
+              >
                 Add To Cart
               </button>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4 cursor-pointer">
+              <button
+                className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4 cursor-pointer"
+                onClick={() => addWishlistItem(cars)}
+              >
                 Add To Wishlist
               </button>
             </div>

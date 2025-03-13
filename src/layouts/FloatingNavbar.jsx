@@ -16,8 +16,13 @@ import logo from "../assets/img/logo.png";
 import Badge from "@mui/material/Badge";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMode } from "../redux/ThemeSlice";
+import { useCart } from "react-use-cart";
+import { useWishlist } from "react-use-wishlist";
 
 export const FloatingNavbar = ({ navItems, className }) => {
+  const { totalItems } = useCart();
+  const { totalWishlistItems } = useWishlist();
+
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -75,7 +80,7 @@ export const FloatingNavbar = ({ navItems, className }) => {
 
           <div className="flex items-center space-x-4">
             <Link to={"/cart"}>
-              <Badge badgeContent={4} color="primary">
+              <Badge badgeContent={totalItems} color="primary">
                 <IoCarSport
                   title="Cart"
                   color="action"
@@ -85,7 +90,7 @@ export const FloatingNavbar = ({ navItems, className }) => {
             </Link>
 
             <Link to={"/wishlist"}>
-              <Badge badgeContent={4} color="primary">
+              <Badge badgeContent={totalWishlistItems} color="primary">
                 <BiHeart
                   title="Add to wishlist"
                   className="w-6 h-6 text-black dark:text-white cursor-pointer"

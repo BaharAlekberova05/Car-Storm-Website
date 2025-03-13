@@ -6,11 +6,17 @@ import "/src/assets/style/style.scss";
 import { BrowserRouter } from "react-router";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.jsx";
+import { CartProvider } from "react-use-cart";
+import { WishlistProvider } from "react-use-wishlist";
 
 createRoot(document.getElementById("root")).render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <WishlistProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </CartProvider>
+    </WishlistProvider>
   </Provider>
 );

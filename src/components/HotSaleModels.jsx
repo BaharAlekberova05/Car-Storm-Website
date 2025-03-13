@@ -25,6 +25,7 @@ const HotSaleModels = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 dark:text-white gap-8 mb-10">
         {limitedCars.map((car, i) => (
           <CarCard
+          product={car}
             key={i}
             brand={car.brand}
             model={car.model}
