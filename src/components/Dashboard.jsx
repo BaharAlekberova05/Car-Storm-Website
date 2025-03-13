@@ -1,43 +1,12 @@
 import { FaPlus, FaBars } from "react-icons/fa";
 import { FiEdit3 } from "react-icons/fi";
-
 import { Link } from "react-router";
-
 import { Card, Typography } from "@material-tailwind/react";
 import { FaRegTrashCan } from "react-icons/fa6";
+import { useEffect, useState } from "react";
+import { deleteRows, getCars } from "../services/apiProducts";
 
 const TABLE_HEAD = ["Image", "Car Name", "Price", "Status"];
-
-const TABLE_ROWS = [
-  {
-    image:
-      "https://wallpapercat.com/w/middle-retina/5/f/9/157932-3840x2160-desktop-4k-range-rover-wallpaper-image.jpg",
-    carName: "Tesla Model S",
-    price: "$80,000",
-    status: "Available",
-  },
-  {
-    image:
-      "https://www.wsupercars.com/thumbnails/Porsche/2016-Porsche-911-Carrera-4-006.jpg",
-    carName: "BMW M3",
-    price: "$70,000",
-    status: "Sold",
-  },
-  {
-    image:
-      "https://wallpapercat.com/w/middle-retina/5/f/9/157932-3840x2160-desktop-4k-range-rover-wallpaper-image.jpg",
-    carName: "Audi R8",
-    price: "$120,000",
-    status: "Available",
-  },
-  {
-    image:
-      "https://wallpapercat.com/w/middle-retina/5/f/9/157932-3840x2160-desktop-4k-range-rover-wallpaper-image.jpg",
-    carName: "Mercedes AMG GT",
-    price: "$150,000",
-    status: "Pending",
-  },
-];
 
 function Button({
   children,
@@ -86,7 +55,6 @@ function Sidebar() {
   );
 }
 
-// Navbar Component
 function Navbar() {
   return (
     <nav className="bg-white dark:bg-black shadow">
@@ -101,6 +69,23 @@ function Navbar() {
 }
 
 export default function CarDashboard() {
+  const [cars, setCars] = useState([]);
+
+  useEffect(() => {
+    getCars().then((data) => {
+      data && setCars(data);
+    });
+  }, []);
+
+  const handleDelete = async (id) => {
+    try {
+      await deleteRows(id);
+      setCars((prevCars) => prevCars.filter((car) => car.id !== id));
+    } catch (error) {
+      console.error("Could not delete", error);
+    }
+  };
+
   return (
     <div className="flex min-h-screen bg-gray-100 dark:bg-black">
       <Sidebar />
@@ -127,52 +112,51 @@ export default function CarDashboard() {
                 </thead>
 
                 <tbody>
-                  {TABLE_ROWS.map(
-                    ({ image, carName, price, status }, index) => {
-                      const isLast = index === TABLE_ROWS.length - 1;
-                      const classes = isLast
-                        ? "py-3 px-3"
-                        : "py-3 px-3 border-b border-gray-300 dark:border-gray-600";
+                  {cars.map((car, index) => {
+                    const isLast = index === cars.length - 1;
+                    const classes = isLast
+                      ? "py-3 px-3"
+                      : "py-3 px-3 border-b border-gray-300 dark:border-gray-600";
 
-                      return (
-                        <tr key={carName} className="hover:bg-gray-900">
-                          <td className={classes}>
-                            <img
-                              src={image}
-                              alt={carName}
-                              className="w-12 h-12 rounded-md object-contain"
-                            />
-                          </td>
-                          <td className={classes}>
-                            <Typography className="font-bold dark:text-white text-xs md:text-sm xl:text-lg">
-                              {carName}
-                            </Typography>
-                          </td>
-                          <td className={classes}>
-                            <Typography className="font-normal text-gray-600 dark:text-gray-300 text-xs md:text-sm xl:text-lg">
-                              {price}
-                            </Typography>
-                          </td>
-                          <td className={`${classes} whitespace-nowrap`}>
-                            <Typography className="font-normal text-gray-600 dark:text-gray-300 text-xs md:text-sm xl:text-lg flex items-center space-x-2">
-                              <Link to={"/edit-car"}>
-                                <FiEdit3
-                                  title="Edit"
-                                  color="action"
-                                  className="w-6 h-6 text-black dark:text-white cursor-pointer"
-                                />
-                              </Link>
-                              <FaRegTrashCan
-                                title="Delete"
+                    return (
+                      <tr key={index} className="hover:bg-gray-900">
+                        <td className={classes}>
+                          <img
+                            src={car.img1}
+                            alt={car.brand}
+                            className="w-12 h-12 rounded-md object-contain"
+                          />
+                        </td>
+                        <td className={classes}>
+                          <Typography className="font-bold dark:text-white text-xs md:text-sm xl:text-lg">
+                            {car.brand} {car.model}
+                          </Typography>
+                        </td>
+                        <td className={classes}>
+                          <Typography className="font-normal text-gray-600 dark:text-gray-300 text-xs md:text-sm xl:text-lg">
+                            {car.price}
+                          </Typography>
+                        </td>
+                        <td className={`${classes} whitespace-nowrap`}>
+                          <Typography className="font-normal text-gray-600 dark:text-gray-300 text-xs md:text-sm xl:text-lg flex items-center space-x-2">
+                            <Link to={"/edit-car"}>
+                              <FiEdit3
+                                title="Edit"
                                 color="action"
-                                className="text-black dark:text-white cursor-pointer"
+                                className="w-6 h-6 text-black dark:text-white cursor-pointer"
                               />
-                            </Typography>
-                          </td>
-                        </tr>
-                      );
-                    }
-                  )}
+                            </Link>
+                            <FaRegTrashCan
+                              title="Delete"
+                              color="action"
+                              className="text-black dark:text-white cursor-pointer"
+                              onClick={() => handleDelete(car.id)}
+                            />
+                          </Typography>
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </Card>

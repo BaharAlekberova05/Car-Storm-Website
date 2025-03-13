@@ -55,3 +55,13 @@ export async function getLimitedNews() {
 
   return data;
 }
+
+export async function deleteRows(id) {
+  console.log("silinecek id:", id);
+  const { error } = await supabase.from("products").delete().eq("id", id);
+
+  if (error) {
+    console.log(error);
+    throw new Error("Could not delete rows.");
+  }
+}

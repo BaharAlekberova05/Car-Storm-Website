@@ -1,9 +1,29 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
-import { Link } from "react-router";
+import { Link, Navigate, useNavigate } from "react-router";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
+  const emailRef = useRef();
+  const passRef = useRef();
+  const navigate = useNavigate();
+
+  const admin = {
+    email: "baharalekberova05@gmail.com",
+    password: "B1-212+B1-222",
+  };
+
+  const accessToAdmin = () => {
+    if (
+      emailRef.current.value === admin.email &&
+      passRef.current.value === admin.password
+    ) {
+      navigate("/dashboard");
+    } else {
+      alert("calismadi");
+    }
+  };
+
   return (
     <div className="container">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
@@ -21,6 +41,7 @@ const Login = () => {
               <label className="dark:text-white text-sm">Email adress</label>
               <input
                 type="email"
+                ref={emailRef}
                 className="outline-none border border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3 "
               />
             </div>
@@ -37,19 +58,20 @@ const Login = () => {
                 </button>
               </div>
               <input
+                ref={passRef}
                 type={showPass ? "text" : "password"}
                 className="outline-none border border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3"
               />
             </div>
 
-            <Link to={"/dashboard"}>
-              <button
-                type="submit"
-                className="w-full bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
-              >
-                Login
-              </button>
-            </Link>
+            {/* <Link to={"/dashboard"}></Link> */}
+
+            <button
+              className="w-full bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
+              onClick={accessToAdmin}
+            >
+              Login
+            </button>
 
             <p className="text-xs md:text-sm xl:text-md dark:text-white mb-4">
               Don't have an account?{" "}
