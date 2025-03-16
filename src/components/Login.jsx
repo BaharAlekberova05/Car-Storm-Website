@@ -49,13 +49,13 @@ const Login = () => {
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-between">
                 <label className="dark:text-white text-sm">Password</label>
-                <button onClick={() => setShowPass(!showPass)}>
+                <div onClick={() => setShowPass(!showPass)}>
                   {showPass ? (
                     <HiOutlineEye className="dark:text-white cursor-pointer" />
                   ) : (
                     <HiOutlineEyeOff className="dark:text-white cursor-pointer" />
                   )}
-                </button>
+                </div>
               </div>
               <input
                 ref={passRef}

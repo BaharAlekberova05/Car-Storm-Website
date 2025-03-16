@@ -57,11 +57,64 @@ export async function getLimitedNews() {
 }
 
 export async function deleteRows(id) {
-  console.log("silinecek id:", id);
   const { error } = await supabase.from("products").delete().eq("id", id);
 
   if (error) {
     console.log(error);
     throw new Error("Could not delete rows.");
   }
+}
+
+export async function insertRow(
+  img1,
+  img2,
+  img3,
+  img4,
+  img5,
+  brand,
+  model,
+  year,
+  price,
+  color,
+  bodyType,
+  fuelType,
+  transmissionType,
+  quantity
+) {
+  const { data, error } = await supabase
+    .from("products")
+    .insert([
+      {
+        img1,
+        img2,
+        img3,
+        img4,
+        img5,
+        brand,
+        model,
+        year,
+        price,
+        color,
+        bodyType,
+        fuelType,
+        transmissionType,
+        quantity,
+      },
+    ])
+    .select();
+
+  if (error) {
+    console.log(error);
+    throw new Error("Could not insert rows.");
+  }
+
+  return data;
+}
+
+export async function updateRow() {
+  const { data, error } = await supabase
+    .from("products")
+    .update({ other_column: "otherValue" })
+    .eq("some_column", "someValue")
+    .select();
 }
