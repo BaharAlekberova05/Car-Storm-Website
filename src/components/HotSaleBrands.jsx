@@ -1,7 +1,4 @@
 "use client";
-import amg from "../assets/img/amg.png";
-import aston from "../assets/img/aston.png";
-import audi from "../assets/img/audi.png";
 
 import HeroParallax from "../ui/HeroParallax";
 
@@ -10,10 +7,10 @@ export function HotSaleBrands() {
 }
 export const products = [
   {
-    title: "Mazda",
+    title: "Nissan",
     link: "/cars",
     thumbnail:
-      "https://images.seeklogo.com/logo-png/2/2/chevrolet-logo-png_seeklogo-29486.png",
+      "https://purepng.com/public/uploads/large/purepng.com-nissan-logonissannissan-motorautomobile-manufactureryokohamanissan-logo-17015275285920rpml.png",
   },
   {
     title: "Range Rover",
@@ -29,20 +26,21 @@ export const products = [
   },
 
   {
-    title: "Jaguar",
+    title: "Chevrolet",
     link: "/cars",
     thumbnail:
-      "https://images.seeklogo.com/logo-png/9/2/nissan-logo-png_seeklogo-99769.png",
+      "https://images.seeklogo.com/logo-png/2/2/chevrolet-logo-png_seeklogo-29486.png",
   },
   {
     title: "Ford Mustang",
     link: "/cars",
-    thumbnail: "https://www.carlogos.org/logo/Mustang-logo-2010-640x359.jpg",
+    thumbnail: "https://www.carlogos.org/car-logos/ford-logo-2017-640.png",
   },
   {
-    title: "Ford",
+    title: "Cadillac",
     link: "/cars",
-    thumbnail: "https://www.carlogos.org/car-logos/ford-logo-2017-640.png",
+    thumbnail:
+      "https://www.carlogos.org/car-logos/cadillac-logo-2021-full-640.png",
   },
 
   {
@@ -52,10 +50,11 @@ export const products = [
       "https://images.seeklogo.com/logo-png/9/2/mercedes-benz-logo-png_seeklogo-91081.png",
   },
   {
-    title: "Honda",
+    title: "Geely",
     link: "/cars",
     thumbnail:
-      "https://images.seeklogo.com/logo-png/30/2/hyundai-logo-png_seeklogo-309777.png",
+      // "https://purepng.com/public/uploads/large/purepng.com-nissan-logonissannissan-motorautomobile-manufactureryokohamanissan-logo-17015275285920rpml.png",
+      "https://www.pngplay.com/wp-content/uploads/13/Geely-Logo-Transparent-Free-PNG.png",
   },
   {
     title: "Cadillac",
@@ -66,7 +65,8 @@ export const products = [
   {
     title: "Bugatti",
     link: "/cars",
-    thumbnail: "https://www.carlogos.org/logo/Bugatti-logo-640x327.jpg",
+    thumbnail:
+      "https://assets.stickpng.com/images/580b585b2edbce24c47b2cf2.png",
   },
   {
     title: "BYD",
@@ -75,10 +75,10 @@ export const products = [
   },
 
   {
-    title: "Toyota",
+    title: "Chery",
     link: "/cars",
     thumbnail:
-      "https://images.seeklogo.com/logo-png/14/2/toyota-logo-png_seeklogo-141411.png",
+      "https://cdn.freelogovectors.net/wp-content/uploads/2023/05/chery_logo-freelogovectors.net_-640x400.png",
   },
   {
     title: "BMW",
@@ -88,8 +88,7 @@ export const products = [
   {
     title: "Ferrari",
     link: "/cars",
-    thumbnail:
-      "https://images.seeklogo.com/logo-png/5/2/ferrari-emblem-logo-png_seeklogo-53763.png",
+    thumbnail: "https://pngimg.com/uploads/ferrari/ferrari_PNG102815.png",
   },
   {
     title: "Bentley",

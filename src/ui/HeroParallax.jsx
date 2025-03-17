@@ -92,7 +92,7 @@ export const Header = () => {
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
         Hot Sale <br /> <Link to={"/cars"} className="my-blue underline">Car Brands</Link>
       </h1>
-      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-neutral-200">
+      <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-white">
         An export company of automobile from everywhere! <br />
         🚗 Discover the finest cars from around the world! We offer a wide range
         of vehicles, including electric, hybrid, gasoline, and diesel models.
@@ -128,10 +128,6 @@ export const ProductCard = ({ product, translate }) => {
           alt={product.title}
         />
       </Link>
-      <div className="absolute inset-0 h-full w-full opacity-0 group-hover/product:opacity-80 bg-black pointer-events-none"></div>
-      <h2 className="absolute bottom-4 left-4 opacity-0 group-hover/product:opacity-100 text-white">
-        {product.title}
-      </h2>
     </motion.div>
   );
 };
