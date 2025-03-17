@@ -139,7 +139,7 @@ export default function CarDashboard() {
                         </td>
                         <td className={`${classes} whitespace-nowrap`}>
                           <Typography className="font-normal text-gray-600 dark:text-gray-300 text-xs md:text-sm xl:text-lg flex items-center space-x-2">
-                            <Link to={"/edit-car"}>
+                            <Link to={`/edit-car/${car.id}`}>
                               <FiEdit3
                                 title="Edit"
                                 color="action"

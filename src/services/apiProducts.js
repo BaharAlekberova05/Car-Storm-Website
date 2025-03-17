@@ -11,6 +11,19 @@ export async function getCars() {
   return data;
 }
 
+export async function getCarById(id) {
+  let { data, error } = await supabase
+    .from("products")
+    .select("*")
+    .eq("id", id);
+
+  if (error) {
+    console.log(error);
+    throw new Error(`${id}-car could not be loaded.`);
+  }
+  return data[0];
+}
+
 export async function getCategories() {
   const { data, error } = await supabase.from("categories").select("data");
 
@@ -111,10 +124,17 @@ export async function insertRow(
   return data;
 }
 
-export async function updateRow() {
+export async function updateRow(id, updatedData) {
   const { data, error } = await supabase
     .from("products")
-    .update({ other_column: "otherValue" })
-    .eq("some_column", "someValue")
+    .update(updatedData)
+    .eq("id", id)
     .select();
+
+  if (error) {
+    console.log(error);
+    throw new Error("Could not update rows.");
+  }
+
+  return data;
 }
