@@ -43,7 +43,7 @@ const AddCar = () => {
         formData.transmission,
         Number(formData.quantity)
       );
-      console.log("Inserted:", response);
+      alert("Car added succesfully!")
     } catch (error) {
       console.error("Insert failed:", error);
     }

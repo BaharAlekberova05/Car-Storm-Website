@@ -53,7 +53,7 @@ const Cart = () => {
                       : "py-3 px-3 border-b border-gray-300 dark:border-gray-600";
 
                     return (
-                      <tr key={index} className="hover:bg-gray-50">
+                      <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-900">
                         <td className={classes}>
                           <img
                             src={item.img1}
