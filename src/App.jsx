@@ -6,9 +6,8 @@ import Contact from "./components/Contact";
 import News from "./components/News";
 import { NavbarContent } from "./layouts/NavbarContent";
 import Footer from "./layouts/Footer";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { setMode } from "./redux/ThemeSlice";
 import NotFound from "./components/NotFound";
 import NewsDetails from "./components/NewsDetails";
 import Cart from "./components/Cart";
@@ -22,13 +21,7 @@ import AddCar from "./components/AddCar";
 import EditCar from "./components/EditCar";
 
 const App = () => {
-  const dispatch = useDispatch();
   const mode = useSelector((state) => state.theme.mode);
-
-  useEffect(() => {
-    const savedMode = localStorage.getItem("themeMode") || "light";
-    dispatch(setMode(savedMode));
-  }, [dispatch]);
 
   useEffect(() => {
     document.documentElement.classList.toggle("dark", mode === "dark");
