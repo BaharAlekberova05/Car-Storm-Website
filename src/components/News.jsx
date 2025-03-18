@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import NewsGrid from "../layouts/NewsGrid";
 import HotSaleModels from "./HotSaleModels";
 import { getNews } from "../services/apiProducts";
-import slugify from "slugify";
 
 const News = () => {
   const [news, setNews] = useState([]);
