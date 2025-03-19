@@ -11,12 +11,12 @@ const Contact = () => {
             <div className="flex items-center space-x-4 w-full">
               <input
                 type="text"
-                className="border border-gray-200 bg-white dark:bg-black w-1/2 px-4 py-2 rounded-md dark:text-white placeholder:dark:text-white "
+                className="border border-gray-200 bg-white dark:bg-[#121212] w-1/2 px-4 py-2 rounded-md dark:text-white placeholder:dark:text-white "
                 placeholder="Enter your name"
               />
               <input
                 type="email"
-                className="border border-gray-200 bg-white w-1/2 px-4 py-2 rounded-md dark:bg-black dark:text-white placeholder:dark:text-white"
+                className="border border-gray-200 bg-white w-1/2 px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
                 placeholder="Enter your email"
               />
             </div>
@@ -24,14 +24,14 @@ const Contact = () => {
             <div className="w-full">
               <input
                 type="text"
-                className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md dark:bg-black dark:text-white placeholder:dark:text-white"
+                className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
                 placeholder="Enter your subject"
               />
             </div>
 
             <div className="w-full">
               <textarea
-                className="w-full h-[200px] border border-gray-200 bg-white px-4 py-2 rounded-md dark:bg-black dark:text-white placeholder:dark:text-white"
+                className="w-full h-[200px] border border-gray-200 bg-white px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
                 placeholder="Write your message"
               ></textarea>
             </div>

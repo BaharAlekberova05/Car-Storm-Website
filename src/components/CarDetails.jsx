@@ -38,7 +38,7 @@ const CarDetails = () => {
       {loading && <p>Loading...</p>}
       {!cars && <p>Cars not found!</p>}
 
-      <div className="dark:bg-black dark:text-white">
+      <div className="dark:bg-[#121212] dark:text-white">
         <div className="px-4 py-8">
           <div className="flex flex-wrap -mx-4">
             {/* Product Images */}

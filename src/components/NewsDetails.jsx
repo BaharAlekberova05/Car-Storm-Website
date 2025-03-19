@@ -84,7 +84,7 @@ const NewsDetails = () => {
         </div>
       </div>
       {/* Comments Section */}
-      <div className="bg-white dark:bg-black  border border-gray-300 dark:border-gray-700 p-6 rounded-lg mb-10">
+      <div className="bg-white dark:bg-[#121212]  border border-gray-300 dark:border-gray-700 p-6 rounded-lg mb-10">
         <h3 className="text-2xl font-semibold text-gray-700 dark:text-white mb-4">
           Comments
         </h3>

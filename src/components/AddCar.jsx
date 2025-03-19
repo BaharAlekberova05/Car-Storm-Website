@@ -86,7 +86,7 @@ const AddCar = () => {
                   type={field.type}
                   value={formData[field.name]}
                   onChange={handleChange}
-                  className="outline-none border border-gray-300 bg-white text-black dark:bg-black dark:text-white rounded-md py-2 px-3"
+                  className="outline-none border border-gray-300 bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-2 px-3"
                 />
               </div>
             ))}

@@ -22,7 +22,7 @@ const Register = () => {
               <label className="dark:text-white text-sm">User name</label>
               <input
                 type="text"
-                className="border outline-none border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3"
+                className="border outline-none border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3"
               />
             </div>
 
@@ -30,7 +30,7 @@ const Register = () => {
               <label className="dark:text-white text-sm">Email adress</label>
               <input
                 type="email"
-                className="outline-none border border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3"
+                className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3"
               />
             </div>
 
@@ -47,7 +47,7 @@ const Register = () => {
               </div>
               <input
                 type={showPass ? "text" : "password"}
-                className="outline-none border border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3"
+                className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3"
               />
             </div>
 

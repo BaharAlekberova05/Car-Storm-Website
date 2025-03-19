@@ -42,7 +42,7 @@ const Login = () => {
               <input
                 type="email"
                 ref={emailRef}
-                className="outline-none border border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3 "
+                className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3 "
               />
             </div>
 
@@ -60,7 +60,7 @@ const Login = () => {
               <input
                 ref={passRef}
                 type={showPass ? "text" : "password"}
-                className="outline-none border border-white bg-white text-black dark:bg-black dark:text-white rounded-md py-1 px-3"
+                className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3"
               />
             </div>
 

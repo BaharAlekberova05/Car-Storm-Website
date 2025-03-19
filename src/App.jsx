@@ -27,7 +27,7 @@ const App = () => {
     document.documentElement.classList.toggle("dark", mode === "dark");
   }, [mode]);
   return (
-    <div className="bg-[#f5f5f5] dark:bg-black">
+    <div className="bg-[#f5f5f5] dark:bg-[#121212]">
       <NavbarContent />
       <Routes>
         <Route path="/" element={<Home />} />

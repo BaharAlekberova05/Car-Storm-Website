@@ -17,14 +17,14 @@ const Wishlist = () => {
       {isWishlistEmpty ? (
         <p>Wishlist is empty!</p>
       ) : (
-        <Card className="dark:bg-black h-full w-full px-4 md:px-6 xl:px-8 mb-14">
+        <Card className="dark:bg-[#121212] h-full w-full px-4 md:px-6 xl:px-8 mb-14 border">
           <table className="w-full min-w-max table-auto text-left border-collapse">
             <thead>
               <tr className="">
                 {TABLE_HEAD.map((head) => (
                   <th
                     key={head}
-                    className="pb-3 pt-5 px-3 text-xs md:text-sm xl:text-lg"
+                    className="pb-3 pt-5 px-3 text-xs md:text-sm xl:text-lg border-b"
                   >
                     <Typography className="font-bold leading-none dark:text-white">
                       {head}
@@ -42,7 +42,7 @@ const Wishlist = () => {
                 return (
                   <tr
                     key={index}
-                    className="hover:bg-gray-100 dark:hover:bg-gray-900"
+                    className="hover:bg-gray-100 dark:hover:bg-gray-900 border-b"
                   >
                     <td className={classes}>
                       <img

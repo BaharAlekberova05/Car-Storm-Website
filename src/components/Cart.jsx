@@ -27,11 +27,11 @@ const Cart = () => {
         <p>Cart is empty!</p>
       ) : (
         <div>
-          <section className="w-full bg-white dark:bg-black rounded-lg shadow-md overflow-x-auto mb-12">
-            <Card className="dark:bg-black h-full w-full border border-gray-300 dark:border-gray-700 px-4 md:px-6 xl:px-8">
+          <section className="w-full bg-white dark:bg-[#121212] rounded-lg shadow-md overflow-x-auto mb-12">
+            <Card className="dark:bg-[#121212] h-full w-full border border-gray-300 dark:border-gray-700 px-4 md:px-6 xl:px-8">
               <table className="w-full min-w-max table-auto text-left border-collapse">
                 <thead>
-                  <tr className="dark:bg-black">
+                  <tr className="dark:bg-[#121212]">
                     {TABLE_HEAD.map((head) => (
                       <th
                         key={head}

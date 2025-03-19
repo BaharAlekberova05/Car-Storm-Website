@@ -44,7 +44,7 @@ function Button({
 function Sidebar({ isOpen, toggleSidebar }) {
   return (
     <aside
-      className={`fixed inset-y-0 left-0 w-64 bg-white dark:bg-black p-6 shadow-xl transform ${
+      className={`fixed inset-y-0 left-0 w-64 bg-white dark:bg-[#121212] p-6 shadow-xl transform ${
         isOpen ? "translate-x-0" : "-translate-x-full"
       } transition-transform duration-300 md:relative md:translate-x-0 md:w-72 z-30`}
     >
@@ -90,7 +90,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
 
 function Navbar({ toggleSidebar }) {
   return (
-    <nav className="flex items-center justify-between p-4 bg-white dark:bg-black shadow-md rounded-lg mb-6 md:hidden">
+    <nav className="flex items-center justify-between p-4 bg-white dark:bg-[#121212] shadow-md rounded-lg mb-6 md:hidden">
       <Button
         variant="icon"
         onClick={toggleSidebar}
@@ -129,10 +129,10 @@ export default function CarDashboard() {
   };
 
   return (
-    <div className="flex min-h-screen bg-gray-100 dark:bg-black">
+    <div className="flex min-h-screen bg-gray-100 dark:bg-[#121212]">
       {sidebarOpen && (
         <div
-          className="fixed inset-0 bg-black bg-opacity-50 md:hidden z-20"
+          className="fixed inset-0 bg-[#121212] bg-opacity-50 md:hidden z-20"
           onClick={() => setSidebarOpen(false)}
         ></div>
       )}
@@ -154,7 +154,7 @@ export default function CarDashboard() {
           </p>
         </div>
 
-        <Card className="dark:bg-black overflow-hidden rounded-xl shadow-lg">
+        <Card className="dark:bg-[#121212] overflow-hidden rounded-xl shadow-lg border">
           <div className="p-6 flex justify-between items-center border-b border-gray-200 dark:border-gray-700">
             <Typography
               variant="h5"
@@ -172,7 +172,7 @@ export default function CarDashboard() {
           <div className="overflow-x-auto">
             <table className="w-full min-w-max table-auto text-left">
               <thead>
-                <tr className="bg-gray-50 dark:bg-gray-700">
+                <tr className="bg-gray-50 dark:bg-gray-900">
                   {TABLE_HEAD.map((head) => (
                     <th
                       key={head}

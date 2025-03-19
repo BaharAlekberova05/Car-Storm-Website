@@ -63,7 +63,7 @@ export default function Cars() {
   }, []);
 
   return (
-    <div className="bg-white dark:bg-black container min-h-screen">
+    <div className="bg-white dark:bg-[#121212] container min-h-screen">
       {/* Mobile filter dialog */}
       <Dialog
         open={mobileFiltersOpen}
@@ -234,7 +234,7 @@ export default function Cars() {
                     defaultOpen={i === 0}
                   >
                     <h3 className="-my-3 flow-root">
-                      <DisclosureButton className="group flex w-full items-center justify-between bg-white dark:bg-black py-3 text-sm text-gray-400 dark:text-white hover:text-gray-500">
+                      <DisclosureButton className="group flex w-full items-center justify-between bg-white dark:bg-[#121212] py-3 text-sm text-gray-400 dark:text-white hover:text-gray-500">
                         <span className="font-medium text-gray-900 dark:text-white">
                           {cat}
                         </span>
