@@ -24,7 +24,7 @@ export const AboutUI = ({ data }) => {
 
   return (
     <div
-      className="w-full dark:bg-neutral-950 font-sans md:px-10"
+      className="w-full dark:bg-[#121212] font-sans md:px-10"
       ref={containerRef}
     >
       <div className="flex items-center justify-center">

@@ -1,3 +1,27 @@
+import emailjs from "emailjs-com";
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+  emailjs
+    .sendForm(
+      "service_nk7n31e",
+      "template_nl69t4k",
+      e.target,
+      "3LqMFtplvqEm7Ww4-"
+    )
+    .then(
+      (result) => {
+        console.log(result.text);
+        alert("Messsage sent successfully!");
+      },
+      (error) => {
+        console.log(error.text);
+        alert("Message coluld not send.");
+      }
+    );
+};
+
 const Contact = () => {
   return (
     <div className="container overflow-x-hidden">
@@ -7,14 +31,20 @@ const Contact = () => {
 
       <div className="flex flex-col space-y-8 md:flex-row xl:flex-row md:space-x-6 xl:space-x-6">
         <div className="md:w-1/2 xl:w-1/2">
-          <form action="#" className="flex flex-col space-y-6">
+          <form
+            onSubmit={sendEmail}
+            action="#"
+            className="flex flex-col space-y-6"
+          >
             <div className="flex items-center space-x-4 w-full">
               <input
+                name="user_name"
                 type="text"
                 className="border border-gray-200 bg-white dark:bg-[#121212] w-1/2 px-4 py-2 rounded-md dark:text-white placeholder:dark:text-white "
                 placeholder="Enter your name"
               />
               <input
+                name="user_email"
                 type="email"
                 className="border border-gray-200 bg-white w-1/2 px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
                 placeholder="Enter your email"
@@ -23,6 +53,7 @@ const Contact = () => {
 
             <div className="w-full">
               <input
+                name="message_subject"
                 type="text"
                 className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
                 placeholder="Enter your subject"
@@ -31,6 +62,7 @@ const Contact = () => {
 
             <div className="w-full">
               <textarea
+                name="message"
                 className="w-full h-[200px] border border-gray-200 bg-white px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
                 placeholder="Write your message"
               ></textarea>

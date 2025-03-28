@@ -28,6 +28,7 @@ export default function Cars() {
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCars, setFilteredCars] = useState(cars);
+  const [selectedCategories, setSelectedCategories] = useState([]);
 
   const options = {
     keys: ["brand", "model"],
