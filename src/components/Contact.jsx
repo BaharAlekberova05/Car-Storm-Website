@@ -1,108 +1,3 @@
-// import { useRef } from "react";
-// import emailjs from "@emailjs/browser";
-
-// const Contact = () => {
-//   const form = useRef();
-
-//   const sendEmail = (e) => {
-//     e.preventDefault();
-
-//     if (!form.current) return; // Güvenlik önlemi
-
-//     emailjs
-//       .sendForm(
-//         "service_nk7n31e", // EmailJS'den aldığın Service ID
-//         "template_nl69t4k", // EmailJS Template ID
-//         form.current,
-//         "3LqMFtplvqEm7Ww4-" // EmailJS Public Key
-//       )
-//       .then(
-//         (result) => {
-//           console.log(result.text);
-//           alert("Message sent successfully!");
-//         },
-//         (error) => {
-//           console.error("Error:", error); // Hata mesajını detaylı yaz
-//           alert("Message could not be sent.");
-//         }
-//       );
-//   };
-
-//   return (
-//     <div className="container overflow-x-hidden">
-//       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-8 text-center">
-//         Contact <span className="my-blue">Us</span>
-//       </h1>
-
-//       <div className="flex flex-col space-y-8 md:flex-row xl:flex-row md:space-x-6 xl:space-x-6">
-//         <div className="md:w-1/2 xl:w-1/2">
-//           <form
-//             ref={form}
-//             onSubmit={sendEmail}
-//             className="flex flex-col space-y-6"
-//           >
-//             <div className="flex items-center space-x-4 w-full">
-//               <input
-//                 name="user_name"
-//                 type="text"
-//                 required
-//                 className="border border-gray-200 bg-white dark:bg-[#121212] w-1/2 px-4 py-2 rounded-md dark:text-white placeholder:dark:text-white"
-//                 placeholder="Enter your name"
-//               />
-//               <input
-//                 name="user_email"
-//                 type="email"
-//                 required
-//                 className="border border-gray-200 bg-white w-1/2 px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
-//                 placeholder="Enter your email"
-//               />
-//             </div>
-
-//             <div className="w-full">
-//               <input
-//                 name="message_subject"
-//                 type="text"
-//                 required
-//                 className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
-//                 placeholder="Enter your subject"
-//               />
-//             </div>
-
-//             <div className="w-full">
-//               <textarea
-//                 name="message"
-//                 required
-//                 className="w-full h-[200px] border border-gray-200 bg-white px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
-//                 placeholder="Write your message"
-//               ></textarea>
-//             </div>
-
-//             <button
-//               type="submit"
-//               className="bg-white p-4 mt-4 rounded-lg bg-my-blue text-white font-medium cursor-pointer"
-//             >
-//               Send Message
-//             </button>
-//           </form>
-//         </div>
-
-//         <div className="max-w-full md:w-1/2 xl:w-1/2">
-//           <iframe
-//             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3039.0397113063036!2d49.82477371186512!3d40.385812471325465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40307d9b9925c3ed%3A0xeee07cb0b400caa2!2sAz%C9%99rbaycan%20D%C3%B6vl%C9%99t%20%C4%B0qtisad%20Universiteti%20(UNEC)!5e0!3m2!1saz!2saz!4v1741263946821!5m2!1saz!2saz"
-//             className="w-full h-[93%]"
-//             style={{ border: 0 }}
-//             allowFullScreen
-//             loading="lazy"
-//             referrerPolicy="no-referrer-when-downgrade"
-//           />
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Contact;
-
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 
@@ -116,16 +11,11 @@ const Contact = () => {
 
   const sendEmail = (data) => {
     emailjs
-      .send(
-        "service_nk7n31e", // EmailJS Service ID
-        "template_nl69t4k", // EmailJS Template ID
-        data,
-        "3LqMFtplvqEm7Ww4-" // EmailJS Public Key
-      )
+      .send("service_nk7n31e", "template_nl69t4k", data, "3LqMFtplvqEm7Ww4-")
       .then(
         () => {
           alert("Message sent successfully!");
-          reset(); // Formu sıfırla
+          reset();
         },
         (error) => {
           console.error("Error:", error);

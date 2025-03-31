@@ -1,26 +1,35 @@
-import { useRef, useState } from "react";
+import { useState, useRef } from "react";
 import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { Link, useNavigate } from "react-router";
+import supabase from "../services/supabase";
 
 const Login = () => {
   const [showPass, setShowPass] = useState(false);
   const emailRef = useRef();
   const passRef = useRef();
   const navigate = useNavigate();
+  const [error, setError] = useState("");
 
-  const admin = {
-    email: "baharalekberova05@gmail.com",
-    password: "B1-212+B1-222",
-  };
+  const handleLogin = async (e) => {
+    e.preventDefault();
 
-  const accessToAdmin = () => {
-    if (
-      emailRef.current.value === admin.email &&
-      passRef.current.value === admin.password
-    ) {
-      navigate("/dashboard");
-    } else {
-      alert("calismadi");
+    const email = emailRef.current.value;
+    const password = passRef.current.value;
+
+    try {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+
+      if (error) {
+        setError(error.message);
+      } else {
+        localStorage.setItem("user", JSON.stringify(data.user));
+        navigate("/");
+      }
+    } catch (err) {
+      setError("An error occurred while logging in.");
     }
   };
 
@@ -35,14 +44,15 @@ const Login = () => {
           <h3 className="dark:text-white text-lg md:text-xl xl:text-3xl mb-2 font-medium text-center">
             Login
           </h3>
-
-          <form action="#" className="flex flex-col space-y-4">
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}{" "}
+          <form onSubmit={handleLogin} className="flex flex-col space-y-4">
             <div className="flex flex-col space-y-2">
-              <label className="dark:text-white text-sm">Email adress</label>
+              <label className="dark:text-white text-sm">Email address</label>
               <input
                 type="email"
                 ref={emailRef}
-                className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3 "
+                className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3"
+                required
               />
             </div>
 
@@ -61,21 +71,20 @@ const Login = () => {
                 ref={passRef}
                 type={showPass ? "text" : "password"}
                 className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3"
+                required
               />
             </div>
 
-            {/* <Link to={"/dashboard"}></Link> */}
-
             <button
+              type="submit"
               className="w-full bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
-              onClick={accessToAdmin}
             >
               Login
             </button>
 
             <p className="text-xs md:text-sm xl:text-md dark:text-white mb-4">
               Don't have an account?{" "}
-              <Link to={"/register"} className="my-blue underline">
+              <Link to="/register" className="my-blue underline">
                 Register now
               </Link>
             </p>

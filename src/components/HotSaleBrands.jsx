@@ -53,11 +53,10 @@ export const products = [
     title: "Geely",
     link: "/cars",
     thumbnail:
-      // "https://purepng.com/public/uploads/large/purepng.com-nissan-logonissannissan-motorautomobile-manufactureryokohamanissan-logo-17015275285920rpml.png",
       "https://www.pngplay.com/wp-content/uploads/13/Geely-Logo-Transparent-Free-PNG.png",
   },
   {
-    title: "Cadillac",
+    title: "Cadillac2",
     link: "/cars",
     thumbnail:
       "https://www.carlogos.org/car-logos/cadillac-logo-2021-full-640.png",
