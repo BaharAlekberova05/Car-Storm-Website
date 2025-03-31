@@ -3,6 +3,7 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { Link } from "react-router";
 import { useCart } from "react-use-cart";
 
+
 const TABLE_HEAD = ["Image", "Car Name", "Quantity", "Price", "Status"];
 
 const Cart = () => {

@@ -46,6 +46,7 @@ function CarCard({ brand, model, price, img1, slug, product }) {
             <BiHeart
               onClick={() => {
                 addWishlistItem(product);
+                alert("added to wl")
               }}
             />
           </CardItem>

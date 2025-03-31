@@ -1,12 +1,16 @@
 import { Card, Typography } from "@material-tailwind/react";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { useWishlist } from "react-use-wishlist";
+import { IoCarSport } from "react-icons/io5";
+import { useCart } from "react-use-cart";
 
 const TABLE_HEAD = ["Image", "Car Name", "Price", "Status"];
 
 const Wishlist = () => {
   const { isWishlistEmpty, items, totalWishlistItems, removeWishlistItem } =
     useWishlist();
+
+  const { addItem } = useCart();
 
   return (
     <div className="container">
@@ -68,6 +72,12 @@ const Wishlist = () => {
                           color="action"
                           className="text-black dark:text-white cursor-pointer"
                           onClick={() => removeWishlistItem(item.id)}
+                        />
+                        <IoCarSport
+                          title="Add to cart"
+                          color="action"
+                          className="text-black text-2xl dark:text-white cursor-pointer"
+                          onClick={() => addItem(item)}
                         />
                       </Typography>
                     </td>
