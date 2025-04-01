@@ -1,8 +1,8 @@
 import { Card, Typography } from "@material-tailwind/react";
+import { useRef, useState } from "react";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { Link } from "react-router";
 import { useCart } from "react-use-cart";
-
 
 const TABLE_HEAD = ["Image", "Car Name", "Quantity", "Price", "Status"];
 
@@ -17,6 +17,19 @@ const Cart = () => {
     removeItem,
     emptyCart,
   } = useCart();
+
+  const couponRef = useRef();
+  const [shipping, setShipping] = useState(25);
+
+  const applyCoupon = () => {
+    if (couponRef.current.value === "carstorm") {
+      setShipping(0);
+      alert("Coupon applied! Free shipping activated.");
+    } else {
+      setShipping(25);
+      alert("Use correct coupon code!");
+    }
+  };
 
   return (
     <div className="container">
@@ -54,7 +67,10 @@ const Cart = () => {
                       : "py-3 px-3 border-b border-gray-300 dark:border-gray-600";
 
                     return (
-                      <tr key={index} className="hover:bg-gray-50 dark:hover:bg-gray-900">
+                      <tr
+                        key={index}
+                        className="hover:bg-gray-50 dark:hover:bg-gray-900"
+                      >
                         <td className={classes}>
                           <img
                             src={item.img1}
@@ -119,11 +135,15 @@ const Cart = () => {
             <div className="w-full md:w-1/2 flex flex-col">
               <div className="flex items-center space-x-6">
                 <input
+                  ref={couponRef}
                   type="text"
-                  placeholder="Cupon code"
+                  placeholder="Coupon code"
                   className="border border-gray-500 bg-white dark:bg-black dark:text-white placeholder:dark:text-white outline-none px-4 py-2 rounded-lg w-full md:w-auto"
                 />
-                <button className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer w-full md:w-auto">
+                <button
+                  className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer w-full md:w-auto"
+                  onClick={applyCoupon}
+                >
                   Apply
                 </button>
               </div>
@@ -150,7 +170,7 @@ const Cart = () => {
                 <div className="flex items-center justify-between">
                   <p>Shipping</p>
                   <p>
-                    $<span>25</span>
+                    $<span>{shipping}</span>
                   </p>
                 </div>
                 <div className="flex items-center justify-between">

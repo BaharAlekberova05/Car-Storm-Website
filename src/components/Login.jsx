@@ -24,8 +24,22 @@ const Login = () => {
 
       if (error) {
         setError(error.message);
+        return;
+      }
+
+      const { user } = data;
+
+      if (!user) {
+        setError("User not found.");
+        return;
+      }
+
+      localStorage.setItem("user", JSON.stringify(user));
+
+      // Kullanıcının metadata bilgisine bak
+      if (user.user_metadata?.role === "admin") {
+        navigate("/dashboard");
       } else {
-        localStorage.setItem("user", JSON.stringify(data.user));
         navigate("/");
       }
     } catch (err) {

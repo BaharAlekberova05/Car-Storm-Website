@@ -4,10 +4,13 @@ import { CardBody, CardContainer, CardItem } from "../ui/3dCard";
 import { Link } from "react-router";
 import { useCart } from "react-use-cart";
 import { useWishlist } from "react-use-wishlist";
+import { AiFillHeart } from "react-icons/ai";
 
 function CarCard({ brand, model, price, img1, slug, product }) {
   const { addItem } = useCart();
-  const { addWishlistItem } = useWishlist();
+  const { addWishlistItem, removeWishlistItem, items } = useWishlist();
+
+  const isInWishlist = items.some((item) => item.id === product.id);
 
   return (
     <CardContainer className="inter-var">
@@ -42,20 +45,29 @@ function CarCard({ brand, model, price, img1, slug, product }) {
             translateZ={20}
             to="/wishlist"
             className="px-4 py-2 rounded-xl text-2xl font-normal dark:text-white cursor-pointer"
-          >
-            <BiHeart
-              onClick={() => {
+            onClick={() => {
+              if (isInWishlist) {
+                removeWishlistItem(product);
+              } else {
                 addWishlistItem(product);
-                alert("added to wl")
-              }}
-            />
+              }
+            }}
+          >
+            {isInWishlist ? (
+              <AiFillHeart className="text-red-500" />
+            ) : (
+              <BiHeart />
+            )}
           </CardItem>
 
           <CardItem
             translateZ={20}
             to="/cart"
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold cursor-pointer"
-            onClick={() => addItem(product)}
+            onClick={() => {
+              addItem(product);
+              alert("Added to cart!");
+            }}
           >
             Add to cart
           </CardItem>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { useCart } from "react-use-cart";
 
 const Checkout = () => {
@@ -6,7 +7,7 @@ const Checkout = () => {
 
   const { items } = useCart();
 
-  console.log(items[0]);
+  const navigate = useNavigate();
 
   return (
     <div className="container">
@@ -53,15 +54,35 @@ const Checkout = () => {
 
         <div className="bg-gray-100 dark:bg-[#121212] p-4 rounded mb-4">
           <h3 className="font-semibold dark:text-white">Order Summary</h3>
-          <p className="text-gray-700 dark:text-gray-300">
-            {items[0].brand} {items[0].model}
-          </p>
-          <p className="text-gray-700 dark:text-gray-300">
-            Total Price: ${items[0].price * items[0].quantity}
+          <ul className="text-gray-700 dark:text-gray-300 space-y-2">
+            {items.map((item, index) => (
+              <li key={index} className="flex justify-between border-b pb-2">
+                <span>
+                  {item.brand} {item.model}
+                </span>
+                <span className="font-medium">
+                  ${item.price} x {item.quantity}
+                </span>
+              </li>
+            ))}
+          </ul>
+
+          <p className="text-gray-900 dark:text-gray-100 font-semibold mt-4">
+            Total Price: $
+            {items.reduce(
+              (total, item) => total + item.price * item.quantity,
+              0
+            )}
           </p>
         </div>
 
-        <button className="w-full p-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition cursor-pointer">
+        <button
+          className="w-full p-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition cursor-pointer"
+          onClick={() => {
+            alert("Your order is in process!");
+            navigate("/");
+          }}
+        >
           Complete Purchase
         </button>
       </div>
