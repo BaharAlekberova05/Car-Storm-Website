@@ -10,7 +10,8 @@ import {
   BiSun,
   BiUser,
 } from "react-icons/bi";
-import { FiX } from "react-icons/fi";
+import { FiX, FiLogOut } from "react-icons/fi";
+
 import { IoCarSport } from "react-icons/io5";
 import logo from "../assets/img/logo.png";
 import Badge from "@mui/material/Badge";
@@ -18,8 +19,33 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleMode } from "../redux/ThemeSlice";
 import { useCart } from "react-use-cart";
 import { useWishlist } from "react-use-wishlist";
+import supabase from "../services/supabase";
+import { useNavigate } from "react-router";
 
 export const FloatingNavbar = ({ navItems, className }) => {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const storedUser = localStorage.getItem("user");
+
+    if (storedUser) {
+      setUser(JSON.parse(storedUser));
+    }
+  }, []);
+
+  const handleLogout = async () => {
+    alert("Are you sure to log out?");
+    try {
+      await supabase.auth.signOut();
+      localStorage.removeItem("user");
+      navigate("/login");
+    } catch (error) {
+      console.error("Logout failed:", error.message);
+    }
+  };
+
+  const navigate = useNavigate();
+
   const { totalItems } = useCart();
   const { totalWishlistItems } = useWishlist();
 
@@ -98,12 +124,20 @@ export const FloatingNavbar = ({ navItems, className }) => {
               </Badge>
             </Link>
 
-            <Link to={"/login"}>
-              <BiUser
-                title="Account"
+            {!user ? (
+              <Link to={"/login"}>
+                <BiUser
+                  title="Account"
+                  className="w-6 h-6 text-black dark:text-white cursor-pointer"
+                />
+              </Link>
+            ) : (
+              <FiLogOut
+                onClick={handleLogout}
+                title="logout"
                 className="w-6 h-6 text-black dark:text-white cursor-pointer"
               />
-            </Link>
+            )}
 
             {/* Hamburger Menu */}
             <button onClick={() => setMenuOpen(!menuOpen)}>

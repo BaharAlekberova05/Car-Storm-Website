@@ -1,7 +1,12 @@
 import { useState } from "react";
+import { useCart } from "react-use-cart";
 
 const Checkout = () => {
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
+
+  const { items } = useCart();
+
+  console.log(items[0]);
 
   return (
     <div className="container">
@@ -49,10 +54,10 @@ const Checkout = () => {
         <div className="bg-gray-100 dark:bg-[#121212] p-4 rounded mb-4">
           <h3 className="font-semibold dark:text-white">Order Summary</h3>
           <p className="text-gray-700 dark:text-gray-300">
-            Car Model: Tesla Model S
+            {items[0].brand} {items[0].model}
           </p>
           <p className="text-gray-700 dark:text-gray-300">
-            Total Price: $75,000
+            Total Price: ${items[0].price * items[0].quantity}
           </p>
         </div>
 
