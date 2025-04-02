@@ -74,10 +74,10 @@ export const products = [
   },
 
   {
-    title: "Chery",
+    title: "Tesla",
     link: "/cars",
     thumbnail:
-      "https://cdn.freelogovectors.net/wp-content/uploads/2023/05/chery_logo-freelogovectors.net_-640x400.png",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e8/Tesla_logo.png/900px-Tesla_logo.png",
   },
   {
     title: "BMW",

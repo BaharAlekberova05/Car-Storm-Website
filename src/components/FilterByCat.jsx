@@ -39,12 +39,44 @@ export default function Cars() {
 
   useEffect(() => {
     if (searchTerm === "") {
-      setFilteredCars(cars);
+      // Sadece kategori filtresini uygula
+      applyOnlyCategories();
     } else {
+      // Hem arama hem de kategori filtresini uygula
       const results = fuse.search(searchTerm);
-      setFilteredCars(results.map((result) => result.item));
+      const searchResults = results.map((result) => result.item);
+
+      if (selectedCategories.length > 0) {
+        setFilteredCars(
+          searchResults.filter((car) =>
+            selectedCategories.some(
+              (category) =>
+                car.categories &&
+                car.categories.some((cat) => slugify(cat) === category)
+            )
+          )
+        );
+      } else {
+        setFilteredCars(searchResults);
+      }
     }
-  }, [searchTerm, cars]);
+  }, [searchTerm, cars, selectedCategories]);
+
+  const applyOnlyCategories = () => {
+    if (selectedCategories.length > 0) {
+      setFilteredCars(
+        cars.filter((car) =>
+          selectedCategories.some(
+            (category) =>
+              car.categories &&
+              car.categories.some((cat) => slugify(cat) === category)
+          )
+        )
+      );
+    } else {
+      setFilteredCars(cars);
+    }
+  };
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -63,7 +95,20 @@ export default function Cars() {
     });
   }, []);
 
-  // !CATEGORY FILTER
+  // Kategori seçme handler'ı
+  const handleCategoryChange = (category, subcategory) => {
+    const subcategorySlug = slugify(subcategory);
+
+    setSelectedCategories((prev) => {
+      if (prev.includes(subcategorySlug)) {
+        // Eğer zaten seçiliyse, kaldır
+        return prev.filter((cat) => cat !== subcategorySlug);
+      } else {
+        // Seçili değilse, ekle
+        return [...prev, subcategorySlug];
+      }
+    });
+  };
 
   return (
     <div className="bg-white dark:bg-[#121212] container min-h-screen">
@@ -97,7 +142,7 @@ export default function Cars() {
               </button>
             </div>
 
-            {/* Filters */}
+            {/* Mobile Filters */}
             <form className="mt-4 border-t border-gray-200 dark:border-gray-700">
               {Object.keys(categories).length > 0 &&
                 Object.keys(categories).map((cat, i) => (
@@ -135,6 +180,12 @@ export default function Cars() {
                                   name={`${cat}[]`}
                                   value={subcat}
                                   type="checkbox"
+                                  checked={selectedCategories.includes(
+                                    slugify(subcat)
+                                  )}
+                                  onChange={() =>
+                                    handleCategoryChange(cat, subcat)
+                                  }
                                   className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
                                 />
                                 <svg
@@ -224,7 +275,7 @@ export default function Cars() {
           </h2>
 
           <div className="grid grid-cols-1 gap-x-8 gap-y-10 lg:grid-cols-4">
-            {/* Filters */}
+            {/* Desktop Filters */}
             <form className="hidden lg:block">
               <h3 className="sr-only">Categories</h3>
 
@@ -264,6 +315,12 @@ export default function Cars() {
                                   name={`${cat}[]`}
                                   value={subcat}
                                   type="checkbox"
+                                  checked={selectedCategories.includes(
+                                    slugify(subcat)
+                                  )}
+                                  onChange={() =>
+                                    handleCategoryChange(cat, subcat)
+                                  }
                                   className="col-start-1 row-start-1 appearance-none rounded-sm border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-700 checked:border-indigo-600 checked:bg-indigo-600 indeterminate:border-indigo-600 indeterminate:bg-indigo-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 disabled:border-gray-300 disabled:bg-gray-100 disabled:checked:bg-gray-100 forced-colors:appearance-auto"
                                 />
                                 <svg
@@ -291,9 +348,6 @@ export default function Cars() {
                             <label
                               htmlFor={`filter-${cat}-${i}`}
                               className="text-sm text-gray-600 dark:text-white"
-                              onClick={() => {
-                                console.log(i);
-                              }}
                             >
                               {subcat}
                             </label>
@@ -311,6 +365,12 @@ export default function Cars() {
                 <div className="flex items-center justify-center h-64">
                   <p className="text-gray-500 dark:text-gray-400">
                     Loading cars...
+                  </p>
+                </div>
+              ) : filteredCars.length === 0 ? (
+                <div className="flex items-center justify-center h-64">
+                  <p className="text-gray-500 dark:text-gray-400">
+                    No cars found matching your criteria.
                   </p>
                 </div>
               ) : (

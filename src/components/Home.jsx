@@ -4,6 +4,7 @@ import HotSaleBrands from "./HotSaleBrands";
 import HotSaleModels from "./HotSaleModels";
 import LatestNews from "./LatestNews";
 import Testimonials from "./Testimonials";
+import WhyChoose from "./WhyChoose";
 
 const Home = () => {
   return (
@@ -11,7 +12,7 @@ const Home = () => {
       <Slider />
       <HotSaleBrands />
       <CarPromotion />
-      {/* <WhyChoose /> */}
+      <WhyChoose />
       <HotSaleModels />
       <Testimonials />
       <LatestNews />

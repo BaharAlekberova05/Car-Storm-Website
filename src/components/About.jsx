@@ -2,7 +2,7 @@ import FAQ from "../layouts/FAQ";
 import { AboutUI } from "../ui/AboutUI";
 import HotSaleModels from "./HotSaleModels";
 import Testimonials from "./Testimonials";
-// import WhyChoose from "./WhyChoose";
+import WhyChoose from "./WhyChoose";
 
 function About() {
   const data = [
@@ -16,7 +16,7 @@ function About() {
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
-              src="https://dijimad.com/wp-content/uploads/2022/07/cevrimici-pazaryeri-1.png"
+              src="https://png.pngtree.com/background/20230516/original/pngtree-two-business-people-shake-hands-outside-picture-image_2606084.jpg"
               alt="startup template"
               width={500}
               height={500}
@@ -30,14 +30,14 @@ function About() {
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://common-blog-suffes.s3.us-east-2.amazonaws.com/1684933096646e09e830109.webp"
+              src="https://thumbs.dreamstime.com/b/successful-business-team-holding-trophy-12041802.jpg?w=576"
               alt="startup template"
               width={500}
               height={500}
               className="rounded-lg object-cover h-20 md:h-44 lg:h-60 w-full shadow-[0_0_24px_rgba(34,_42,_53,_0.06),_0_1px_1px_rgba(0,_0,_0,_0.05),_0_0_0_1px_rgba(34,_42,_53,_0.04),_0_0_4px_rgba(34,_42,_53,_0.08),_0_16px_68px_rgba(47,_48,_55,_0.05),_0_1px_0_rgba(255,_255,_255,_0.1)_inset]"
             />
             <img
-              src="https://www.fatbit.com/fab/wp-content/uploads/2019/08/Launch-An-Online-Car-Rental-MarketplaceWebsiteApp-Features-to-Succeed.jpg"
+              src="https://media.istockphoto.com/id/2148813112/photo/people-handshake-or-applause-at-business-success-or-thank-you-as-motivation-trust-or-support.jpg?s=612x612&w=0&k=20&c=ORO-QDjwF9i5cah_bVynMaKTmzY4uFGBFFrbG3RUHBQ="
               alt="startup template"
               width={500}
               height={500}
@@ -153,7 +153,7 @@ function About() {
   return (
     <div className="w-full">
       <AboutUI data={data} />
-      {/* <WhyChoose /> */}
+      <WhyChoose />
       <HotSaleModels />
       <Testimonials />
       <FAQ />

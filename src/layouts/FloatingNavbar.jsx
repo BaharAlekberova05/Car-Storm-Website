@@ -21,6 +21,7 @@ import { useCart } from "react-use-cart";
 import { useWishlist } from "react-use-wishlist";
 import supabase from "../services/supabase";
 import { useNavigate } from "react-router";
+import Swal from "sweetalert2";
 
 export const FloatingNavbar = ({ navItems, className }) => {
   const [user, setUser] = useState(null);
@@ -34,7 +35,7 @@ export const FloatingNavbar = ({ navItems, className }) => {
   }, []);
 
   const handleLogout = async () => {
-    alert("Are you sure to log out?");
+    showAlert("Are you sure log out?");
     try {
       await supabase.auth.signOut();
       localStorage.removeItem("user");
@@ -73,6 +74,30 @@ export const FloatingNavbar = ({ navItems, className }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScrollY]);
+
+  const showAlert = (text, onConfirm) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: text,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes",
+      cancelButtonText: "Cancel",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Log out",
+          text: "You have successfully logged out.",
+          icon: "success",
+          confirmButtonText: "OK",
+        }).then(() => {
+          onConfirm();
+        });
+      }
+    });
+  };
 
   return (
     <>

@@ -123,8 +123,8 @@ export default function CarDashboard() {
     }).then((result) => {
       if (result.isConfirmed) {
         Swal.fire({
-          title: "Deleted!",
-          text: "Your file has been deleted.",
+          title: "Log out",
+          text: "You have successfully logged out.",
           icon: "success",
         }).then(() => {
           onConfirm();
