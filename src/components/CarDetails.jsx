@@ -5,6 +5,7 @@ import slugify from "slugify";
 import HotSaleModels from "./HotSaleModels";
 import { useCart } from "react-use-cart";
 import { useWishlist } from "react-use-wishlist";
+import Swal from "sweetalert2";
 
 const CarDetails = () => {
   const { slug } = useParams();
@@ -28,6 +29,14 @@ const CarDetails = () => {
 
   const changeImage = (newImage) => {
     setMainImage(newImage);
+  };
+
+  const showAlert = (text) => {
+    Swal.fire({
+      text: text,
+      icon: "success",
+      confirmButtonText: "OK",
+    });
   };
   return (
     <div className="container">
@@ -107,13 +116,19 @@ const CarDetails = () => {
 
               <button
                 className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4 cursor-pointer mr-4"
-                onClick={() => addItem(cars)}
+                onClick={() => {
+                  addItem(cars);
+                  showAlert("Product added to cart!");
+                }}
               >
                 Add To Cart
               </button>
               <button
                 className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4 cursor-pointer"
-                onClick={() => addWishlistItem(cars)}
+                onClick={() => {
+                  addWishlistItem(cars);
+                  showAlert("Product added to wishlist!");
+                }}
               >
                 Add To Wishlist
               </button>

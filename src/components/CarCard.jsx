@@ -5,12 +5,21 @@ import { Link } from "react-router";
 import { useCart } from "react-use-cart";
 import { useWishlist } from "react-use-wishlist";
 import { AiFillHeart } from "react-icons/ai";
+import Swal from "sweetalert2";
 
 function CarCard({ brand, model, price, img1, slug, product }) {
   const { addItem } = useCart();
   const { addWishlistItem, removeWishlistItem, items } = useWishlist();
 
   const isInWishlist = items.some((item) => item.id === product.id);
+
+  const showAlert = (text) => {
+    Swal.fire({
+      text: text,
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+  };
 
   return (
     <CardContainer className="inter-var">
@@ -51,6 +60,7 @@ function CarCard({ brand, model, price, img1, slug, product }) {
               } else {
                 addWishlistItem(product);
               }
+              showAlert("Product added to wishlist!");
             }}
           >
             {isInWishlist ? (
@@ -66,7 +76,7 @@ function CarCard({ brand, model, price, img1, slug, product }) {
             className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold cursor-pointer"
             onClick={() => {
               addItem(product);
-              alert("Added to cart!");
+              showAlert("Product added to cart!");
             }}
           >
             Add to cart

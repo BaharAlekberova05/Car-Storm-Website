@@ -3,6 +3,7 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { useWishlist } from "react-use-wishlist";
 import { IoCarSport } from "react-icons/io5";
 import { useCart } from "react-use-cart";
+import Swal from "sweetalert2";
 
 const TABLE_HEAD = ["Image", "Car Name", "Price", "Status"];
 
@@ -11,6 +12,14 @@ const Wishlist = () => {
     useWishlist();
 
   const { addItem } = useCart();
+
+  const showAlert = (text) => {
+    Swal.fire({
+      text: text,
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+  };
 
   return (
     <div className="container">
@@ -77,7 +86,7 @@ const Wishlist = () => {
                           title="Add to cart"
                           color="action"
                           className="text-black text-2xl dark:text-white cursor-pointer"
-                          onClick={() => addItem(item)}
+                          onClick={() => {addItem(item); showAlert("Product added to cart!")}}
                         />
                       </Typography>
                     </td>

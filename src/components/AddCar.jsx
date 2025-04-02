@@ -1,8 +1,17 @@
 import { Link } from "react-router";
 import { useState } from "react";
 import { insertRow } from "../services/apiProducts";
+import Swal from "sweetalert2";
 
 const AddCar = () => {
+  const showAlert = (text) => {
+    Swal.fire({
+      text: text,
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+  };
+
   const [formData, setFormData] = useState({
     mainImg: "",
     secondImg: "",
@@ -43,7 +52,7 @@ const AddCar = () => {
         formData.transmission,
         Number(formData.quantity)
       );
-      alert("Car added succesfully!")
+      showAlert("Car added succesfully!");
     } catch (error) {
       console.error("Insert failed:", error);
     }
@@ -90,20 +99,21 @@ const AddCar = () => {
                 />
               </div>
             ))}
+            <div className="col-span-1 md:col-span-2 flex flex-col gap-4">
+              <button
+                type="submit"
+                className="w-full bg-my-blue text-white rounded-lg py-2 cursor-pointer text-md font-semibold"
+              >
+                Add
+              </button>
 
-            <button
-              type="submit"
-              className="w-full bg-my-blue text-white rounded-lg py-2 cursor-pointer text-md font-semibold mt-8"
-            >
-              Add
-            </button>
+              <Link to={"/dashboard"} className="w-full">
+                <button className="w-full bg-gray-500 text-white rounded-lg py-2 cursor-pointer text-md font-semibold">
+                  Back to Dashboard
+                </button>
+              </Link>
+            </div>
           </form>
-
-          <Link to={"/dashboard"}>
-            <button className="w-full bg-gray-500 text-white rounded-lg py-2 cursor-pointer text-md font-semibold mt-4">
-              Back to Dashboard
-            </button>
-          </Link>
         </div>
       </div>
     </div>

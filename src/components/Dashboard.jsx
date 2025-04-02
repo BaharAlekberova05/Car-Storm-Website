@@ -5,6 +5,7 @@ import { Card, Typography } from "@material-tailwind/react";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { deleteRows, getCars } from "../services/apiProducts";
+import Swal from "sweetalert2";
 
 const TABLE_HEAD = ["Image", "Car Name", "Price", "Status"];
 
@@ -109,8 +110,28 @@ function Navbar({ toggleSidebar }) {
 export default function CarDashboard() {
   const [cars, setCars] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  // const [isLoading, setIsLoading] = useState(true);
-  // const [confirmDelete, setConfirmDelete] = useState(null);
+
+  const showAlert = (text, onConfirm) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: text,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        }).then(() => {
+          onConfirm();
+        });
+      }
+    });
+  };
 
   //? My ver
   useEffect(() => {
@@ -232,7 +253,12 @@ export default function CarDashboard() {
                           <Button variant="icon">
                             <FaRegTrashCan
                               className="dark:text-white cursor-pointer"
-                              onClick={() => handleDelete(car.id)}
+                              onClick={() => {
+                                showAlert(
+                                  "Do you want to delete this product?",
+                                  () => handleDelete(car.id)
+                                );
+                              }}
                             />
                           </Button>
                         </div>

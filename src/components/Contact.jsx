@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
+import Swal from "sweetalert2";
 
 const Contact = () => {
   const {
@@ -14,14 +15,22 @@ const Contact = () => {
       .send("service_nk7n31e", "template_nl69t4k", data, "3LqMFtplvqEm7Ww4-")
       .then(
         () => {
-          alert("Message sent successfully!");
+          showAlert("Message sent successfully!");
           reset();
         },
         (error) => {
           console.error("Error:", error);
-          alert("Message could not be sent.");
+          showAlert("Message could not be sent.");
         }
       );
+  };
+
+  const showAlert = (text) => {
+    Swal.fire({
+      text: text,
+      icon: "success",
+      confirmButtonText: "OK",
+    });
   };
 
   return (
