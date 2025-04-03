@@ -7,7 +7,7 @@ import { useWishlist } from "react-use-wishlist";
 import { AiFillHeart } from "react-icons/ai";
 import Swal from "sweetalert2";
 
-function CarCard({ brand, model, price, img1, slug, product }) {
+function CarCard({ brand, model, price, img1, slug, product, id }) {
   const { addItem } = useCart();
   const { addWishlistItem, removeWishlistItem, items } = useWishlist();
 

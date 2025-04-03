@@ -22,13 +22,33 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Cars() {
+function Cars() {
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [cars, setCars] = useState([]);
   const [categories, setCategories] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredCars, setFilteredCars] = useState(cars);
-  const [selectedCategories, setSelectedCategories] = useState([]);
+
+  const [selectedCategories, setSelectedCategories] = useState({
+    Brands: [],
+    Colors: [],
+    "Body-types": [],
+    "Fuel-types": [],
+    "Transmission-types": [],
+  });
+
+  function handleFilters(cat, subcat) {
+    setSelectedCategories((prev) => {
+      const updatedCategory = prev[cat].includes(subcat)
+        ? prev[cat].filter((item) => item !== subcat)
+        : [...prev[cat], subcat];
+
+      return {
+        ...prev,
+        [cat]: updatedCategory,
+      };
+    });
+  }
 
   const options = {
     keys: ["brand", "model"],
@@ -64,6 +84,31 @@ export default function Cars() {
   }, []);
 
   // !CATEGORY FILTER
+  useEffect(() => {
+    if (Object.values(selectedCategories).every((arr) => arr.length === 0)) {
+      setFilteredCars(cars);
+      return;
+    }
+
+    const filtered = cars.filter((car) => {
+      return (
+        (selectedCategories.Brands.length === 0 ||
+          selectedCategories.Brands.includes(car.brand)) &&
+        (selectedCategories.Colors.length === 0 ||
+          selectedCategories.Colors.includes(car.color)) &&
+        (selectedCategories["Body-types"].length === 0 ||
+          selectedCategories["Body-types"].includes(car.bodyType)) &&
+        (selectedCategories["Fuel-types"].length === 0 ||
+          selectedCategories["Fuel-types"].includes(car.fuelType)) &&
+        (selectedCategories["Transmission-types"].length === 0 ||
+          selectedCategories["Transmission-types"].includes(
+            car.transmissionType
+          ))
+      );
+    });
+
+    setFilteredCars(filtered);
+  }, [selectedCategories, cars]);
 
   return (
     <div className="bg-white dark:bg-[#121212] container min-h-screen">
@@ -129,7 +174,12 @@ export default function Cars() {
                         {categories[cat].map((subcat, i) => (
                           <div key={i} className="flex gap-3">
                             <div className="flex h-5 shrink-0 items-center">
-                              <div className="group grid size-4 grid-cols-1">
+                              <div
+                                className="group grid size-4 grid-cols-1"
+                                onClick={() => {
+                                  handleFilters(cat, subcat);
+                                }}
+                              >
                                 <input
                                   id={`filter-mobile-${cat}-${i}`}
                                   name={`${cat}[]`}
@@ -182,6 +232,7 @@ export default function Cars() {
             Our <span className="my-blue">Cars</span>
           </h1>
 
+          {/* SEARCH */}
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4 w-full max-w-3xl mx-auto">
             <form className="w-full">
               <div className="relative flex items-center">
@@ -258,7 +309,12 @@ export default function Cars() {
                         {categories[cat].map((subcat, i) => (
                           <div key={i} className="flex gap-3">
                             <div className="flex h-5 shrink-0 items-center">
-                              <div className="group grid size-4 grid-cols-1">
+                              <div
+                                onClick={() => {
+                                  handleFilters(cat, subcat);
+                                }}
+                                className="group grid size-4 grid-cols-1"
+                              >
                                 <input
                                   id={`filter-${cat}-${i}`}
                                   name={`${cat}[]`}
@@ -291,9 +347,6 @@ export default function Cars() {
                             <label
                               htmlFor={`filter-${cat}-${i}`}
                               className="text-sm text-gray-600 dark:text-white"
-                              onClick={() => {
-                                console.log(i);
-                              }}
                             >
                               {subcat}
                             </label>
@@ -311,6 +364,12 @@ export default function Cars() {
                 <div className="flex items-center justify-center h-64">
                   <p className="text-gray-500 dark:text-gray-400">
                     Loading cars...
+                  </p>
+                </div>
+              ) : filteredCars.length === 0 ? ( 
+                <div className="flex items-center justify-center h-64">
+                  <p className="text-gray-500 dark:text-gray-400">
+                    Car not found.
                   </p>
                 </div>
               ) : (
@@ -337,3 +396,5 @@ export default function Cars() {
     </div>
   );
 }
+
+export default Cars;
