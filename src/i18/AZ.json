@@ -115,13 +115,15 @@
     "answer5": "Bizim çox sayda modelimiz var və qiymətlər tez-tez dəyişir, buna görə də qiymət cədvəli dəqiq olmaya bilər. Lazım olan modellərin siyahısını təqdim edin, biz dəqiq təklif verəcəyik."
   },
   "aboutUI": {
-    "year2025": "2025",
     "year2025Content": "Ən mükəmməl onlayn avtomobil bazarını quraraq rahat avtomobil alqı-satqı təcrübəsi təqdim etdik.",
-    "year2024": "2024-ci ilin əvvəli",
     "year2024Content": "Avtomobil həvəskarları, distribyutorlar və alıcılar üçün istifadəçi dostu bir platforma yaratmaq vizionu ilə başladıq.",
+    "year2024Content2": "İnventarımızı ekonomik sinifdən lüks avtomobillərə qədər geniş bir marka spektri ilə zənginləşdirdik.",
     "changelog": "Yeniliklər",
     "changelogContent": "Müştəri təcrübəsini artırmaq üçün son yeniliklər və təkmilləşdirmələr:",
     "changelogFeature1": "Ən yaxşı avtomobili tapmaq üçün inkişaf etmiş axtarış filtrləri",
-    "changelogFeature2": "Rahat alqı-satqı üçün inteqrasiya edilmiş maliyyələşdirmə variantları"
+    "changelogFeature2": "Rahat alqı-satqı üçün inteqrasiya edilmiş maliyyələşdirmə variantları",
+    "changelogFeature3": "Təkmilləşdirilmiş nəqliyyat vasitələri müqayisə aləti",
+    "changelogFeature4": "Mobil və masaüstü üçün istifadəçi interfeysinin yaxşılaşdırılması",
+    "changelogFeature5": "İstifadəçi seçimlərinə əsaslanan şəxsi tövsiyələr"
   }
 }

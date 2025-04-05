@@ -115,13 +115,15 @@
     "answer5": "Since we have a large number of models and prices change often, the list price may not be accurate. Provide a list of models you need, and we’ll give an accurate quote."
   },
   "aboutUI": {
-    "year2025": "2025",
     "year2025Content": "Established as a premier online car marketplace, offering a seamless vehicle buying and selling experience.",
-    "year2024": "Early 2024",
     "year2024Content": "Launched with a vision to provide a user-friendly platform for car enthusiasts, dealerships, and buyers.",
+    "year2024Content2": "Expanded our inventory to include a wide range of brands, from economy to luxury vehicles.",
     "changelog": "Changelog",
     "changelogContent": "Recent updates and improvements to enhance the customer experience:",
     "changelogFeature1": "Advanced search filters for finding the perfect car",
-    "changelogFeature2": "Integrated financing options for seamless purchases"
+    "changelogFeature2": "Integrated financing options for seamless purchases",
+    "changelogFeature3": "Enhanced vehicle comparison tool",
+    "changelogFeature4": "Improved user interface for mobile and desktop",
+    "changelogFeature5" : "Personalized recommendations based on user preferences"
   }
 }

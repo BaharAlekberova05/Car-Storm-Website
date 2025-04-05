@@ -14,8 +14,7 @@ function About() {
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Established as a premier online car marketplace, offering a seamless
-            vehicle buying and selling experience.
+            {t("aboutUI.year2025Content")}
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
@@ -51,16 +50,14 @@ function About() {
       ),
     },
     {
-      title: "Early 2024",
+      title: "2024",
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Launched with a vision to provide a user-friendly platform for car
-            enthusiasts, dealerships, and buyers.
+            {t("aboutUI.year2024Content")}
           </p>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-8">
-            Expanded our inventory to include a wide range of brands, from
-            economy to luxury vehicles.
+            {t("aboutUI.year2024Content2")}
           </p>
           <div className="grid grid-cols-2 gap-4">
             <img
@@ -96,27 +93,27 @@ function About() {
       ),
     },
     {
-      title: "Changelog",
+      title: t("aboutUI.changelog"),
       content: (
         <div>
           <p className="text-neutral-800 dark:text-neutral-200 text-xs md:text-sm font-normal mb-4">
-            Recent updates and improvements to enhance the customer experience:
+            {t("aboutUI.changelogContent")}
           </p>
           <div className="mb-8">
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Advanced search filters for finding the perfect car
+              ✅ {t("aboutUI.changelogFeature1")}
             </div>
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Integrated financing options for seamless purchases
+              ✅ {t("aboutUI.changelogFeature2")}
             </div>
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Enhanced vehicle comparison tool
+              ✅ {t("aboutUI.changelogFeature3")}
             </div>
             <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Improved user interface for mobile and desktop
+              ✅ {t("aboutUI.changelogFeature4")}
             </div>
-            <div className="flex gap-2 items-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
-              ✅ Personalized recommendations based on user preferences
+            <div className="flex gap-2 sitems-center text-neutral-700 dark:text-neutral-300 text-xs md:text-sm">
+              ✅ {t("aboutUI.changelogFeature5")}
             </div>
           </div>
           <div className="grid grid-cols-2 gap-4">
