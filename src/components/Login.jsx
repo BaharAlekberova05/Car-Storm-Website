@@ -2,8 +2,11 @@ import { useState, useRef } from "react";
 import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { Link, useNavigate } from "react-router";
 import supabase from "../services/supabase";
+import { useTranslation } from "react-i18next";
 
 const Login = () => {
+  const { t } = useTranslation();
+
   const [showPass, setShowPass] = useState(false);
   const emailRef = useRef();
   const passRef = useRef();
@@ -30,38 +33,39 @@ const Login = () => {
       const { user } = data;
 
       if (!user) {
-        setError("User not found.");
+        setError(t("errors.user"));
         return;
       }
 
       localStorage.setItem("user", JSON.stringify(user));
 
-      // Kullanıcının metadata bilgisine bak
       if (user.user_metadata?.role === "admin") {
         navigate("/dashboard");
       } else {
         navigate("/");
       }
     } catch (err) {
-      setError("An error occurred while logging in.");
+      setError(t("errors.login"));
     }
   };
 
   return (
     <div className="container">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
-        <span className="my-blue">Login</span> / Register
+        <span className="my-blue">{t("contactUs.login")}</span>
       </h1>
 
       <div className="flex items-center justify-center mb-10">
         <div className="flex flex-col px-6 py-10 rounded-lg shadow-2xl border border-gray-300 dark:border-gray-700">
           <h3 className="dark:text-white text-lg md:text-xl xl:text-3xl mb-2 font-medium text-center">
-            Login
+            {t("contactUs.login")}
           </h3>
           {error && <p className="text-red-500 text-center mb-4">{error}</p>}{" "}
           <form onSubmit={handleLogin} className="flex flex-col space-y-4">
             <div className="flex flex-col space-y-2">
-              <label className="dark:text-white text-sm">Email address</label>
+              <label className="dark:text-white text-sm">
+                {t("contactUs.enterYourEmail")}
+              </label>
               <input
                 type="email"
                 ref={emailRef}
@@ -72,7 +76,9 @@ const Login = () => {
 
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-between">
-                <label className="dark:text-white text-sm">Password</label>
+                <label className="dark:text-white text-sm">
+                  {t("contactUs.password")}
+                </label>
                 <div onClick={() => setShowPass(!showPass)}>
                   {showPass ? (
                     <HiOutlineEye className="dark:text-white cursor-pointer" />
@@ -93,13 +99,13 @@ const Login = () => {
               type="submit"
               className="w-full bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
             >
-              Login
+              {t("contactUs.login")}
             </button>
 
             <p className="text-xs md:text-sm xl:text-md dark:text-white mb-4">
-              Don't have an account?{" "}
+              {t("contactUs.dontacc")}{" "}
               <Link to="/register" className="my-blue underline">
-                Register now
+                {t("contactUs.register")}
               </Link>
             </p>
           </form>

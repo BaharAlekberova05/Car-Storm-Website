@@ -19,7 +19,6 @@ import Checkout from "./components/Checkout";
 import Dashboard from "./components/Dashboard";
 import AddCar from "./components/AddCar";
 import EditCar from "./components/EditCar";
-// import FilterByCat from "./components/FilterByCat";
 
 const App = () => {
   const mode = useSelector((state) => state.theme.mode);
@@ -34,7 +33,6 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
         <Route path="/cars" element={<Cars />} />
-        {/* <Route path="/cars" element={<FilterByCat />} /> */}
         <Route path="/news" element={<News />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/news-details/:slug" element={<NewsDetails />} />

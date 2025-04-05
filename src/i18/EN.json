@@ -81,7 +81,18 @@
     "enterYourSubject": "Enter your subject",
     "writeYourMessage": "Write your message",
     "sendMessage": "Send Message",
-    "invalid": "Invalid email format"
+    "invalid": "Invalid email format",
+    "login": "Login",
+    "register": "Register",
+    "dontacc": "Don't have an account?",
+    "password": "Password",
+    "createacc": "Create an account",
+    "alreadyacc": "Already have an account?"
+  },
+  "errors": {
+    "user": "User not found!",
+    "login": "An error occurred while logging in.",
+    "password": "Passwords do not match"
   },
   "comments": {
     "title": "Comments",
@@ -124,6 +135,9 @@
     "changelogFeature2": "Integrated financing options for seamless purchases",
     "changelogFeature3": "Enhanced vehicle comparison tool",
     "changelogFeature4": "Improved user interface for mobile and desktop",
-    "changelogFeature5" : "Personalized recommendations based on user preferences"
+    "changelogFeature5": "Personalized recommendations based on user preferences"
+  },
+  "dashboard": {
+    
   }
 }

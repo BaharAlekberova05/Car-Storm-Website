@@ -81,7 +81,18 @@
     "enterYourSubject": "Mövzunuzu daxil edin",
     "writeYourMessage": "Mesajınızı yazın",
     "sendMessage": "Mesajı göndərin",
-    "invalid": "Email formatını düzgün daxil edin"
+    "invalid": "Email formatını düzgün daxil edin",
+    "login": "Daxil ol",
+    "register": "Qeydiyyatdan keç",
+    "dontacc": "Hesabın yoxdur?",
+    "password": "Şifrə",
+    "createacc": "Hesab yarat",
+    "alreadyacc": "Artıq hesabın var?"
+  },
+  "errors": {
+    "user": "istifadəçi tapılmadı!",
+    "login": "Daxil olmaq alınmadı.",
+    "password": "Şifrə uyğunlaşmadı."
   },
   "comments": {
     "title": "Rəylər",
@@ -125,5 +136,8 @@
     "changelogFeature3": "Təkmilləşdirilmiş nəqliyyat vasitələri müqayisə aləti",
     "changelogFeature4": "Mobil və masaüstü üçün istifadəçi interfeysinin yaxşılaşdırılması",
     "changelogFeature5": "İstifadəçi seçimlərinə əsaslanan şəxsi tövsiyələr"
+  },
+  "dashboard": {
+    
   }
 }
