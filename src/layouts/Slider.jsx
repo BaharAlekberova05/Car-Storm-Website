@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import { ImagesSlider } from "../ui/ImageSilder";
 import { CoverDemo } from "../ui/CoverDemo";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 export function Slider() {
+  const { t, i18n } = useTranslation();
+
   const images = [
     "https://wallpapercave.com/wp/wp8583912.jpg",
     "https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -31,7 +34,7 @@ export function Slider() {
           <CoverDemo />
         </motion.div>
         <button className="px-4 py-2 backdrop-blur-sm border bg-emerald-300/10 border-emerald-500/20 text-white mx-auto text-center rounded-full relative cursor-pointer">
-          <Link to="/cars">Start now →</Link>
+          <Link to="/cars">{t("start")} →</Link>
           <div className="absolute inset-x-0  h-px -bottom-px bg-gradient-to-r w-3/4 mx-auto from-transparent via-emerald-500 to-transparent" />
         </button>
       </motion.div>

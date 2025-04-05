@@ -22,13 +22,26 @@ import { useWishlist } from "react-use-wishlist";
 import supabase from "../services/supabase";
 import { useNavigate } from "react-router";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next"; // i18next hook'unu import et
+import "../i18/i18";
 
 export const FloatingNavbar = ({ navItems, className }) => {
+  const { t, i18n } = useTranslation();
+
+  const [language, setLanguage] = useState("EN");
+
+  const changeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+    setLanguage(lang);
+  };
+
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+  const { totalItems } = useCart();
+  const { totalWishlistItems } = useWishlist();
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-
     if (storedUser) {
       setUser(JSON.parse(storedUser));
     }
@@ -45,15 +58,9 @@ export const FloatingNavbar = ({ navItems, className }) => {
     }
   };
 
-  const navigate = useNavigate();
-
-  const { totalItems } = useCart();
-  const { totalWishlistItems } = useWishlist();
-
   const [visible, setVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [menuOpen, setMenuOpen] = useState(false);
-  const [language, setLanguage] = useState("AZ");
 
   const dispatch = useDispatch();
   const mode = useSelector((state) => state.theme.mode);
@@ -205,14 +212,15 @@ export const FloatingNavbar = ({ navItems, className }) => {
               <BiGlobe className="w-5 h-5 text-black dark:text-white" />
               <select
                 value={language}
-                onChange={(e) => setLanguage(e.target.value)}
+                onChange={(e) => changeLanguage(e.target.value)}
                 className="dark:bg-black text-black dark:text-white border p-1 rounded-md outline-none"
               >
-                <option className="dark:bg-black dark:text-white" value="AZ">
-                  AZ
-                </option>
-                <option className="dark:bg-black dark:text-white" value="EN">
+                <option className="dark:bg-black dark:text-white" value="en">
                   EN
+                </option>
+
+                <option className="dark:bg-black dark:text-white" value="az">
+                  AZ
                 </option>
               </select>
             </div>

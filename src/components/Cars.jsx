@@ -17,12 +17,15 @@ import { getCars, getCategories } from "../services/apiProducts";
 import LatestNews from "./LatestNews";
 import slugify from "slugify";
 import Fuse from "fuse.js";
+import { useTranslation } from "react-i18next";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
 function Cars() {
+  const { t } = useTranslation();
+
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [cars, setCars] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -229,7 +232,7 @@ function Cars() {
       <main className="py-8">
         <div className="flex flex-col border-b border-gray-200 dark:border-gray-700 pt-4 pb-6">
           <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white text-center w-full mb-6">
-            Our <span className="my-blue">Cars</span>
+            <span className="my-blue">{t("cars")}</span>
           </h1>
 
           {/* SEARCH */}
@@ -250,7 +253,7 @@ function Cars() {
                 </svg>
                 <input
                   className="w-full bg-transparent placeholder:text-slate-400 text-slate-700 dark:text-slate-300 text-sm border border-slate-200 dark:border-gray-600 rounded-md pl-10 pr-3 py-2 transition duration-300 ease focus:outline-none focus:border-slate-400 hover:border-slate-300 shadow-sm focus:shadow placeholder:font-medium"
-                  placeholder="Search Your Dream Car..."
+                  placeholder={t("search")}
                   value={searchTerm}
                   onChange={handleSearch}
                 />
@@ -366,7 +369,7 @@ function Cars() {
                     Loading cars...
                   </p>
                 </div>
-              ) : filteredCars.length === 0 ? ( 
+              ) : filteredCars.length === 0 ? (
                 <div className="flex items-center justify-center h-64">
                   <p className="text-gray-500 dark:text-gray-400">
                     Car not found.

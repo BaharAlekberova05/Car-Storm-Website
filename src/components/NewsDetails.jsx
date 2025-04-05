@@ -9,8 +9,11 @@ import LatestNews from "./LatestNews";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getNews } from "../services/apiProducts";
+import { useTranslation } from "react-i18next";
 
 const NewsDetails = () => {
+  const { t } = useTranslation();
+
   const { slug } = useParams();
   const [news, setNews] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -27,7 +30,7 @@ const NewsDetails = () => {
   return (
     <div className="container">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-center dark:text-white my-10">
-        News <span className="my-blue">Details</span>
+        {t("newss")} <span className="my-blue">{t("details")}</span>
       </h1>
 
       {loading && <p>Loading...</p>}
@@ -46,7 +49,7 @@ const NewsDetails = () => {
       <img
         src={news?.img}
         alt={news?.title}
-        className="w-full h-80 object-cover rounded-lg mb-8"
+        className="w-full h-[480px] object-cover rounded-lg mb-8"
       />
       {/* news? Content */}
       <div className="text-lg text-gray-800 dark:text-gray-300 mb-8">
@@ -84,9 +87,9 @@ const NewsDetails = () => {
         </div>
       </div>
       {/* Comments Section */}
-      <div className="bg-white dark:bg-[#121212]  border border-gray-300 dark:border-gray-700 p-6 rounded-lg mb-10">
+      <div className="bg-white dark:bg-[#121212] border border-gray-300 dark:border-gray-700 p-6 rounded-lg mb-10">
         <h3 className="text-2xl font-semibold text-gray-700 dark:text-white mb-4">
-          Comments
+          {t("comments.title")}
         </h3>
 
         <div className="space-y-4">
@@ -98,11 +101,11 @@ const NewsDetails = () => {
             />
             <div>
               <p className="text-sm text-black dark:text-gray-300">
-                <strong>Jane Smith</strong> - March 9, 2025
+                <strong>{t("comments.user1.name")}</strong> -{" "}
+                {t("comments.user1.date")}
               </p>
               <p className="text-gray-400 dark:text-gray-400 mt-2">
-                I totally agree! AI is the future of technology, and it’s
-                exciting to see how it will continue to evolve.
+                {t("comments.user1.message")}
               </p>
             </div>
           </div>
@@ -115,11 +118,11 @@ const NewsDetails = () => {
             />
             <div>
               <p className="text-sm text-black dark:text-gray-300">
-                <strong>Mark Johnson</strong> - March 9, 2025
+                <strong>{t("comments.user2.name")}</strong> -{" "}
+                {t("comments.user2.date")}
               </p>
               <p className="text-gray-400 dark:text-gray-400 mt-2">
-                It’s amazing to think how far we’ve come with technology in just
-                a few years! Can’t wait to see what’s next.
+                {t("comments.user2.message")}
               </p>
             </div>
           </div>
@@ -132,11 +135,11 @@ const NewsDetails = () => {
             />
             <div>
               <p className="text-sm text-black dark:text-gray-300">
-                <strong>Jane Smith</strong> - March 9, 2025
+                <strong>{t("comments.user1.name")}</strong> -{" "}
+                {t("comments.user1.date")}
               </p>
               <p className="text-gray-400 dark:text-gray-400 mt-2">
-                I totally agree! AI is the future of technology, and it’s
-                exciting to see how it will continue to evolve.
+                {t("comments.user1.message")}
               </p>
             </div>
           </div>
@@ -149,16 +152,17 @@ const NewsDetails = () => {
             />
             <div>
               <p className="text-sm text-black dark:text-gray-300">
-                <strong>Mark Johnson</strong> - March 9, 2025
+                <strong>{t("comments.user2.name")}</strong> -{" "}
+                {t("comments.user2.date")}
               </p>
               <p className="text-gray-400 dark:text-gray-400 mt-2">
-                It’s amazing to think how far we’ve come with technology in just
-                a few years! Can’t wait to see what’s next.
+                {t("comments.user2.message")}
               </p>
             </div>
           </div>
         </div>
       </div>
+
       <LatestNews />
     </div>
   );

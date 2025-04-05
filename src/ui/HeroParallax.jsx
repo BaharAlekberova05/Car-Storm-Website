@@ -2,6 +2,7 @@
 import React from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import { Link } from "react-router";
+import { useTranslation } from "react-i18next";
 
 const HeroParallax = ({ products }) => {
   const firstRow = products.slice(0, 5);
@@ -87,18 +88,18 @@ const HeroParallax = ({ products }) => {
 };
 
 export const Header = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="max-w-7xl relative mx-auto py-40 md:py-40 px-4 w-full  left-0 top-0">
       <h1 className="text-2xl md:text-7xl font-bold dark:text-white">
-        Hot Sale <br /> <Link to={"/cars"} className="my-blue underline">Car Brands</Link>
+        {t("hotSale")} <br />{" "}
+        <Link to={"/cars"} className="my-blue underline">
+          {t("carBrands")}
+        </Link>
       </h1>
       <p className="max-w-2xl text-base md:text-xl mt-8 dark:text-white">
-        An export company of automobile from everywhere! <br />
-        🚗 Discover the finest cars from around the world! We offer a wide range
-        of vehicles, including electric, hybrid, gasoline, and diesel models.
-        From the latest releases to classic favorites, find the perfect car that
-        suits your style and budget. With trusted sellers, detailed reviews, and
-        great deals, getting your dream car has never been easier! 💨
+        {t("hotSaleExp")}
       </p>
     </div>
   );
@@ -116,10 +117,7 @@ export const ProductCard = ({ product, translate }) => {
       key={product.title}
       className="group/product h-96 w-[30rem] relative flex-shrink-0"
     >
-      <Link
-        to={product.link}
-        className="block group-hover/product:shadow-2xl "
-      >
+      <Link to={product.link} className="block group-hover/product:shadow-2xl ">
         <img
           src={product.thumbnail}
           height="600"

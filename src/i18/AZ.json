@@ -1,0 +1,127 @@
+{
+  "welcome": "Car Storm-a xoş gəldiniz",
+  "start": "İndi başla",
+  "home": "Ana səhifə",
+  "about": "Haqqımızda",
+  "car": "Avtomobil",
+  "cars": "Avtomobillər",
+  "news": "Xəbərlər",
+  "contact": "Əlaqə",
+  "hotSale": "Çox satılan",
+  "carBrands": "avtomobil markaları",
+  "carModels": "avtomobil modelləri",
+  "search": "Xəyalındakı maşını tap",
+  "hotSaleExp": "Dünyanın hər yerindən avtomobil ixrac şirkəti!\n🚗 Dünyanın ən yaxşı avtomobillərini kəşf edin! Biz elektrik, hibrid, benzin və dizel modelləri daxil olmaqla geniş çeşiddə nəqliyyat vasitələri təklif edirik.\nƏn son buraxılışlardan tutmuş klassik favoritlərə qədər üslubunuza və büdcənizə uyğun mükəmməl avtomobili tapın.\nEtibarlı satıcılar, ətraflı rəylər və sərfəli təkliflərlə arzuladığınız avtomobili əldə etmək heç vaxt bu qədər asan olmamışdı! 💨",
+  "carPromotion": "Arzuladığınız avtomobili ən yaxşı qiymətə tapın",
+  "carPromoExp": "Yüksək keyfiyyətli nəqliyyat vasitələrinin geniş seçimini araşdırın, problemsiz alış-veriş təcrübəsi və mükəmməl müştəri xidməti ilə",
+  "discover": "Hər modeldə mükəmməl performans, lüks və texnologiyanın ideal birləşməsini kəşf edin. İstər rahat şəhər sürüşü, istərsə də həyəcan verici uzun məsafəli səyahət istəyirsiniz, avtomobillərimiz üstün rahatlıq, təhlükəsizlik və yenilik təqdim edir. İleri texnologiya xüsusiyyətləri və şık dizaynlarla ən yüksək sürücülük zövqünü yaşayın. Bu gün xəyalınızdakı avtomobili sürün!",
+  "cp1": "Ətraflı yoxlanılmış təsdiqlənmiş avtomobillər",
+  "cp2": "Rəqabətli qiymətlər və eksklüziv təkliflər",
+  "cp3": "Təhlükəsiz və problemsiz satın alma prosesi",
+  "WCU": "Niyə Bizi Seçməlisiniz?",
+  "exportedCountries": "İxrac olunan ölkələr",
+  "coDistributor": "Ko-distribütor",
+  "hotSaleBrands": "Çox satılan markalar",
+  "addtocart": "Səbətə at",
+  "addtowl": "Sevimlilərə əlavə et",
+  "clients": "Müştərilərin",
+  "reviews": "Rəyləri",
+  "testimonials": [
+    {
+      "quote": "Car Strom ilə avtomobil almaq inanılmaz dərəcədə asan oldu! İstifadəçi dostu interfeys və mükəmməl müştəri dəstəyi fantastik bir təcrübə yaratdı.",
+      "name": "Sarah Chen",
+      "designation": "Məhsul Meneceri TechFlow",
+      "src": "https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?q=80&w=3560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "quote": "Avtomobil filtrası və ətraflı baxış funksiyaları mükəmməl işləyir. Axtardığım avtomobili tez tapdım və alış-veriş prosesi tam şəffaf oldu.",
+      "name": "Michael Rodriguez",
+      "designation": "Baş Texnologiya Direktoru InnovateSphere",
+      "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "quote": "Platformanın elastikliyi və geniş avtomobil seçimi məni təəccübləndirdi. Car Strom müasir avtomobil alma təcrübəsini növbəti səviyyəyə daşıyır!",
+      "name": "Emily Watson",
+      "designation": "Əməliyyatlar Direktoru CloudScale",
+      "src": "https://images.unsplash.com/photo-1623582854588-d60de57fa33f?q=80&w=3540&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "quote": "Avtomobil detalları ətraflıdır, şəkillər yüksək keyfiyyətlidir və müştəri xidməti çox sürətlidir! Avtomobil alarkən etibar edə biləcəyim bir platforma tapdığım üçün şadam.",
+      "name": "James Kim",
+      "designation": "Mühəndislik Rəhbəri DataPro",
+      "src": "https://images.unsplash.com/photo-1636041293178-808a6762ab39?q=80&w=3464&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    },
+    {
+      "quote": "Car Strom sayəsində şirkətimizin nəqliyyat parkını asanlıqla genişləndirdik. Bizneslər üçün ixtisaslaşdırılmış həllər həqiqətən əvəzolunmazdır!",
+      "name": "Lisa Thompson",
+      "designation": "Texnologiya üzrə Vitse-Prezident FutureNet",
+      "src": "https://images.unsplash.com/photo-1624561172888-ac93c696e10c?q=80&w=2592&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+    }
+  ],
+  "latest": "Son",
+  "newss": "Xəbərlərin",
+  "details": "detalları",
+  "history": "Gələcək",
+  "historyExp": "Son 2 ildir Car Storm üzərində çalışıram. Budur, səyahətimin zaman cədvəli.",
+  "read": "Davamı",
+  "product": {
+    "product": "Məhsul",
+    "about": "Avtomobillər Haqqında",
+    "latest": "Son Xəbərlər",
+    "privacy": "Gizlilik Siyasəti",
+    "terms": "Şərtlər və Qaydalar",
+    "baku": "Bakı, Azərbaycan",
+    "choose": "Gəlin, Sizin Xəyalınızdakı Avtomobili Seçək",
+    "copyright": "Müəllif Hüquqları © 2024 Car Storm. Bütün Hüquqlar Qorunur."
+  },
+  "contactUs": {
+    "contact": "Bizimlə əlaqə",
+    "enterYourName": "Adınızı daxil edin",
+    "enterYourEmail": "E-poçt ünvanınızı daxil edin",
+    "enterYourSubject": "Mövzunuzu daxil edin",
+    "writeYourMessage": "Mesajınızı yazın",
+    "sendMessage": "Mesajı göndərin",
+    "invalid": "Email formatını düzgün daxil edin"
+  },
+  "comments": {
+    "title": "Rəylər",
+    "user1": {
+      "name": "Jane Smith",
+      "date": "Mart 9, 2025",
+      "message": "Tamamilə razıyam! AI texnologiyanın gələcəyidir və onun necə inkişaf edəcəyini görmək həyəcan vericidir."
+    },
+    "user2": {
+      "name": "Mark Johnson",
+      "date": "Mart 9, 2025",
+      "message": "Bir neçə il ərzində texnologiya ilə necə irəlilədiyimizi düşünmək inanılmazdır! Növbəti addımı görmək üçün səbirsizlənirəm."
+    }
+  },
+  "faq": {
+    "title": "Tez-tez Verilən Suallar",
+    "introduction1": "Biz Sizə ",
+    "important": "Əhəmiyyətli",
+    "introduction2": " Sualları Cavablandırırıq",
+    "contactInfo": "Əgər daha çox sualınız varsa, zəhmət olmasa, bizə e-poçt, telefon və ya onlayn xidmət vasitəsilə müraciət edin.",
+    "askQuestion": "Sualınızı Verin",
+    "question1": "Niyə Avtomobilimizi Bizdən Almalısınız?",
+    "answer1": "Hazırda biz 11000+ ixrac avtomobili, 50+ ixrac ölkəsi, 100+ distribyutor ortağı və 60+ peşəkar xidmət komandası toplamışıq!",
+    "question2": "Sizin müqavilənizdə nə var?",
+    "answer2": "Müqavilə ödəniş metodunu, bizim qəbul edən bankı, çatdırılma vaxtını, məhsul məlumatlarını və s. göstərir. Müqavilə imzalandıqdan sonra üç gün ərzində depoziti ödəməlisiniz.",
+    "question3": "Avtomobili göndərməzdən əvvəl necə yoxlaya bilərəm?",
+    "answer3": "Biz göndərməzdən əvvəl müştərilərə çox aydın bir video təqdim edəcəyik. Əgər müştərilər keyfiyyətlə bağlı hələ də narahatdırsa, peşəkar üçüncü tərəf yoxlama şirkəti tapmaq mümkündür, amma bu ödənişi müştəri etməlidir.",
+    "question4": "Sizin qiymət təklifiniz bütün ödənişləri əhatə edir?",
+    "answer4": "CIP və CIF liman daxilində nəqliyyat xərclərini əhatə edir, amma gömrük rəsmiləşdirilməsi sizin tərəfinizdən edilməlidir. Əgər kömək lazımdırsa, biz kömək edə bilərik.",
+    "question5": "Bütün modellərinizin qiymət cədvəlini əldə edə bilərəmmi?",
+    "answer5": "Bizim çox sayda modelimiz var və qiymətlər tez-tez dəyişir, buna görə də qiymət cədvəli dəqiq olmaya bilər. Lazım olan modellərin siyahısını təqdim edin, biz dəqiq təklif verəcəyik."
+  },
+  "aboutUI": {
+    "year2025": "2025",
+    "year2025Content": "Ən mükəmməl onlayn avtomobil bazarını quraraq rahat avtomobil alqı-satqı təcrübəsi təqdim etdik.",
+    "year2024": "2024-ci ilin əvvəli",
+    "year2024Content": "Avtomobil həvəskarları, distribyutorlar və alıcılar üçün istifadəçi dostu bir platforma yaratmaq vizionu ilə başladıq.",
+    "changelog": "Yeniliklər",
+    "changelogContent": "Müştəri təcrübəsini artırmaq üçün son yeniliklər və təkmilləşdirmələr:",
+    "changelogFeature1": "Ən yaxşı avtomobili tapmaq üçün inkişaf etmiş axtarış filtrləri",
+    "changelogFeature2": "Rahat alqı-satqı üçün inteqrasiya edilmiş maliyyələşdirmə variantları"
+  }
+}

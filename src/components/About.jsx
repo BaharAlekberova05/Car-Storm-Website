@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import FAQ from "../layouts/FAQ";
 import { AboutUI } from "../ui/AboutUI";
 import HotSaleModels from "./HotSaleModels";
@@ -5,6 +6,8 @@ import Testimonials from "./Testimonials";
 import WhyChoose from "./WhyChoose";
 
 function About() {
+  const { t } = useTranslation();
+
   const data = [
     {
       title: "2025",

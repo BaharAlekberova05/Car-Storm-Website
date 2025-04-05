@@ -3,8 +3,11 @@ import CarCard from "./CarCard";
 import { useEffect, useState } from "react";
 import { getLimitedCars } from "../services/apiProducts";
 import slugify from "slugify";
+import { useTranslation } from "react-i18next";
 
 const HotSaleModels = () => {
+  const { t } = useTranslation();
+
   const [limitedCars, setLimitedCars] = useState([]);
 
   useEffect(() => {
@@ -16,9 +19,9 @@ const HotSaleModels = () => {
   return (
     <div className="container">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-12">
-        Hot Sale{" "}
+        {t("hotSale")}{" "}
         <Link to={"/cars"} className="my-blue underline">
-          Car Models
+          {t("carModels")}
         </Link>
       </h1>
 

@@ -1,11 +1,12 @@
 import { motion, useAnimation } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import WCUCard from "./WCUCard";
+import { useTranslation } from "react-i18next";
 
 const stats = [
-  { id: 1, name: "Exported countries", value: 110 },
-  { id: 2, name: "Co-distributor", value: 119 },
-  { id: 3, name: "Hot sale brands", value: 96 },
+  { id: 1, name: "exportedCountries", value: 110 },
+  { id: 2, name: "coDistributor", value: 119 },
+  { id: 3, name: "hotSaleBrands", value: 96 },
 ];
 
 const Counter = ({ value }) => {
@@ -57,10 +58,12 @@ const Counter = ({ value }) => {
 };
 
 const WhyChoose = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="container">
       <h1 className="text-center text-4xl font-bold py-10 dark:text-white">
-        Why Choose Us?
+        {t("WCU")}
       </h1>
 
       <div className="dark:bg-[#121212] py-8 md:py-10 xl:py-14">
@@ -80,7 +83,7 @@ const WhyChoose = () => {
                   transition={{ duration: 0.8, ease: "easeOut" }}
                 >
                   <dt className="text-base/7 text-black dark:text-white">
-                    {stat.name}
+                    {t(stat.name)}
                   </dt>
 
                   <Counter value={stat.value} />

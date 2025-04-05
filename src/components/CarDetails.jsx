@@ -6,8 +6,11 @@ import HotSaleModels from "./HotSaleModels";
 import { useCart } from "react-use-cart";
 import { useWishlist } from "react-use-wishlist";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 
 const CarDetails = () => {
+  const { t } = useTranslation();
+
   const { slug } = useParams();
   const [cars, setCars] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -41,7 +44,7 @@ const CarDetails = () => {
   return (
     <div className="container">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold text-center dark:text-white py-8">
-        Car <span className="my-blue">Details</span>
+        {t("car")} <span className="my-blue">{t("details")}</span>
       </h1>
 
       {loading && <p>Loading...</p>}
@@ -95,16 +98,13 @@ const CarDetails = () => {
                 <span className="text-2xl font-bold mr-2">${cars.price}</span>
               </div>
               <p className="text-gray-700 dark:text-gray-400 mb-6">
-                Discover the perfect blend of performance, luxury, and
-                technology in every model. Whether you're seeking a smooth city
-                drive or a thrilling long-distance journey, our cars deliver
-                superior comfort, safety, and innovation. Experience the
-                ultimate driving pleasure with advanced features and stylish
-                designs. Drive your dream today!
+                {t("discover")}
               </p>
 
               <div className="mb-6">
-                <h3 className="text-lg font-semibold">Product Details</h3>
+                <h3 className="text-lg font-semibold">
+                  {t("product.product")} {t("details")}
+                </h3>
                 <ul className="list-disc pl-6 mt-2">
                   <li>{cars.year}</li>
                   <li>{cars.color}</li>
@@ -121,7 +121,7 @@ const CarDetails = () => {
                   showAlert("Product added to cart!");
                 }}
               >
-                Add To Cart
+                {t("addtocart")}
               </button>
               <button
                 className="bg-blue-600 text-white px-4 py-2 rounded-md mt-4 cursor-pointer"
@@ -130,7 +130,7 @@ const CarDetails = () => {
                   showAlert("Product added to wishlist!");
                 }}
               >
-                Add To Wishlist
+                {t("addtowl")}
               </button>
             </div>
           </div>

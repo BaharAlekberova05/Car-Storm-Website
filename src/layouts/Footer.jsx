@@ -1,7 +1,10 @@
 import { Link } from "react-router";
 import logo from "../assets/img/logo.png";
+import { useTranslation } from "react-i18next";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <>
       <footer className="container relative w-full bg-white dark:bg-black">
@@ -15,14 +18,14 @@ const Footer = () => {
             <div className="grid justify-between grid-cols-3 gap-4">
               <ul>
                 <p className="block mb-1 text-base font-semibold  text-slate-800 dark:text-slate-500">
-                  Product
+                  {t("product.product")}
                 </p>
                 <li>
                   <Link
                     to="/about"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    About Cars
+                    {t("product.about")}
                   </Link>
                 </li>
                 <li>
@@ -30,7 +33,7 @@ const Footer = () => {
                     to="/blog"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    Latest News
+                    {t("product.latest")}
                   </Link>
                 </li>
                 <li>
@@ -38,7 +41,7 @@ const Footer = () => {
                     to="/about"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    Privacy Policy
+                    {t("product.privacy")}
                   </Link>
                 </li>
                 <li>
@@ -46,7 +49,7 @@ const Footer = () => {
                     to="/about"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    Terms & Conditions
+                    {t("product.terms")}
                   </Link>
                 </li>
               </ul>
@@ -59,7 +62,7 @@ const Footer = () => {
                     to="/"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    Home
+                    {t("home")}
                   </Link>
                 </li>
                 <li>
@@ -67,7 +70,7 @@ const Footer = () => {
                     to="/about"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    About
+                    {t("about")}
                   </Link>
                 </li>
                 <li>
@@ -75,7 +78,7 @@ const Footer = () => {
                     to="/cars"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    Cars
+                    {t("cars")}
                   </Link>
                 </li>
                 <li>
@@ -83,21 +86,21 @@ const Footer = () => {
                     to="/contact"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    Contact
+                    {t("contact")}
                   </Link>
                 </li>
               </ul>
 
               <ul>
                 <p className="block mb-1 text-base font-semibold text-slate-800 dark:text-slate-500">
-                  Contact
+                  {t("contact")}
                 </p>
                 <li>
                   <Link
                     to="/contact"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    Baku, Azerbaijan
+                    {t("product.baku")}
                   </Link>
                 </li>
                 <li>
@@ -121,7 +124,7 @@ const Footer = () => {
                     to="/cars"
                     className="block text-slate-600 dark:text-slate-400 py-1 hover:text-slate-500 focus:text-slate-500 text-sm"
                   >
-                    Let's Choose Your Dream Car
+                    {t("product.choose")}
                   </Link>
                 </li>
               </ul>
@@ -130,7 +133,7 @@ const Footer = () => {
 
           <div className="flex flex-col items-center justify-center w-full py-4 mt-12 border-t border-slate-200 md:flex-row md:justify-between">
             <p className="block mb-4 text-sm text-center text-slate-500 md:mb-0">
-              Copyright © 2024 <a href="#">Car Storm</a>. All Rights Reserved.
+              {t("product.copyright")}
             </p>
             <div className="flex gap-4 text-slate-600 sm:justify-center">
               <a

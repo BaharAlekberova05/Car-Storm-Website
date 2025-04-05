@@ -6,8 +6,11 @@ import { useCart } from "react-use-cart";
 import { useWishlist } from "react-use-wishlist";
 import { AiFillHeart } from "react-icons/ai";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 
 function CarCard({ brand, model, price, img1, slug, product, id }) {
+  const { t } = useTranslation();
+
   const { addItem } = useCart();
   const { addWishlistItem, removeWishlistItem, items } = useWishlist();
 
@@ -79,7 +82,7 @@ function CarCard({ brand, model, price, img1, slug, product, id }) {
               showAlert("Product added to cart!");
             }}
           >
-            Add to cart
+            {t("addtocart")}
           </CardItem>
         </div>
       </CardBody>

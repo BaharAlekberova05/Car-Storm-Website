@@ -1,7 +1,10 @@
+import { useTranslation } from "react-i18next";
 import { MdOutlineDateRange } from "react-icons/md";
 import { Link } from "react-router";
 
 const NewsGrid = ({ img, title, date, author, id }) => {
+  const { t } = useTranslation();
+
   return (
     <Link to={`/news-details/${id}`}>
       <div className="flex flex-col space-y-8 rounded-md shadow-2xl h-[500px] dark:border dark:border-gray-700">
@@ -29,7 +32,7 @@ const NewsGrid = ({ img, title, date, author, id }) => {
         </div>
 
         <button className="dark:text-white font-medium text-md hover:text-[#307ff9] transition duration-300">
-          Read More
+          {t("read")}
         </button>
       </div>
     </Link>

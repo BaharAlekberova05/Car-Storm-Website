@@ -1,8 +1,11 @@
 import { useForm } from "react-hook-form";
 import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
+
   const {
     register,
     handleSubmit,
@@ -36,7 +39,7 @@ const Contact = () => {
   return (
     <div className="container overflow-x-hidden">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-8 text-center">
-        Contact <span className="my-blue">Us</span>
+        {t("contactUs.contact")}
       </h1>
 
       <div className="flex flex-col space-y-8 md:flex-row xl:flex-row md:space-x-6 xl:space-x-6">
@@ -49,11 +52,11 @@ const Contact = () => {
               <div className="w-1/2">
                 <input
                   {...register("user_name", {
-                    required: "Please enter your name",
+                    required: t("contactUs.enterYourName"),
                   })}
                   type="text"
                   className="border border-gray-200 bg-white dark:bg-[#121212] w-full px-4 py-2 rounded-md dark:text-white placeholder:dark:text-white"
-                  placeholder="Enter your name"
+                  placeholder={t("contactUs.enterYourName")}
                 />
                 <p className="text-red-500">{errors.user_name?.message}</p>
               </div>
@@ -61,15 +64,15 @@ const Contact = () => {
               <div className="w-1/2">
                 <input
                   {...register("user_email", {
-                    required: "Please enter your email",
+                    required: t("contactUs.writeYourMessage"),
                     pattern: {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: "Invalid email format",
+                      message: t("contactUs.invalid"),
                     },
                   })}
                   type="email"
                   className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
-                  placeholder="Enter your email"
+                  placeholder={t("contactUs.enterYourEmail")}
                 />
                 <p className="text-red-500">{errors.user_email?.message}</p>
               </div>
@@ -78,11 +81,11 @@ const Contact = () => {
             <div className="w-full">
               <input
                 {...register("message_subject", {
-                  required: "Please enter a subject",
+                  required: t("contactUs.enterYourSubject"),
                 })}
                 type="text"
                 className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
-                placeholder="Enter your subject"
+                placeholder={t("contactUs.enterYourSubject")}
               />
               <p className="text-red-500">{errors.message_subject?.message}</p>
             </div>
@@ -90,10 +93,10 @@ const Contact = () => {
             <div className="w-full">
               <textarea
                 {...register("message", {
-                  required: "Please enter your message",
+                  required: t("contactUs.writeYourMessage"),
                 })}
                 className="w-full h-[200px] border border-gray-200 bg-white px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
-                placeholder="Write your message"
+                placeholder={t("contactUs.writeYourMessage")}
               ></textarea>
               <p className="text-red-500">{errors.message?.message}</p>
             </div>
@@ -102,7 +105,7 @@ const Contact = () => {
               type="submit"
               className="bg-white p-4 mt-4 rounded-lg bg-my-blue text-white font-medium cursor-pointer"
             >
-              Send Message
+              {t("contactUs.sendMessage")}
             </button>
           </form>
         </div>

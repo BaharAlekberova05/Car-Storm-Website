@@ -1,8 +1,11 @@
 "use client";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export const AboutUI = ({ data }) => {
+  const { t } = useTranslation();
+
   const ref = useRef(null);
   const containerRef = useRef(null);
   const [height, setHeight] = useState(0);
@@ -30,12 +33,10 @@ export const AboutUI = ({ data }) => {
       <div className="flex items-center justify-center">
         <div className="max-w-7xl pt-10 px-4 md:px-8 lg:px-10">
           <h2 className="text-lg md:text-4xl mb-4 font-bold text-black dark:text-white max-w-4xl">
-            History of <span className="my-blue font-bold">Car Storm</span>
+            {t("history")} <span className="my-blue font-bold">Car Storm</span>
           </h2>
           <p className="text-neutral-700 dark:text-neutral-300 text-sm md:text-base max-w-sm">
-            I&apos;ve been working on{" "}
-            <span className="my-blue font-bold">Car Storm</span> for the past 2
-            years. Here&apos;s a timeline of my journey.
+            {t("historyExp")}
           </p>
         </div>
       </div>
