@@ -1,6 +1,5 @@
 import { Link, useNavigate } from "react-router";
-import { HiOutlineEye } from "react-icons/hi";
-import { HiOutlineEyeOff } from "react-icons/hi";
+import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { useState } from "react";
 import supabase from "../services/supabase";
 import { useTranslation } from "react-i18next";
@@ -9,18 +8,22 @@ const Register = () => {
   const { t } = useTranslation();
 
   const [showPass, setShowPass] = useState(false);
+  const [showRepeatPass, setShowRepeatPass] = useState(false); // Yenisini əlavə edirik
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     if (password !== repeatPassword) {
       setError(t("errors.password"));
+      setLoading(false);
       return;
     }
 
@@ -40,13 +43,13 @@ const Register = () => {
       navigate("/login");
     } catch (err) {
       setError(err.message);
+      setLoading(false);
     }
   };
 
   return (
     <div className="container">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
-        {" "}
         <span className="my-blue">{t("contactUs.register")}</span>
       </h1>
 
@@ -60,7 +63,9 @@ const Register = () => {
 
           <form onSubmit={handleRegister} className="flex flex-col space-y-4">
             <div className="flex flex-col space-y-2">
-              <label className="dark:text-white text-sm">{t("contactUs.enterYourName")}</label>
+              <label className="dark:text-white text-sm">
+                {t("contactUs.enterYourName")}
+              </label>
               <input
                 type="text"
                 value={username}
@@ -71,7 +76,9 @@ const Register = () => {
             </div>
 
             <div className="flex flex-col space-y-2">
-              <label className="dark:text-white text-sm">{t("contactUs.enterYourEmail")}</label>
+              <label className="dark:text-white text-sm">
+                {t("contactUs.enterYourEmail")}
+              </label>
               <input
                 type="email"
                 value={email}
@@ -83,8 +90,10 @@ const Register = () => {
 
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-between">
-                <label className="dark:text-white text-sm">{t("contactUs.password")}</label>
-                <button onClick={() => setShowPass(!showPass)}>
+                <label className="dark:text-white text-sm">
+                  {t("contactUs.password")}
+                </label>
+                <button type="button" onClick={() => setShowPass(!showPass)}>
                   {showPass ? (
                     <HiOutlineEye className="dark:text-white cursor-pointer" />
                   ) : (
@@ -104,10 +113,13 @@ const Register = () => {
             <div className="flex flex-col space-y-2">
               <div className="flex items-center justify-between">
                 <label className="dark:text-white text-sm">
-                {t("contactUs.password")}
+                  {t("contactUs.password")}
                 </label>
-                <button onClick={() => setShowPass(!showPass)}>
-                  {showPass ? (
+                <button
+                  type="button"
+                  onClick={() => setShowRepeatPass(!showRepeatPass)}
+                >
+                  {showRepeatPass ? (
                     <HiOutlineEye className="dark:text-white cursor-pointer" />
                   ) : (
                     <HiOutlineEyeOff className="dark:text-white cursor-pointer" />
@@ -115,7 +127,7 @@ const Register = () => {
                 </button>
               </div>
               <input
-                type={showPass ? "text" : "password"}
+                type={showRepeatPass ? "text" : "password"}
                 value={repeatPassword}
                 onChange={(e) => setRepeatPassword(e.target.value)}
                 className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3"
@@ -126,14 +138,15 @@ const Register = () => {
             <button
               type="submit"
               className="bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
+              disabled={loading}
             >
-              {t("contactUs.createacc")}
+              {loading ? t("loading") : t("contactUs.createacc")}
             </button>
 
             <p className="text-xs md:text-sm xl:text-md dark:text-white mb-4">
-            {t("contactUs.alreadyacc")} {" "}
+              {t("contactUs.alreadyacc")}{" "}
               <Link to="/login" className="my-blue underline">
-              {t("contactUs.login")}
+                {t("contactUs.login")}
               </Link>
             </p>
           </form>

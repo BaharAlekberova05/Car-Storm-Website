@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getCarById, updateRow } from "../services/apiProducts";
 import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 
 const EditCar = () => {
   const { t } = useTranslation();
@@ -52,6 +53,14 @@ const EditCar = () => {
       }
     });
 
+    const showAlert = (text) => {
+        Swal.fire({
+          text: text,
+          icon: "success",
+          confirmButtonText: "OK",
+        });
+      };
+
     updatedFormData.year = formData.year ? Number(formData.year) : car.year;
     updatedFormData.price = formData.price ? Number(formData.price) : car.price;
     updatedFormData.quantity = formData.quantity
@@ -61,10 +70,10 @@ const EditCar = () => {
     try {
       const response = await updateRow(numericId, updatedFormData);
       console.log(response);
-      alert(t("editCar.updateSuccess"));
+      showAlert(t("editCar.updateSuccess"));
     } catch (error) {
       console.error("Update failed:", error);
-      alert(t("editCar.updateFail"));
+      showAlert(t("editCar.updateFail"));
     }
   };
 
@@ -114,18 +123,21 @@ const EditCar = () => {
               </div>
             ))}
 
-            <button
-              type="submit"
-              className="w-full bg-my-blue text-white rounded-lg py-2 cursor-pointer text-md font-semibold mt-8"
-            >
-              {t("editCar.editButton")}
-            </button>
-
-            <Link to={"/dashboard"}>
-              <button className="w-[48%] bg-gray-500 text-white rounded-lg py-2 cursor-pointer text-md font-semibold">
-                {t("editCar.backToDashboard")}
+            {/* Action buttons */}
+            <div className="col-span-1 md:col-span-2 flex flex-col gap-4 mt-8">
+              <button
+                type="submit"
+                className="w-full bg-my-blue text-white rounded-lg py-2 cursor-pointer text-md font-semibold"
+              >
+                {t("editCar.editButton")}
               </button>
-            </Link>
+
+              <Link to={"/dashboard"}>
+                <button className="w-full bg-gray-500 text-white rounded-lg py-2 cursor-pointer text-md font-semibold">
+                  {t("editCar.backToDashboard")}
+                </button>
+              </Link>
+            </div>
           </form>
         </div>
       </div>

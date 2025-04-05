@@ -26,7 +26,7 @@ import { useTranslation } from "react-i18next"; // i18next hook'unu import et
 import "../i18/i18";
 
 export const FloatingNavbar = ({ navItems, className }) => {
-  const { t, i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const [language, setLanguage] = useState("EN");
 

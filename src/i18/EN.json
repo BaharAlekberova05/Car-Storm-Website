@@ -146,24 +146,25 @@
   "table_head": {
     "image": "Image",
     "car_name": "Car Name",
+    "quantity": "Quantity",
     "price": "Price",
-    "status": "Status",
-    "quantity": "Quantity"
+    "status": "Status"
   },
   "cart": {
     "title": "My Cart",
-    "emptyCart": "Cart is empty!",
-    "couponPlaceholder": "Coupon code",
-    "couponApplyButton": "Apply",
-    "couponText": "Use the code \"carstorm\" to get free delivery.",
-    "backToShopping": "Back to shopping",
+    "emptyCart": "Your cart is empty!",
+    "coupon": "Use the carstorm code for the free shipping!",
+    "couponText": "Coupon applied successfully.",
+    "invalidCoupon": "Invalid coupon code! Please use the correct coupon.",
+    "couponPlaceholder": "Enter coupon code",
+    "couponApplyButton": "Apply Coupon",
+    "backToShopping": "Back to Shopping",
     "orderSummary": "Order Summary",
-    "total": "Total:",
+    "total": "Total",
     "shipping": "Shipping",
     "totalPrice": "Total Price",
-    "resetCart": "Reset cart",
-    "proceedToCheckout": "Proceed to Checkout",
-    "delete": "Delete"
+    "resetCart": "Reset Cart",
+    "proceedToCheckout": "Proceed to Checkout"
   },
   "wishlist": {
     "title": "My Wishlist",

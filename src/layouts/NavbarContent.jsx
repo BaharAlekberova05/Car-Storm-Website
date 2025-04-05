@@ -1,10 +1,10 @@
 "use client";
 import { FloatingNavbar } from "./FloatingNavbar";
-import { useTranslation } from "react-i18next"; // i18next hook'unu import et
+import { useTranslation } from "react-i18next"; 
 import "../i18/i18";
 
 export function NavbarContent() {
-  const { t, i18n } = useTranslation(); 
+  const { t } = useTranslation();
 
   const navItems = [
     {

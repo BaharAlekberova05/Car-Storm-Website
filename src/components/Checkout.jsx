@@ -7,25 +7,33 @@ import Swal from "sweetalert2";
 const Checkout = () => {
   const { t } = useTranslation();
   const [paymentMethod, setPaymentMethod] = useState("credit-card");
-
   const { items } = useCart();
-
   const navigate = useNavigate();
 
-  const showAlert = (text) => {
-      Swal.fire({
-        text: text,
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-    };
+  const showAlert = (text, icon = "success") => {
+    Swal.fire({
+      text: text,
+      icon: icon,
+      confirmButtonText: "OK",
+    });
+  };
+
+  const handleSubmit = () => {
+    if (items.length === 0) {
+      showAlert(t("checkout.noItemsInCart"), "error");
+      return;
+    }
+    showAlert(t("checkout.orderProcess"));
+    navigate("/");
+  };
 
   return (
     <div className="container">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
-        <span className="my-blue">{t("checkout.title")}</span>
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold my-blue my-6 text-center">
+        {t("checkout.title")}
       </h1>
       <div className="max-w-4xl mx-auto p-6 bg-white dark:bg-[#121212] rounded-lg shadow-lg border border-gray-500">
+        {/* Full Name Input */}
         <div className="mb-4">
           <label className="block text-gray-700 dark:text-gray-300">
             {t("checkout.fullName")}
@@ -34,9 +42,11 @@ const Checkout = () => {
             type="text"
             className="w-full p-2 border rounded dark:bg-[#121212] outline-none dark:text-white"
             placeholder={t("checkout.namePlaceholder")}
+            required
           />
         </div>
 
+        {/* Email Input */}
         <div className="mb-4">
           <label className="block text-gray-700 dark:text-gray-300">
             {t("checkout.email")}
@@ -45,9 +55,11 @@ const Checkout = () => {
             type="email"
             className="w-full p-2 border rounded dark:bg-[#121212] outline-none dark:text-white"
             placeholder={t("checkout.emailPlaceholder")}
+            required
           />
         </div>
 
+        {/* Payment Method Select */}
         <div className="mb-4">
           <label className="block text-gray-700 dark:text-gray-300">
             {t("checkout.paymentMethod")}
@@ -63,6 +75,7 @@ const Checkout = () => {
           </select>
         </div>
 
+        {/* Order Summary */}
         <div className="bg-gray-100 dark:bg-[#121212] p-4 rounded mb-4">
           <h3 className="font-semibold dark:text-white">
             {t("checkout.orderSummary")}
@@ -79,7 +92,6 @@ const Checkout = () => {
               </li>
             ))}
           </ul>
-
           <p className="text-gray-900 dark:text-gray-100 font-semibold mt-4">
             {t("checkout.totalPrice")} $
             {items.reduce(
@@ -89,12 +101,10 @@ const Checkout = () => {
           </p>
         </div>
 
+        {/* Submit Button */}
         <button
           className="w-full p-3 bg-blue-600 text-white font-bold rounded hover:bg-blue-700 transition cursor-pointer"
-          onClick={() => {
-            showAlert(t("checkout.orderProcess"));
-            navigate("/");
-          }}
+          onClick={handleSubmit}
         >
           {t("checkout.completePurchase")}
         </button>

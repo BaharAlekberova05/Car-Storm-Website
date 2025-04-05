@@ -3,6 +3,29 @@ import emailjs from "@emailjs/browser";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
 
+const InputField = ({ label, type, register, name, placeholder, error }) => (
+  <div className="w-full">
+    <input
+      {...register(name, { required: placeholder })}
+      type={type}
+      className="border border-gray-200 bg-white dark:bg-[#121212] w-full px-4 py-2 rounded-md dark:text-white placeholder:dark:text-white"
+      placeholder={placeholder}
+    />
+    {error && <p className="text-red-500">{error.message}</p>}
+  </div>
+);
+
+const TextAreaField = ({ label, register, name, placeholder, error }) => (
+  <div className="w-full">
+    <textarea
+      {...register(name, { required: placeholder })}
+      className="w-full h-[200px] border border-gray-200 bg-white px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
+      placeholder={placeholder}
+    ></textarea>
+    {error && <p className="text-red-500">{error.message}</p>}
+  </div>
+);
+
 const Contact = () => {
   const { t } = useTranslation();
 
@@ -38,7 +61,7 @@ const Contact = () => {
 
   return (
     <div className="container overflow-x-hidden">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-8 text-center">
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold my-blue my-8 text-center">
         {t("contactUs.contact")}
       </h1>
 
@@ -50,56 +73,44 @@ const Contact = () => {
           >
             <div className="flex items-center space-x-4 w-full">
               <div className="w-1/2">
-                <input
-                  {...register("user_name", {
-                    required: t("contactUs.enterYourName"),
-                  })}
+                <InputField
+                  label={t("contactUs.enterYourName")}
                   type="text"
-                  className="border border-gray-200 bg-white dark:bg-[#121212] w-full px-4 py-2 rounded-md dark:text-white placeholder:dark:text-white"
+                  register={register}
+                  name="user_name"
                   placeholder={t("contactUs.enterYourName")}
+                  error={errors.user_name}
                 />
-                <p className="text-red-500">{errors.user_name?.message}</p>
               </div>
 
               <div className="w-1/2">
-                <input
-                  {...register("user_email", {
-                    required: t("contactUs.writeYourMessage"),
-                    pattern: {
-                      value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: t("contactUs.invalid"),
-                    },
-                  })}
+                <InputField
+                  label={t("contactUs.enterYourEmail")}
                   type="email"
-                  className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
+                  register={register}
+                  name="user_email"
                   placeholder={t("contactUs.enterYourEmail")}
+                  error={errors.user_email}
                 />
-                <p className="text-red-500">{errors.user_email?.message}</p>
               </div>
             </div>
 
-            <div className="w-full">
-              <input
-                {...register("message_subject", {
-                  required: t("contactUs.enterYourSubject"),
-                })}
-                type="text"
-                className="border border-gray-200 bg-white w-full px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
-                placeholder={t("contactUs.enterYourSubject")}
-              />
-              <p className="text-red-500">{errors.message_subject?.message}</p>
-            </div>
+            <InputField
+              label={t("contactUs.enterYourSubject")}
+              type="text"
+              register={register}
+              name="message_subject"
+              placeholder={t("contactUs.enterYourSubject")}
+              error={errors.message_subject}
+            />
 
-            <div className="w-full">
-              <textarea
-                {...register("message", {
-                  required: t("contactUs.writeYourMessage"),
-                })}
-                className="w-full h-[200px] border border-gray-200 bg-white px-4 py-2 rounded-md dark:bg-[#121212] dark:text-white placeholder:dark:text-white"
-                placeholder={t("contactUs.writeYourMessage")}
-              ></textarea>
-              <p className="text-red-500">{errors.message?.message}</p>
-            </div>
+            <TextAreaField
+              label={t("contactUs.writeYourMessage")}
+              register={register}
+              name="message"
+              placeholder={t("contactUs.writeYourMessage")}
+              error={errors.message}
+            />
 
             <button
               type="submit"

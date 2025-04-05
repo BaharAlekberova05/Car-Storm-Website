@@ -7,13 +7,14 @@ import { useEffect, useState } from "react";
 import { deleteRows, getCars } from "../services/apiProducts";
 import Swal from "sweetalert2";
 import { useTranslation } from "react-i18next";
-import { t } from "i18next";
 
 function Button({
   children,
   variant = "default",
   size = "md",
   className = "",
+  icon,
+  iconPosition = "left",
   ...props
 }) {
   const sizeClasses = {
@@ -37,7 +38,9 @@ function Button({
       className={`rounded font-semibold transition-all ${sizeClasses[size]} ${variants[variant]} ${className}`}
       {...props}
     >
+      {icon && iconPosition === "left" && <span className="mr-2">{icon}</span>}
       {children}
+      {icon && iconPosition === "right" && <span className="ml-2">{icon}</span>}
     </button>
   );
 }
@@ -115,6 +118,12 @@ export default function CarDashboard() {
   const [cars, setCars] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
+  useEffect(() => {
+    getCars().then((data) => {
+      data && setCars(data);
+    });
+  }, []);
+
   const showAlert = (text, onConfirm) => {
     Swal.fire({
       title: "Are you sure?",
@@ -126,23 +135,10 @@ export default function CarDashboard() {
       confirmButtonText: "Yes, delete it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire({
-          title: "Log out",
-          text: "You have successfully logged out.",
-          icon: "success",
-        }).then(() => {
-          onConfirm();
-        });
+        onConfirm();
       }
     });
   };
-
-  //? My ver
-  useEffect(() => {
-    getCars().then((data) => {
-      data && setCars(data);
-    });
-  }, []);
 
   const handleDelete = async (id) => {
     try {

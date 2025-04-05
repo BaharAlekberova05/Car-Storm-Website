@@ -145,25 +145,26 @@
   },
   "table_head": {
     "image": "Şəkil",
-    "car_name": "Avtomobil Adı",
+    "car_name": "Maşın Adı",
+    "quantity": "Miqdar",
     "price": "Qiymət",
-    "status": "Vəziyyət",
-    "quantity": "Miqdar"
+    "status": "Vəziyyət"
   },
   "cart": {
     "title": "Səbətim",
-    "emptyCart": "Səbət boşdur!",
-    "couponPlaceholder": "Kupon kodu",
-    "couponApplyButton": "Tətbiq et",
-    "couponText": "\"carstorm\" kodunu istifadə edərək pulsuz çatdırılma əldə edin.",
-    "backToShopping": "Alış-verişə qayıt",
-    "orderSummary": "Sifariş Xülasəsi",
-    "total": "Cəm:",
+    "emptyCart": "Səbətiniz boşdur!",
+    "coupon": "Pulsuz çatdırılma üçün carstorm kodundan istifadə edin!",
+    "couponText": "Kupon müvəffəqiyyətlə tətbiq olundu.",
+    "invalidCoupon": "Yanlış kupon kodu! Zəhmət olmasa doğru kuponu istifadə edin.",
+    "couponPlaceholder": "Kupon kodunu daxil edin",
+    "couponApplyButton": "Kuponu Tətbiq Et",
+    "backToShopping": "Alış-verişə geri dön",
+    "orderSummary": "Sifarişin Xülasəsi",
+    "total": "Cəm",
     "shipping": "Çatdırılma",
     "totalPrice": "Ümumi Qiymət",
-    "resetCart": "Səbəti sıfırla",
-    "proceedToCheckout": "Ödəməyə keç",
-    "delete": "Sil"
+    "resetCart": "Səbəti Təmizlə",
+    "proceedToCheckout": "Ödənişi Tamamlamağa Keç"
   },
   "wishlist": {
     "title": "Sevimlilər",
@@ -172,7 +173,7 @@
     "addToCart": "Səbətə əlavə et",
     "addedToCart": "Məhsul səbətə əlavə edildi!"
   },
- "checkout": {
+  "checkout": {
     "title": "Ödəmə",
     "fullName": "Tam Ad",
     "namePlaceholder": "John Doe",

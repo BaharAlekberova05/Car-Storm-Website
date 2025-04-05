@@ -4,14 +4,6 @@ import { insertRow } from "../services/apiProducts";
 import Swal from "sweetalert2";
 
 const AddCar = () => {
-  const showAlert = (text) => {
-    Swal.fire({
-      text: text,
-      icon: "success",
-      confirmButtonText: "OK",
-    });
-  };
-
   const [formData, setFormData] = useState({
     mainImg: "",
     secondImg: "",
@@ -29,14 +21,38 @@ const AddCar = () => {
     quantity: "",
   });
 
+  const [error, setError] = useState("");
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const validateForm = () => {
+    for (const key in formData) {
+      if (formData[key] === "") {
+        return `Please fill in the ${key}`;
+      }
+    }
+    if (
+      isNaN(formData.price) ||
+      isNaN(formData.year) ||
+      isNaN(formData.quantity)
+    ) {
+      return "Please enter valid numbers for Price, Year, and Quantity.";
+    }
+    return null;
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const validationError = validateForm();
+    if (validationError) {
+      setError(validationError);
+      return;
+    }
+
     try {
-      const response = await insertRow(
+      await insertRow(
         formData.mainImg,
         formData.secondImg,
         formData.thirdImg,
@@ -52,9 +68,18 @@ const AddCar = () => {
         formData.transmission,
         Number(formData.quantity)
       );
-      showAlert("Car added succesfully!");
+      Swal.fire({
+        text: "Car added successfully!",
+        icon: "success",
+        confirmButtonText: "OK",
+      });
     } catch (error) {
       console.error("Insert failed:", error);
+      Swal.fire({
+        text: "Failed to add car. Please try again.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
 
@@ -99,6 +124,13 @@ const AddCar = () => {
                 />
               </div>
             ))}
+
+            {error && (
+              <div className="col-span-1 md:col-span-2 text-center text-red-500 mt-4">
+                {error}
+              </div>
+            )}
+
             <div className="col-span-1 md:col-span-2 flex flex-col gap-4">
               <button
                 type="submit"

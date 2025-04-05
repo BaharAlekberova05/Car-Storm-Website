@@ -1,12 +1,10 @@
 import { Card, Typography } from "@material-tailwind/react";
-import { useRef, useState } from "react";
 import { FaRegTrashCan } from "react-icons/fa6";
-import { Link } from "react-router";
 import { useCart } from "react-use-cart";
-import { useTranslation } from "react-i18next";
+import { Link } from "react-router";
 import Swal from "sweetalert2";
-
-const TABLE_HEAD = ["image", "car_name", "quantity", "price", "status"];
+import { useTranslation } from "react-i18next";
+import { useRef, useState } from "react";
 
 const Cart = () => {
   const { t } = useTranslation();
@@ -37,9 +35,17 @@ const Cart = () => {
       couponRef.current.value = "";
     } else {
       setShipping(25);
-      showAlert("Use correct coupon code!");
+      showAlert(t("cart.invalidCoupon"));
     }
   };
+
+  const TABLE_HEAD = [
+    t("table_head.image"),
+    t("table_head.car_name"),
+    t("table_head.quantity"),
+    t("table_head.price"),
+    t("table_head.status"),
+  ];
 
   return (
     <div className="container">
@@ -48,7 +54,13 @@ const Cart = () => {
       </h1>
 
       {isEmpty ? (
-        <p>{t("cart.emptyCart")}</p>
+        <div className="flex justify-center items-center h-[500px] w-full">
+          <img
+            src="https://aleointernational.com/img/empty-cart-yellow.png"
+            alt="Wishlist is empty"
+            className="object-cover"
+          />
+        </div>
       ) : (
         <div>
           <section className="w-full bg-white dark:bg-[#121212] rounded-lg shadow-md overflow-x-auto mb-12">
@@ -62,7 +74,7 @@ const Cart = () => {
                         className="border-b border-gray-300 dark:border-gray-600 pb-3 pt-5 px-3 text-xs md:text-sm xl:text-lg"
                       >
                         <Typography className="font-bold leading-none dark:text-white">
-                          {t(`table_head.${head}`)}
+                          {head}
                         </Typography>
                       </th>
                     ))}
@@ -95,7 +107,7 @@ const Cart = () => {
                         </td>
 
                         <td className={classes}>
-                          <Typography className="font-normal text-gray-600 dark:text-gray-300 text-xs md:text-sm xl:text-lg ">
+                          <Typography className="font-normal text-gray-600 dark:text-gray-300 text-xs md:text-sm xl:text-lg">
                             <div className="flex items-center">
                               <button
                                 className="flex items-center justify-center font-bold bg-gray-100 text-black dark:text-white dark:bg-gray-600 px-2.5 mr-2 cursor-pointer rounded-sm"
@@ -157,9 +169,7 @@ const Cart = () => {
                   {t("cart.couponApplyButton")}
                 </button>
               </div>
-              <p className="text-gray-500 text-sm mt-1">
-                {t("cart.couponText")}
-              </p>
+              <p className="text-gray-500 text-sm mt-1">{t("cart.coupon")}</p>
 
               <Link to={"/cars"}>
                 <button className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer w-full md:w-auto mt-8">
@@ -186,7 +196,7 @@ const Cart = () => {
                 <div className="flex items-center justify-between">
                   <p>{t("cart.totalPrice")}</p>
                   <p>
-                    $<span>{cartTotal + 25}</span>
+                    $<span>{cartTotal + shipping}</span>
                   </p>
                 </div>
               </div>

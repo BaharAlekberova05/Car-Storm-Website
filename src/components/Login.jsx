@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState } from "react";
 import { HiOutlineEye, HiOutlineEyeOff } from "react-icons/hi";
 import { Link, useNavigate } from "react-router";
 import supabase from "../services/supabase";
@@ -6,18 +6,16 @@ import { useTranslation } from "react-i18next";
 
 const Login = () => {
   const { t } = useTranslation();
-
   const [showPass, setShowPass] = useState(false);
-  const emailRef = useRef();
-  const passRef = useRef();
-  const navigate = useNavigate();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
-    const email = emailRef.current.value;
-    const password = passRef.current.value;
+    setLoading(true);
 
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -27,6 +25,7 @@ const Login = () => {
 
       if (error) {
         setError(error.message);
+        setLoading(false);
         return;
       }
 
@@ -34,6 +33,7 @@ const Login = () => {
 
       if (!user) {
         setError(t("errors.user"));
+        setLoading(false);
         return;
       }
 
@@ -46,6 +46,7 @@ const Login = () => {
       }
     } catch (err) {
       setError(t("errors.login"));
+      setLoading(false);
     }
   };
 
@@ -60,7 +61,7 @@ const Login = () => {
           <h3 className="dark:text-white text-lg md:text-xl xl:text-3xl mb-2 font-medium text-center">
             {t("contactUs.login")}
           </h3>
-          {error && <p className="text-red-500 text-center mb-4">{error}</p>}{" "}
+          {error && <p className="text-red-500 text-center mb-4">{error}</p>}
           <form onSubmit={handleLogin} className="flex flex-col space-y-4">
             <div className="flex flex-col space-y-2">
               <label className="dark:text-white text-sm">
@@ -68,7 +69,8 @@ const Login = () => {
               </label>
               <input
                 type="email"
-                ref={emailRef}
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3"
                 required
               />
@@ -88,8 +90,9 @@ const Login = () => {
                 </div>
               </div>
               <input
-                ref={passRef}
                 type={showPass ? "text" : "password"}
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 className="outline-none border border-white bg-white text-black dark:bg-[#121212] dark:text-white rounded-md py-1 px-3"
                 required
               />
@@ -98,8 +101,9 @@ const Login = () => {
             <button
               type="submit"
               className="w-full bg-my-blue text-white rounded-lg py-1 cursor-pointer text-md font-semibold"
+              disabled={loading}
             >
-              {t("contactUs.login")}
+              {loading ? t("loading") : t("contactUs.login")}
             </button>
 
             <p className="text-xs md:text-sm xl:text-md dark:text-white mb-4">
