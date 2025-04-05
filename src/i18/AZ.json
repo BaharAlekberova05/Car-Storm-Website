@@ -138,6 +138,75 @@
     "changelogFeature5": "İstifadəçi seçimlərinə əsaslanan şəxsi tövsiyələr"
   },
   "dashboard": {
-    
+    "allcars": "Bütün avtomobillər",
+    "addcars": "Avtomobil əlavə et",
+    "carInvent": "Avtomobil İnventarı",
+    "manageCar": "Avtomobil elanlarınızı idarə edin"
+  },
+  "table_head": {
+    "image": "Şəkil",
+    "car_name": "Avtomobil Adı",
+    "price": "Qiymət",
+    "status": "Vəziyyət",
+    "quantity": "Miqdar"
+  },
+  "cart": {
+    "title": "Səbətim",
+    "emptyCart": "Səbət boşdur!",
+    "couponPlaceholder": "Kupon kodu",
+    "couponApplyButton": "Tətbiq et",
+    "couponText": "\"carstorm\" kodunu istifadə edərək pulsuz çatdırılma əldə edin.",
+    "backToShopping": "Alış-verişə qayıt",
+    "orderSummary": "Sifariş Xülasəsi",
+    "total": "Cəm:",
+    "shipping": "Çatdırılma",
+    "totalPrice": "Ümumi Qiymət",
+    "resetCart": "Səbəti sıfırla",
+    "proceedToCheckout": "Ödəməyə keç",
+    "delete": "Sil"
+  },
+  "wishlist": {
+    "title": "Sevimlilər",
+    "empty": "Sevimlilər boşdur!",
+    "delete": "Sil",
+    "addToCart": "Səbətə əlavə et",
+    "addedToCart": "Məhsul səbətə əlavə edildi!"
+  },
+ "checkout": {
+    "title": "Ödəmə",
+    "fullName": "Tam Ad",
+    "namePlaceholder": "John Doe",
+    "email": "Email",
+    "emailPlaceholder": "john@example.com",
+    "paymentMethod": "Ödəmə Metodu",
+    "creditCard": "Kredit Kartı",
+    "paypal": "PayPal",
+    "bankTransfer": "Bank Ödəməsi",
+    "orderSummary": "Sifariş Xülasəsi",
+    "totalPrice": "Ümumi Qiymət:",
+    "completePurchase": "Ödənişi Tamamla",
+    "orderProcess": "Sifarişiniz işlənir!"
+  },
+  "editCar": {
+    "edit": "Redaktə et",
+    "car": "Avtomobil",
+    "mainImageURL": "Əsas Şəkil URL",
+    "secondImageURL": "İkinci Şəkil URL",
+    "thirdImageURL": "Üçüncü Şəkil URL",
+    "fourthImageURL": "Dördüncü Şəkil URL",
+    "fifthImageURL": "Beşinci Şəkil URL",
+    "year": "İl",
+    "color": "Rəng",
+    "brand": "Brend",
+    "model": "Model",
+    "price": "Qiymət ($)",
+    "bodyType": "Bədən Tipi",
+    "fuelType": "Yanacaq Tipi",
+    "transmissionType": "Vites Tipi",
+    "quantity": "Miqdar",
+    "editButton": "Redaktə et",
+    "updateSuccess": "Avtomobil uğurla yeniləndi!",
+    "updateFail": "Avtomobil yenilənə bilmədi!",
+    "backToDashboard": "Dashboarda Qayıt"
   }
 }

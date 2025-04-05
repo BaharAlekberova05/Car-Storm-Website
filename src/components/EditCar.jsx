@@ -1,8 +1,10 @@
 import { Link, useParams } from "react-router";
 import { useEffect, useState } from "react";
 import { getCarById, updateRow } from "../services/apiProducts";
+import { useTranslation } from "react-i18next";
 
 const EditCar = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const numericId = Number(id);
 
@@ -59,34 +61,38 @@ const EditCar = () => {
     try {
       const response = await updateRow(numericId, updatedFormData);
       console.log(response);
-      alert("Car updated successfully!");
+      alert(t("editCar.updateSuccess"));
     } catch (error) {
       console.error("Update failed:", error);
-      alert("Car could not be updated!");
+      alert(t("editCar.updateFail"));
     }
   };
 
   const inputFields = [
-    { label: "Main Image URL", name: "img1", type: "text" },
-    { label: "Second Image URL", name: "img2", type: "text" },
-    { label: "Third Image URL", name: "img3", type: "text" },
-    { label: "Fourth Image URL", name: "img4", type: "text" },
-    { label: "Fifth Image URL", name: "img5", type: "text" },
-    { label: "Year", name: "year", type: "number" },
-    { label: "Color", name: "color", type: "text" },
-    { label: "Brand", name: "brand", type: "text" },
-    { label: "Model", name: "model", type: "text" },
-    { label: "Price ($)", name: "price", type: "number" },
-    { label: "Body Type", name: "bodyType", type: "text" },
-    { label: "Fuel Type", name: "fuelType", type: "text" },
-    { label: "Transmission Type", name: "transmissionType", type: "text" },
-    { label: "Quantity", name: "quantity", type: "number" },
+    { label: t("editCar.mainImageURL"), name: "img1", type: "text" },
+    { label: t("editCar.secondImageURL"), name: "img2", type: "text" },
+    { label: t("editCar.thirdImageURL"), name: "img3", type: "text" },
+    { label: t("editCar.fourthImageURL"), name: "img4", type: "text" },
+    { label: t("editCar.fifthImageURL"), name: "img5", type: "text" },
+    { label: t("editCar.year"), name: "year", type: "number" },
+    { label: t("editCar.color"), name: "color", type: "text" },
+    { label: t("editCar.brand"), name: "brand", type: "text" },
+    { label: t("editCar.model"), name: "model", type: "text" },
+    { label: t("editCar.price"), name: "price", type: "number" },
+    { label: t("editCar.bodyType"), name: "bodyType", type: "text" },
+    { label: t("editCar.fuelType"), name: "fuelType", type: "text" },
+    {
+      label: t("editCar.transmissionType"),
+      name: "transmissionType",
+      type: "text",
+    },
+    { label: t("editCar.quantity"), name: "quantity", type: "number" },
   ];
 
   return (
     <div className="container pb-14 px-4">
       <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
-        <span className="my-blue">Edit</span> Car
+        <span className="my-blue">{t("editCar.edit")}</span> {t("editCar.car")}
       </h1>
 
       <div className="flex items-center justify-center">
@@ -112,15 +118,15 @@ const EditCar = () => {
               type="submit"
               className="w-full bg-my-blue text-white rounded-lg py-2 cursor-pointer text-md font-semibold mt-8"
             >
-              Edit
+              {t("editCar.editButton")}
             </button>
-          </form>
 
-          <Link to={"/dashboard"}>
-            <button className="w-full bg-gray-500 text-white rounded-lg py-2 cursor-pointer text-md font-semibold mt-4">
-              Back to Dashboard
-            </button>
-          </Link>
+            <Link to={"/dashboard"}>
+              <button className="w-[48%] bg-gray-500 text-white rounded-lg py-2 cursor-pointer text-md font-semibold">
+                {t("editCar.backToDashboard")}
+              </button>
+            </Link>
+          </form>
         </div>
       </div>
     </div>

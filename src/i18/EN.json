@@ -138,6 +138,75 @@
     "changelogFeature5": "Personalized recommendations based on user preferences"
   },
   "dashboard": {
-    
+    "allcars": "All cars",
+    "addcars": "Add cars",
+    "carInvent": "Car Inventory",
+    "manageCar": "Manage your car listings"
+  },
+  "table_head": {
+    "image": "Image",
+    "car_name": "Car Name",
+    "price": "Price",
+    "status": "Status",
+    "quantity": "Quantity"
+  },
+  "cart": {
+    "title": "My Cart",
+    "emptyCart": "Cart is empty!",
+    "couponPlaceholder": "Coupon code",
+    "couponApplyButton": "Apply",
+    "couponText": "Use the code \"carstorm\" to get free delivery.",
+    "backToShopping": "Back to shopping",
+    "orderSummary": "Order Summary",
+    "total": "Total:",
+    "shipping": "Shipping",
+    "totalPrice": "Total Price",
+    "resetCart": "Reset cart",
+    "proceedToCheckout": "Proceed to Checkout",
+    "delete": "Delete"
+  },
+  "wishlist": {
+    "title": "My Wishlist",
+    "empty": "Wishlist is empty!",
+    "delete": "Delete",
+    "addToCart": "Add to cart",
+    "addedToCart": "Product added to cart!"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "fullName": "Full Name",
+    "namePlaceholder": "John Doe",
+    "email": "Email",
+    "emailPlaceholder": "john@example.com",
+    "paymentMethod": "Payment Method",
+    "creditCard": "Credit Card",
+    "paypal": "PayPal",
+    "bankTransfer": "Bank Transfer",
+    "orderSummary": "Order Summary",
+    "totalPrice": "Total Price:",
+    "completePurchase": "Complete Purchase",
+    "orderProcess": "Your order is in process!"
+  },
+  "editCar": {
+    "edit": "Edit",
+    "car": "Car",
+    "mainImageURL": "Main Image URL",
+    "secondImageURL": "Second Image URL",
+    "thirdImageURL": "Third Image URL",
+    "fourthImageURL": "Fourth Image URL",
+    "fifthImageURL": "Fifth Image URL",
+    "year": "Year",
+    "color": "Color",
+    "brand": "Brand",
+    "model": "Model",
+    "price": "Price ($)",
+    "bodyType": "Body Type",
+    "fuelType": "Fuel Type",
+    "transmissionType": "Transmission Type",
+    "quantity": "Quantity",
+    "editButton": "Edit",
+    "updateSuccess": "Car updated successfully!",
+    "updateFail": "Car could not be updated!",
+    "backToDashboard": "Back to Dashboard"
   }
 }

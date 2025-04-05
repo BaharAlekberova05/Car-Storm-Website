@@ -1,24 +1,22 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-import LanguageDetector from "i18next-browser-languagedetector"; // Tarayıcı dilini algılamak için
+import LanguageDetector from "i18next-browser-languagedetector";
 
-// Dil dosyalarını import ediyoruz
 import translationEN from "./EN.json";
 import translationAZ from "./AZ.json";
 
-// i18next'i yapılandırıyoruz
 i18n
-  .use(initReactI18next) // React ile uyumlu hale getiriyoruz
-  .use(LanguageDetector) // Tarayıcı dilini otomatik algılar
+  .use(initReactI18next)
+  .use(LanguageDetector)
   .init({
     resources: {
-      en: { translation: translationEN }, // İngilizce
-      az: { translation: translationAZ }, // Azerbaycan Türkçesi
+      en: { translation: translationEN },
+      az: { translation: translationAZ },
     },
-    lng: "en", // Varsayılan dil
-    fallbackLng: "en", // Geçersiz dil seçilirse, İngilizceyi kullan
+    lng: "en",
+    fallbackLng: "en",
     interpolation: {
-      escapeValue: false, // React için gerekli
+      escapeValue: false,
     },
   });
 

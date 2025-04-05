@@ -6,8 +6,8 @@ import { FaRegTrashCan } from "react-icons/fa6";
 import { useEffect, useState } from "react";
 import { deleteRows, getCars } from "../services/apiProducts";
 import Swal from "sweetalert2";
-
-const TABLE_HEAD = ["Image", "Car Name", "Price", "Status"];
+import { useTranslation } from "react-i18next";
+import { t } from "i18next";
 
 function Button({
   children,
@@ -43,6 +43,8 @@ function Button({
 }
 
 function Sidebar({ isOpen, toggleSidebar }) {
+  const { t } = useTranslation();
+
   return (
     <aside
       className={`fixed inset-y-0 left-0 w-64 bg-white dark:bg-[#121212] p-6 shadow-xl transform ${
@@ -73,7 +75,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
             to="/cars"
             className="flex items-center gap-3 p-3 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-800 transition-all font-medium"
           >
-            All Cars
+            {t("dashboard.allcars")}
           </Link>
         </li>
         <li>
@@ -81,7 +83,7 @@ function Sidebar({ isOpen, toggleSidebar }) {
             to="/add-car"
             className="flex items-center gap-3 p-3 rounded-lg text-gray-700 dark:text-gray-200 hover:bg-blue-50 dark:hover:bg-gray-800 transition-all font-medium"
           >
-            Add Cars
+            {t("dashboard.addcars")}
           </Link>
         </li>
       </ul>
@@ -108,6 +110,8 @@ function Navbar({ toggleSidebar }) {
 }
 
 export default function CarDashboard() {
+  const { t } = useTranslation();
+
   const [cars, setCars] = useState([]);
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -168,10 +172,10 @@ export default function CarDashboard() {
 
         <div className="mb-6">
           <h2 className="text-2xl font-bold text-gray-800 dark:text-white">
-            Car Inventory
+            {t("dashboard.carInvent")}
           </h2>
           <p className="text-gray-600 dark:text-gray-300">
-            Manage your car listings
+            {t("dashboard.manageCar")}
           </p>
         </div>
 
@@ -181,11 +185,11 @@ export default function CarDashboard() {
               variant="h5"
               className="font-bold text-gray-800 dark:text-white"
             >
-              All Cars
+              {t("dashboard.allcars")}
             </Typography>
             <Link to="/add-car">
               <Button className="flex items-center gap-2 bg-blue-500 hover:bg-blue-600 transition-colors">
-                <FaPlus size={16} /> Add New Car
+                <FaPlus size={16} /> {t("dashboard.addcars")}
               </Button>
             </Link>
           </div>
@@ -194,18 +198,29 @@ export default function CarDashboard() {
             <table className="w-full min-w-max table-auto text-left">
               <thead>
                 <tr className="bg-gray-50 dark:bg-gray-900">
-                  {TABLE_HEAD.map((head) => (
-                    <th
-                      key={head}
-                      className="py-4 px-6 border-b border-gray-200 dark:border-gray-900"
-                    >
-                      <Typography className="font-bold text-gray-700 dark:text-gray-300 text-sm">
-                        {head}
-                      </Typography>
-                    </th>
-                  ))}
+                  <th className="py-4 px-6 border-b border-gray-200 dark:border-gray-900">
+                    <Typography className="font-bold text-gray-700 dark:text-gray-300 text-sm">
+                      {t("table_head.image")}
+                    </Typography>
+                  </th>
+                  <th className="py-4 px-6 border-b border-gray-200 dark:border-gray-900">
+                    <Typography className="font-bold text-gray-700 dark:text-gray-300 text-sm">
+                      {t("table_head.car_name")}
+                    </Typography>
+                  </th>
+                  <th className="py-4 px-6 border-b border-gray-200 dark:border-gray-900">
+                    <Typography className="font-bold text-gray-700 dark:text-gray-300 text-sm">
+                      {t("table_head.price")}
+                    </Typography>
+                  </th>
+                  <th className="py-4 px-6 border-b border-gray-200 dark:border-gray-900">
+                    <Typography className="font-bold text-gray-700 dark:text-gray-300 text-sm">
+                      {t("table_head.status")}
+                    </Typography>
+                  </th>
                 </tr>
               </thead>
+
               <tbody>
                 {cars.map((car, index) => {
                   const isLast = index === cars.length - 1;

@@ -3,20 +3,29 @@ import { useRef, useState } from "react";
 import { FaRegTrashCan } from "react-icons/fa6";
 import { Link } from "react-router";
 import { useCart } from "react-use-cart";
+import { useTranslation } from "react-i18next";
+import Swal from "sweetalert2";
 
-const TABLE_HEAD = ["Image", "Car Name", "Quantity", "Price", "Status"];
+const TABLE_HEAD = ["image", "car_name", "quantity", "price", "status"];
 
 const Cart = () => {
+  const { t } = useTranslation();
   const {
     isEmpty,
     items,
-    totalUniqueItems,
-    totalItems,
     cartTotal,
     updateItemQuantity,
     removeItem,
     emptyCart,
   } = useCart();
+
+  const showAlert = (text) => {
+    Swal.fire({
+      text: text,
+      icon: "success",
+      confirmButtonText: "OK",
+    });
+  };
 
   const couponRef = useRef();
   const [shipping, setShipping] = useState(25);
@@ -24,21 +33,22 @@ const Cart = () => {
   const applyCoupon = () => {
     if (couponRef.current.value === "carstorm") {
       setShipping(0);
-      alert("Coupon applied! Free shipping activated.");
+      showAlert(t("cart.couponText"));
+      couponRef.current.value = "";
     } else {
       setShipping(25);
-      alert("Use correct coupon code!");
+      showAlert("Use correct coupon code!");
     }
   };
 
   return (
     <div className="container">
-      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold dark:text-white my-6 text-center">
-        My <span className="my-blue">Cart</span>
+      <h1 className="text-2xl md:text-3xl xl:text-4xl font-bold my-blue my-6 text-center">
+        {t("cart.title")}
       </h1>
 
       {isEmpty ? (
-        <p>Cart is empty!</p>
+        <p>{t("cart.emptyCart")}</p>
       ) : (
         <div>
           <section className="w-full bg-white dark:bg-[#121212] rounded-lg shadow-md overflow-x-auto mb-12">
@@ -52,7 +62,7 @@ const Cart = () => {
                         className="border-b border-gray-300 dark:border-gray-600 pb-3 pt-5 px-3 text-xs md:text-sm xl:text-lg"
                       >
                         <Typography className="font-bold leading-none dark:text-white">
-                          {head}
+                          {t(`table_head.${head}`)}
                         </Typography>
                       </th>
                     ))}
@@ -117,7 +127,7 @@ const Cart = () => {
                           <Typography className="font-normal text-gray-600 dark:text-gray-300 text-xs md:text-sm xl:text-lg flex items-center space-x-2">
                             <FaRegTrashCan
                               onClick={() => removeItem(item.id)}
-                              title="Delete"
+                              title={t("cart.delete")}
                               color="action"
                               className="text-black dark:text-white cursor-pointer"
                             />
@@ -137,44 +147,44 @@ const Cart = () => {
                 <input
                   ref={couponRef}
                   type="text"
-                  placeholder="Coupon code"
+                  placeholder={t("cart.couponPlaceholder")}
                   className="border border-gray-500 bg-white dark:bg-black dark:text-white placeholder:dark:text-white outline-none px-4 py-2 rounded-lg w-full md:w-auto"
                 />
                 <button
                   className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer w-full md:w-auto"
                   onClick={applyCoupon}
                 >
-                  Apply
+                  {t("cart.couponApplyButton")}
                 </button>
               </div>
               <p className="text-gray-500 text-sm mt-1">
-                Use the code "carstorm" to get free delivery.
+                {t("cart.couponText")}
               </p>
 
               <Link to={"/cars"}>
                 <button className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer w-full md:w-auto mt-8">
-                  Back to shopping
+                  {t("cart.backToShopping")}
                 </button>
               </Link>
             </div>
 
             <div className="w-full md:w-1/2 flex flex-col space-y-6 items-center justify-center">
               <div className="w-full md:w-full flex flex-col space-y-6 bg-white dark:bg-black border border-gray-500 rounded-md p-4 dark:text-white">
-                <p className="text-xl text-center">Order Summary</p>
+                <p className="text-xl text-center">{t("cart.orderSummary")}</p>
                 <div className="flex items-center justify-between">
-                  <p>Total:</p>
+                  <p>{t("cart.total")}</p>
                   <p>
                     $<span>{cartTotal}</span>
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p>Shipping</p>
+                  <p>{t("cart.shipping")}</p>
                   <p>
                     $<span>{shipping}</span>
                   </p>
                 </div>
                 <div className="flex items-center justify-between">
-                  <p>Total Price</p>
+                  <p>{t("cart.totalPrice")}</p>
                   <p>
                     $<span>{cartTotal + 25}</span>
                   </p>
@@ -186,11 +196,11 @@ const Cart = () => {
                   className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer"
                   onClick={emptyCart}
                 >
-                  Reset cart
+                  {t("cart.resetCart")}
                 </button>
                 <Link to={"/checkout"}>
                   <button className="px-4 py-2 rounded-lg font-medium bg-my-blue text-white cursor-pointer">
-                    Proceed to Checkout
+                    {t("cart.proceedToCheckout")}
                   </button>
                 </Link>
               </div>
