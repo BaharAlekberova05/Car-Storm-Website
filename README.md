@@ -60,7 +60,7 @@
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/username/carstorm.git
+   git clone https://github.com/BaharAlekberova05/Car-Storm-Website.git
    cd carstorm
    npm install
    npm run dev
