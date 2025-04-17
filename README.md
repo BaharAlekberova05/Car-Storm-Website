@@ -65,4 +65,4 @@
    npm install
    npm run dev
    ```
-   2. Or via the link: https://car-storm.vercel.app/
+2. Or via the link: https://car-storm.vercel.app/
