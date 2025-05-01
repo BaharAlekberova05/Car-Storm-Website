@@ -3,18 +3,11 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
 
-
 @theme {
   --font-rethink: "Rethink Sans", serif;
   --font-orbitron: "Orbitron", serif;
   --myBlue: #307ff9;
 }
-
-/* @layer base {
-  .container {
-    @apply max-w-screen-2xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 overflow-x-hidden;
-  }
-} */
 
 @layer base {
   .container {
